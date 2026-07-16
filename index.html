@@ -3,398 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Ayaan Ahmed</title>
-
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- GSAP for Kinetic Typography -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>Ayaan Ahmed</h1>
-    <p>
-        Graphic Designer, Developer & Creative Technologist
-    </p>
+    <!-- Kinetic variable name wrapper -->
+    <h1 class="animated-name" id="hero-name">Ayaan Ahmed</h1>
+    <p>Graphic Designer, Developer & Creative Technologist</p>
 </header>
 
 <main>
+    <section class="projects" id="projects-container">
+        <!-- Rendered dynamically by JavaScript -->
+    </section>
 
-<section class="projects">
-
-    <article class="project">
-        <a href="ambassadors-secret-sauce.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_1_y9hoke.webp" alt="Ambassador's Secret Sauce">
-            <div class="info">
-                <h2>Ambassador's Secret Sauce</h2>
-                <p>Series Logo</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="art-journal.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_2_m4vhfp.webp" alt="Art Journal">
-            <div class="info">
-                <h2>Art Journal</h2>
-                <p>Poster Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="ayaan-ahmed.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_3_ggabfb.webp" alt="Ayaan Ahmed">
-            <div class="info">
-                <h2>Ayaan Ahmed</h2>
-                <p>Brand Identity</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="ayaan-was-here.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_4_ak2i6o.webp" alt="Ayaan Was Here">
-            <div class="info">
-                <h2>Ayaan Was Here</h2>
-                <p>Brand Identity</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="bhopali-bold.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_5_vyzlsn.webp" alt="Bhopali Bold">
-            <div class="info">
-                <h2>Bhopali Bold</h2>
-                <p>Typeface Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="blue-tiger-inc-studios.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403661/Ayaan_Ahmed_Graphic_Design_Portfolio_6_qg5shm.webp" alt="Blue Tiger Inc Studios">
-            <div class="info">
-                <h2>Blue Tiger Inc Studios</h2>
-                <p>Brand Identity</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="book-of-designer-quotes.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_7_u5hudc.webp" alt="Book of Designer Quotes">
-            <div class="info">
-                <h2>Book of Designer Quotes</h2>
-                <p>Book Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="cinema-vs-streaming.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_8_eat5nd.webp" alt="Cinema VS Streaming">
-            <div class="info">
-                <h2>Cinema VS Streaming</h2>
-                <p>Data Visualization</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="confounding-tools.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_9_dy4f0p.webp" alt="Confounding Tools">
-            <div class="info">
-                <h2>Confounding Tools</h2>
-                <p>Poster Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="crafted-from-natures-blueprints.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_10_twbvsk.webp" alt="Crafted from Nature's Blueprints">
-            <div class="info">
-                <h2>Crafted from Nature's Blueprints</h2>
-                <p>Speculative Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="cycle-the-city.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" alt="Cycle the City">
-            <div class="info">
-                <h2>Cycle the City</h2>
-                <p>Photography</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="design-process-book.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_12_ezq4jv.webp" alt="Design Process Book">
-            <div class="info">
-                <h2>Design Process Book</h2>
-                <p>Physical Book Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="designed-for-good.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_13_mazzyu.webp" alt="Designed for Good">
-            <div class="info">
-                <h2>Designed for Good</h2>
-                <p>Print Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="film-by-adnan.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_14_phg21l.webp" alt="Film By Adnan">
-            <div class="info">
-                <h2>Film By Adnan</h2>
-                <p>Rebrand</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="finite-grids.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_15_zoyikw.webp" alt="Finite Grids">
-            <div class="info">
-                <h2>Finite Grids</h2>
-                <p>Web Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="flying-colors.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_16_ktgxf7.webp" alt="Flying Colors">
-            <div class="info">
-                <h2>Flying Colors</h2>
-                <p>Poster Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="footnotes-for-the-toronto-sky.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_17_wvn04y.webp" alt="Footnotes for the Toronto Sky">
-            <div class="info">
-                <h2>Footnotes for the Toronto Sky</h2>
-                <p>Video + Animation</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="high-school-work.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_18_l9mweq.webp" alt="High School Work">
-            <div class="info">
-                <h2>High School Work</h2>
-                <p>High School Work</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="id-of-the-future.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_19_jct49w.webp" alt="ID of the Future">
-            <div class="info">
-                <h2>ID of the Future</h2>
-                <p>Speculative Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="japan-by-ayaan.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_20_jdrtd1.webp" alt="Japan by Ayaan">
-            <div class="info">
-                <h2>Japan by Ayaan</h2>
-                <p>Web Design - HTML/CSS</p>
-            </div>
-        </a>
-    </article>
-
-        <article class="project">
-        <a href="jeromes-favorite-spots.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_21.webp" alt="Jerome's Favorite Spots">
-            <div class="info">
-                <h2>Jerome's Favorite Spots</h2>
-                <p>Series Logo</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="jrews-creations.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_22.webp" alt="Jrew's Creations">
-            <div class="info">
-                <h2>Jrew's Creations</h2>
-                <p>Brand Identity</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="kinetic-typography.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_23.webp" alt="Kinetic Typography">
-            <div class="info">
-                <h2>Kinetic Typography</h2>
-                <p>Text Animation</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="magazines-posters.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_24.webp" alt="Magazines & Posters">
-            <div class="info">
-                <h2>Magazines &amp; Posters</h2>
-                <p>Print Layout Designs</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="mesh-bag-system.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_25.webp" alt="Mesh Bag System">
-            <div class="info">
-                <h2>Mesh Bag System</h2>
-                <p>Bag Brand</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="motion-studies.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_26.webp" alt="Motion Studies">
-            <div class="info">
-                <h2>Motion Studies</h2>
-                <p>Narrative + Animation</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="objects-patterns.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_27.webp" alt="Objects & Patterns">
-            <div class="info">
-                <h2>Objects &amp; Patterns</h2>
-                <p>Design + Narrative</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="paper-superstructures.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_28.webp" alt="Paper Superstructures">
-            <div class="info">
-                <h2>Paper Superstructures</h2>
-                <p>Physical Design</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="rhymes-with-video.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_29.webp" alt="Rhymes with Video">
-            <div class="info">
-                <h2>Rhymes with Video</h2>
-                <p>Augmented Reality Poster</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="scholars-blockbusters.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_30.webp" alt="Scholars' Blockbusters">
-            <div class="info">
-                <h2>Scholars' Blockbusters</h2>
-                <p>Event Identity</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="small-world.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_31.webp" alt="It's a Small World">
-            <div class="info">
-                <h2>It's a Small World</h2>
-                <p>Web Design + Data Visualization</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="streaming-services-dashboard.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_32.webp" alt="Streaming Services Dashboard">
-            <div class="info">
-                <h2>Streaming Services Dashboard</h2>
-                <p>Data Visualization</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="the-backyard-boys.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_33.webp" alt="The Backyard Boys">
-            <div class="info">
-                <h2>The Backyard Boys</h2>
-                <p>Series Logo &amp; Posters</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="the-jeff-gang.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_34.webp" alt="The Jeff Gang">
-            <div class="info">
-                <h2>The Jeff Gang</h2>
-                <p>Brand Identity</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="toxic-fandoms.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403669/Ayaan_Ahmed_Graphic_Design_Portfolio_35.webp" alt="Toxic Fandoms">
-            <div class="info">
-                <h2>Toxic Fandoms</h2>
-                <p>Narrative Video</p>
-            </div>
-        </a>
-    </article>
-
-    <article class="project">
-        <a href="typography-along-yonge.html">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403669/Ayaan_Ahmed_Graphic_Design_Portfolio_36.webp" alt="Typography Along Yonge">
-            <div class="info">
-                <h2>Typography Along Yonge</h2>
-                <p>Typography + Book</p>
-            </div>
-        </a>
-    </article>
-
-</section>
-
-<footer>
-    <a href="#">GitHub</a>
-    <a href="#">LinkedIn</a>
-    <a href="#">Email</a>
-</footer>
-
+    <footer>
+        <div class="footer-links">
+            <a href="https://github.com/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="ph ph-github-logo"></i>
+            </a>
+            <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="ph ph-linkedin-logo"></i>
+            </a>
+            <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="ph ph-instagram-logo"></i>
+            </a>
+            <button id="email-btn" aria-label="Copy Email">
+                <span class="btn-content">
+                    <i class="ph ph-envelope-simple"></i>
+                </span>
+            </button>
+        </div>
+        <!-- Right-aligned footer logo -->
+        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="footer-logo">
+    </footer>
 </main>
 
+<script>
+const projectsData = [
+    { id: 1, title: "Ambassador's Secret Sauce", subtitle: "Series Logo", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_1_y9hoke.webp" },
+    { id: 2, title: "Art Journal", subtitle: "Poster Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_2_m4vhfp.webp" },
+    { id: 3, title: "Ayaan Ahmed", subtitle: "Brand Identity", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_3_ggabfb.webp" },
+    { id: 4, title: "Ayaan Was Here", subtitle: "Brand Identity", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_4_ak2i6o.webp" },
+    { id: 5, title: "Bhopali Bold", subtitle: "Typeface Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_5_vyzlsn.webp" },
+    { id: 6, title: "Blue Tiger Inc Studios", subtitle: "Brand Identity", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403661/Ayaan_Ahmed_Graphic_Design_Portfolio_6_qg5shm.webp" },
+    { id: 7, title: "Book of Designer Quotes", subtitle: "Book Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_7_u5hudc.webp" },
+    { id: 8, title: "Cinema VS Streaming", subtitle: "Data Visualization", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_8_eat5nd.webp" },
+    { id: 9, title: "Confounding Tools", subtitle: "Poster Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_9_dy4f0p.webp" },
+    { id: 10, title: "Crafted from Nature's Blueprints", subtitle: "Speculative Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_10_twbvsk.webp" },
+    { id: 11, title: "Cycle the City", subtitle: "Photography", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" },
+    { id: 12, title: "Design Process Book", subtitle: "Physical Book Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_12_ezq4jv.webp" },
+    { id: 13, title: "Designed for Good", subtitle: "Print Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_13_mazzyu.webp" },
+    { id: 14, title: "Film By Adnan", subtitle: "Rebrand", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_14_phg21l.webp" },
+    { id: 15, title: "Finite Grids", subtitle: "Web Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_15_zoyikw.webp" },
+    { id: 16, title: "Flying Colors", subtitle: "Poster Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_16_ktgxf7.webp" },
+    { id: 17, title: "Footnotes for the Toronto Sky", subtitle: "Video + Animation", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_17_wvn04y.webp" },
+    { id: 18, title: "High School Work", subtitle: "High School Work", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_18_l9mweq.webp" },
+    { id: 19, title: "ID of the Future", subtitle: "Speculative Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_19_jct49w.webp" },
+    { id: 20, title: "Japan by Ayaan", subtitle: "Web Design - HTML/CSS", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_20_jdrtd1.webp" },
+    { id: 21, title: "Jerome's Favorite Spots", subtitle: "Series Logo", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_21_blc3i3.webp" },
+    { id: 22, title: "Jrew's Creations", subtitle: "Brand Identity", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_22_igqt4v.webp" },
+    { id: 23, title: "Kinetic Typography", subtitle: "Text Animation", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_23_stcjv9.webp" },
+    { id: 24, title: "Magazines & Posters", subtitle: "Print Layout Designs", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_24_q6xrjo.webp" },
+    { id: 25, title: "Mesh Bag System", subtitle: "Bag Brand", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_25_m3icfs.webp" },
+    { id: 26, title: "Motion Studies", subtitle: "Narrative + Animation", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_26_knvm9l.webp" },
+    { id: 27, title: "Objects & Patterns", subtitle: "Design + Narrative", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_27_rwbvpt.webp" },
+    { id: 28, title: "Paper Superstructures", subtitle: "Physical Design", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_28_tejjkh.webp" },
+    { id: 29, title: "Rhymes with Video", subtitle: "Augmented Reality Poster", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_29_qwjtdw.webp" },
+    { id: 30, title: "Scholars' Blockbusters", subtitle: "Event Identity", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_30_p6qbgi.webp" },
+    { id: 31, title: "It's a Small World", subtitle: "Web Design + Data Visualization", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_31_mwws3b.webp" },
+    { id: 32, title: "Streaming Services Dashboard", subtitle: "Data Visualization", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_32_c787z5.webp" },
+    { id: 33, title: "The Backyard Boys", subtitle: "Series Logo & Posters", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403670/Ayaan_Ahmed_Graphic_Design_Portfolio_33_ojtibt.webp" },
+    { id: 34, title: "The Jeff Gang", subtitle: "Brand Identity", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_34_rk5ujq.webp" },
+    { id: 35, title: "Toxic Fandoms", subtitle: "Narrative Video", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403672/Ayaan_Ahmed_Graphic_Design_Portfolio_35_sb28hh.webp" },
+    { id: 36, title: "Typography Along Yonge", subtitle: "Typography + Book", img: "https://res.cloudinary.com/ayaanahmed/image/upload/v1782403670/Ayaan_Ahmed_Graphic_Design_Portfolio_36_ehmntk.webp" }
+];
+
+// --- GSAP "Lens Sweep" Animation (Zero Horizontal Clashing) ---
+const nameEl = document.getElementById('hero-name');
+const nameText = nameEl.innerText;
+nameEl.innerHTML = '';
+
+nameText.split('').forEach(char => {
+    let span = document.createElement('span');
+    span.innerText = char === ' ' ? '\u00A0' : char;
+    // Set origin to bottom so vertical scaling doesn't shift the baseline
+    span.style.display = 'inline-block';
+    span.style.transformOrigin = 'bottom center';
+    nameEl.appendChild(span);
+});
+
+// Subtle overall tracking breathe
+gsap.to('#hero-name', {
+    letterSpacing: "0.02em",
+    duration: 3,
+    ease: "sine.inOut",
+    yoyo: true,
+    repeat: -1
+});
+
+// Smooth, non-colliding refractive wave
+gsap.to('#hero-name span', {
+    fontVariationSettings: '"slnt" -10',
+    scaleY: 1.15,
+    filter: "blur(0.8px)",
+    color: '#737373',
+    duration: 1.4,
+    stagger: {
+        each: 0.1,
+        yoyo: true,
+        repeat: -1
+    },
+    ease: "sine.inOut"
+});
+
+// --- Fully Interactive Subtitle-Genre Rendering Engine ---
+const container = document.getElementById('projects-container');
+
+function getGenreLayout(p) {
+    const genre = p.subtitle.toLowerCase();
+    const cleanUrl = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    
+    // Brand Identity / Series Logos
+    if (genre.includes("brand") || genre.includes("identity") || genre.includes("rebrand") || genre.includes("logo")) {
+        return `
+            <div class="widget-brand" id="brand-widget-${p.id}">
+                <div class="brand-hero"><img src="${p.img}" alt="${p.title}" id="brand-img-${p.id}"></div>
+                <div class="brand-toolbar">
+                    <span class="tool-label">Contrast Matrix</span>
+                    <div class="brand-assets">
+                        <div class="swatches">
+                            <button class="swatch active" style="background:#171717" onclick="changeBrandBg(${p.id}, '#171717', '#ffffff')"></button>
+                            <button class="swatch" style="background:#ececec" onclick="changeBrandBg(${p.id}, '#ececec', '#171717')"></button>
+                            <button class="swatch" style="background:#555555" onclick="changeBrandBg(${p.id}, '#555555', '#ffffff')"></button>
+                        </div>
+                        <div class="type-specimen" id="type-${p.id}">Aa</div>
+                    </div>
+                </div>
+            </div>`;
+    } 
+    // Books, Mags & Layouts
+    else if (genre.includes("book") || genre.includes("typography") || genre.includes("magazine") || genre.includes("print")) {
+        return `
+            <div class="widget-book">
+                <div class="book-viewport">
+                    <img src="${p.img}" alt="${p.title}" id="book-img-${p.id}">
+                </div>
+                <div class="book-controls">
+                    <div class="scrubber">
+                        <button onclick="stepPage(${p.id}, -1)"><i class="ph ph-caret-left"></i></button>
+                        <input type="range" min="1" max="16" value="1" class="page-slider" id="slider-${p.id}" oninput="updatePage(${p.id}, this.value)">
+                        <button onclick="stepPage(${p.id}, 1)"><i class="ph ph-caret-right"></i></button>
+                    </div>
+                    <div class="page-indicator" id="page-indicator-${p.id}">Spread 1 / 16</div>
+                </div>
+            </div>`;
+    } 
+    // Web Design & Dashboards
+    else if (genre.includes("web") || genre.includes("ui") || genre.includes("dashboard") || genre.includes("html")) {
+        return `
+            <div class="widget-web" id="web-widget-${p.id}">
+                <div class="browser-bar">
+                    <div class="dots"><i></i><i></i><i></i></div>
+                    <div class="browser-url">ayaanahmed.org/${cleanUrl}</div>
+                    <button class="theme-toggle" onclick="toggleWebTheme(${p.id})">
+                        <i class="ph ph-sun-dim"></i>
+                    </button>
+                </div>
+                <div class="browser-body">
+                    <img src="${p.img}" alt="${p.title}">
+                </div>
+            </div>`;
+    } 
+    // Video & Narrative Animation
+    else if (genre.includes("video") || genre.includes("animation") || genre.includes("motion")) {
+        return `
+            <div class="widget-video">
+                <div class="video-wrapper">
+                    <img src="${p.img}" alt="${p.title}" id="video-img-${p.id}">
+                    <div class="play-overlay" id="play-overlay-${p.id}" onclick="togglePlayState(${p.id})"><i class="ph-fill ph-play-circle" id="play-icon-${p.id}"></i></div>
+                </div>
+                <div class="video-controls">
+                    <button class="play-btn" onclick="togglePlayState(${p.id})"><i class="ph-fill ph-play" id="play-btn-icon-${p.id}"></i></button>
+                    <div class="timeline" onclick="seekVideo(${p.id}, event)">
+                        <div class="progress" id="video-progress-${p.id}" style="width: 0%"></div>
+                    </div>
+                    <span class="timecode" id="time-${p.id}">0:00 / 1:30</span>
+                </div>
+            </div>`;
+    } 
+    // Speculative & Analytical / Data Visualization
+    else if (genre.includes("data") || genre.includes("speculative") || genre.includes("physical") || genre.includes("bag")) {
+        return `
+            <div class="widget-data">
+                <div class="data-graph-container">
+                    <svg class="data-svg" viewBox="0 0 400 160" id="matrix-svg-${p.id}">
+                        <path d="M 10 130 Q 100 20, 200 80 T 390 50" fill="none" stroke="var(--border)" stroke-width="1.5" />
+                        <line x1="10" y1="140" x2="390" y2="140" stroke="var(--border)" stroke-width="1" stroke-dasharray="4" />
+                        <circle cx="100" cy="45" r="4" fill="var(--text)" />
+                        <circle cx="235" cy="85" r="4" fill="var(--text)" />
+                    </svg>
+                </div>
+                <div class="data-dashboard-controls">
+                    <span class="tool-label">Vector Grid Parameters</span>
+                    <div class="data-sliders">
+                        <button onclick="randomizeGrid(${p.id})" class="control-btn"><i class="ph ph-shuffle"></i> Regenerate Matrix</button>
+                    </div>
+                </div>
+            </div>`;
+    }
+    // Default / Poster Art & Photography
+    else {
+        return `
+            <div class="widget-poster">
+                <div class="poster-toolbar">
+                    <span class="tool-label">Fine Canvas Controls</span>
+                    <div class="tools">
+                        <button onclick="toggleZoom(${p.id})" aria-label="Zoom Canvas"><i class="ph ph-magnifying-glass-plus"></i></button>
+                        <button onclick="toggleInvert(${p.id})" aria-label="Invert Colors"><i class="ph ph-aperture"></i></button>
+                        <button onclick="toggleRotate(${p.id})" aria-label="Rotate Image"><i class="ph ph-arrows-clockwise"></i></button>
+                    </div>
+                </div>
+                <div class="poster-frame" id="poster-frame-${p.id}">
+                    <img src="${p.img}" alt="${p.title}" id="poster-img-${p.id}">
+                </div>
+            </div>`;
+    }
+}
+
+// Render out layout row nodes
+projectsData.forEach(p => {
+    const article = document.createElement('article');
+    article.className = 'project';
+    const widgetContent = getGenreLayout(p);
+    
+    article.innerHTML = `
+        <div class="project-summary" onclick="toggleDropdown(${p.id})">
+            <img src="${p.img}" alt="${p.title}">
+            <div class="info">
+                <h2>${p.title}</h2>
+                <p>${p.subtitle}</p>
+            </div>
+            <i class="ph ph-caret-down dropdown-icon"></i>
+        </div>
+        <div class="project-dropdown" id="dropdown-${p.id}">
+            <div class="dropdown-content">
+                <div class="media-display">
+                    ${widgetContent}
+                </div>
+            </div>
+        </div>
+    `;
+    container.appendChild(article);
+});
+
+// Accordion transitions
+function toggleDropdown(id) {
+    const dropdown = document.getElementById(`dropdown-${id}`);
+    const summary = dropdown.previousElementSibling;
+    const isExpanded = dropdown.classList.contains('expanded');
+    
+    document.querySelectorAll('.project-dropdown').forEach(el => el.classList.remove('expanded'));
+    document.querySelectorAll('.project-summary').forEach(el => el.classList.remove('active-row'));
+    
+    if (!isExpanded) {
+        dropdown.classList.add('expanded');
+        summary.classList.add('active-row');
+    }
+}
+
+// --- Dynamic Interactive Widget Callbacks ---
+
+// Brand Swatch Testing Action
+function changeBrandBg(id, bgColor, textColor) {
+    event.stopPropagation();
+    const widget = document.getElementById(`brand-widget-${id}`);
+    const specimen = document.getElementById(`type-${id}`);
+    const swatches = widget.querySelectorAll('.swatch');
+    
+    swatches.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    widget.style.backgroundColor = bgColor;
+    widget.style.padding = '16px';
+    widget.style.borderRadius = '6px';
+    
+    specimen.style.backgroundColor = bgColor;
+    specimen.style.color = textColor;
+    specimen.style.borderColor = textColor === '#ffffff' ? 'rgba(255, 255, 255, 0.2)' : 'var(--border)';
+}
+
+// Book Page Scrubber & Scroller Action
+function updatePage(id, val) {
+    if (event) event.stopPropagation();
+    document.getElementById(`page-indicator-${id}`).innerText = `Spread ${val} / 16`;
+    const img = document.getElementById(`book-img-${id}`);
+    
+    img.style.opacity = '0.9';
+    setTimeout(() => { img.style.opacity = '1'; }, 100);
+}
+
+function stepPage(id, direction) {
+    event.stopPropagation();
+    const slider = document.getElementById(`slider-${id}`);
+    let newVal = parseInt(slider.value) + direction;
+    if (newVal >= 1 && newVal <= 16) {
+        slider.value = newVal;
+        updatePage(id, newVal);
+    }
+}
+
+// Browser Mock Theme Switcher Action
+function toggleWebTheme(id) {
+    event.stopPropagation();
+    const widget = document.getElementById(`web-widget-${id}`);
+    const toggleIcon = widget.querySelector('.theme-toggle i');
+    
+    widget.classList.toggle('dark-mode');
+    if (widget.classList.contains('dark-mode')) {
+        toggleIcon.className = "ph ph-moon";
+    } else {
+        toggleIcon.className = "ph ph-sun-dim";
+    }
+}
+
+// Video Simulation Control Loop
+let videoIntervals = {};
+function togglePlayState(id) {
+    event.stopPropagation();
+    const icon = document.getElementById(`play-icon-${id}`);
+    const btnIcon = document.getElementById(`play-btn-icon-${id}`);
+    const progress = document.getElementById(`video-progress-${id}`);
+    const playOverlay = document.getElementById(`play-overlay-${id}`);
+    const timecode = document.getElementById(`time-${id}`);
+    
+    const isPlaying = playOverlay.classList.toggle('playing');
+    
+    if (isPlaying) {
+        icon.className = "ph-fill ph-pause-circle";
+        btnIcon.className = "ph-fill ph-pause";
+        playOverlay.style.opacity = "0";
+        
+        let percentage = parseFloat(progress.style.width) || 0;
+        videoIntervals[id] = setInterval(() => {
+            percentage += 1;
+            if (percentage > 100) {
+                percentage = 0;
+                togglePlayState(id);
+            }
+            progress.style.width = `${percentage}%`;
+            
+            let currentSec = Math.floor((percentage / 100) * 90);
+            let displayMin = Math.floor(currentSec / 60);
+            let displaySec = currentSec % 60;
+            timecode.innerText = `${displayMin}:${displaySec < 10 ? '0' + displaySec : displaySec} / 1:30`;
+        }, 150);
+    } else {
+        icon.className = "ph-fill ph-play-circle";
+        btnIcon.className = "ph-fill ph-play";
+        playOverlay.style.opacity = "1";
+        clearInterval(videoIntervals[id]);
+    }
+}
+
+function seekVideo(id, e) {
+    event.stopPropagation();
+    const timeline = e.currentTarget;
+    const progress = document.getElementById(`video-progress-${id}`);
+    const rect = timeline.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const percentage = (clickX / rect.width) * 100;
+    progress.style.width = `${percentage}%`;
+}
+
+// Parametric Generator Re-calc
+function randomizeGrid(id) {
+    event.stopPropagation();
+    const svg = document.getElementById(`matrix-svg-${id}`);
+    const y1 = Math.floor(Math.random() * 100) + 10;
+    const y2 = Math.floor(Math.random() * 100) + 20;
+    const y3 = Math.floor(Math.random() * 100) + 15;
+    
+    const path = svg.querySelector('path');
+    path.setAttribute('d', `M 10 130 Q 100 ${y1}, 200 ${y2} T 390 ${y3}`);
+    
+    const circles = svg.querySelectorAll('circle');
+    circles[0].setAttribute('cy', y1);
+    circles[1].setAttribute('cy', y2);
+}
+
+// Photo Canvas Operations
+function toggleZoom(id) {
+    event.stopPropagation();
+    const img = document.getElementById(`poster-img-${id}`);
+    img.classList.toggle('zoomed');
+}
+
+function toggleInvert(id) {
+    event.stopPropagation();
+    const img = document.getElementById(`poster-img-${id}`);
+    img.classList.toggle('inverted');
+}
+
+function toggleRotate(id) {
+    event.stopPropagation();
+    const img = document.getElementById(`poster-img-${id}`);
+    img.classList.toggle('rotated');
+}
+
+// Minimal email copy interface
+document.getElementById('email-btn').addEventListener('click', function() {
+    navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
+    const container = this.querySelector('.btn-content');
+    
+    container.innerHTML = `<span class="copied-text">Copied <i class="ph ph-check-circle"></i></span>`;
+    
+    setTimeout(() => {
+        container.innerHTML = `<i class="ph ph-envelope-simple"></i>`;
+    }, 2000);
+});
+</script>
 </body>
 </html>
