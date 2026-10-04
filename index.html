@@ -8,10 +8,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg">
     
-    <!-- Typography: Geist & Geist Mono -->
+    <!-- Typography: Geist & Geist Pixel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
     
     <!-- Phosphor Icons (Web Script) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -268,19 +269,19 @@
         <span class="mono-text">© 2026 Ayaan Ahmed Studios</span>
     </div>
     
-    <!-- Icons-only footer with ph-bold weight -->
+    <!-- Standard (non-bold) Phosphor Icons -->
     <div class="footer-links">
         <a href="https://github.com/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <i class="ph-bold ph-github-logo"></i>
+            <i class="ph ph-github-logo"></i>
         </a>
         <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <i class="ph-bold ph-linkedin-logo"></i>
+            <i class="ph ph-linkedin-logo"></i>
         </a>
         <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i class="ph-bold ph-instagram-logo"></i>
+            <i class="ph ph-instagram-logo"></i>
         </a>
         <button id="copy-email-btn" aria-label="Copy Email">
-            <span class="btn-content"><i class="ph-bold ph-envelope-simple"></i></span>
+            <span class="btn-content"><i class="ph ph-envelope-simple"></i></span>
         </button>
     </div>
 </footer>
@@ -293,13 +294,13 @@ const btnContent = emailBtn.querySelector('.btn-content');
 emailBtn.addEventListener('click', () => {
     navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
     
-    // Swap icon out for Geist Mono text
+    // Swap icon out for text
     btnContent.innerHTML = 'Email copied';
     btnContent.classList.add('copied-state');
     
     // Revert back to envelope icon after 2 seconds
     setTimeout(() => {
-        btnContent.innerHTML = '<i class="ph-bold ph-envelope-simple"></i>';
+        btnContent.innerHTML = '<i class="ph ph-envelope-simple"></i>';
         btnContent.classList.remove('copied-state');
     }, 2000);
 });
