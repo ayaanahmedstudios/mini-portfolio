@@ -1,19 +1,13 @@
-/* Load custom pixelated font */
-@font-face {
-    font-family: 'Departure Mono';
-    src: url('fonts/DepartureMono-Regular.otf') format('opentype');
-    font-weight: 400; /* Strictly single weight */
-    font-style: normal;
-}
-
 :root {
     --bg-color: #f4f4f0; 
     --text-color: #111111;
     --border-color: #111111;
     --hover-bg: #111111;
     --hover-text: #f4f4f0;
-    --font-sans: "Inter", system-ui, sans-serif;
-    --font-mono: 'Departure Mono', "Courier New", Courier, monospace;
+    
+    /* Using the new Geist Google Fonts */
+    --font-sans: "Geist", system-ui, sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, monospace;
 }
 
 *, *::before, *::after {
@@ -85,39 +79,6 @@ body {
     font-weight: 400;
     font-size: 0.95rem;
     -webkit-font-smoothing: none;
-}
-
-/* ---------------- FILTER TOOLBAR ---------------- */
-.directory-toolbar {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    background: var(--bg-color);
-}
-
-.filter-controls {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background: none;
-    border: 1px solid transparent;
-    cursor: pointer;
-    color: var(--text-color);
-    font-family: var(--font-mono);
-    font-weight: 400;
-    font-size: 0.95rem;
-    padding: 4px 8px;
-    -webkit-font-smoothing: none;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-    background-color: var(--hover-bg);
-    color: var(--hover-text);
 }
 
 /* ---------------- DIRECTORY LIST ---------------- */
@@ -263,6 +224,7 @@ body {
     font-size: 0.9rem;
     font-weight: 400;
     -webkit-font-smoothing: none;
+    padding: 0 4px;
 }
 
 /* ---------------- RESPONSIVE / MOBILE ---------------- */
@@ -286,12 +248,6 @@ body {
 
     .directory-header {
         display: none;
-    }
-    
-    .directory-toolbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
     }
 
     .project-row {
