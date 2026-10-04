@@ -22,24 +22,37 @@
 
 <header class="site-header">
     <div class="header-content">
-        <h1>AYAAN AHMED</h1>
-        <p class="mono-subtitle">[ GRAPHIC DESIGNER, DEVELOPER & CREATIVE TECHNOLOGIST ]</p>
+        <h1>Ayaan Ahmed</h1>
+        <p class="mono-subtitle">[ Graphic Designer & Content Creator ]</p>
     </div>
-    <div class="status-indicator">
-        <span class="blinking-dot"></span>
-        <span class="mono-text">SYS.ONLINE</span>
-    </div>
+    
+    <!-- Site Navigation -->
+    <nav class="site-nav">
+        <a href="index.html" class="active">[Graphic Design]</a>
+        <a href="photography.html">[Photography]</a>
+        <a href="videography.html">[Videography]</a>
+    </nav>
 </header>
 
 <main>
+    <!-- Sorting Toolbar -->
+    <div class="directory-toolbar">
+        <span class="mono-text">Sort Directory:</span>
+        <div class="sort-controls">
+            <button class="sort-btn active" data-sort="id">[ID]</button>
+            <button class="sort-btn" data-sort="title">[Title]</button>
+            <button class="sort-btn" data-sort="genre">[Category]</button>
+        </div>
+    </div>
+
     <div class="directory-header">
         <div class="col-id">ID</div>
-        <div class="col-title">PROJECT_TITLE</div>
-        <div class="col-genre">CATEGORY</div>
+        <div class="col-title">Project Title</div>
+        <div class="col-genre">Category</div>
     </div>
 
     <!-- Pure HTML/CSS Interactive List -->
-    <ul class="project-directory">
+    <ul class="project-directory" id="directory-list">
         <li class="project-row">
             <span class="col-id">01</span>
             <span class="col-title">Ambassador's Secret Sauce</span>
@@ -262,17 +275,45 @@
 <footer class="site-footer">
     <div class="footer-info">
         <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
-        <span class="mono-text">© 2026 BLUE TIGER INC STUDIOS</span>
+        <span class="mono-text">© 2026 Ayaan Ahmed Studios</span>
     </div>
     <div class="footer-links">
-        <a href="https://github.com/ayaanahmedstudios" target="_blank" rel="noopener noreferrer">[GITHUB]</a>
-        <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer">[LINKEDIN]</a>
-        <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer">[INSTAGRAM]</a>
-        <!-- Pure HTML mailto links are perfectly "early web" -->
-        <a href="mailto:ayaanahmedstudios@gmail.com">[EMAIL]</a>
+        <a href="https://github.com/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-github-logo"></i> [GitHub]</a>
+        <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i> [LinkedIn]</a>
+        <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i> [Instagram]</a>
+        <a href="mailto:ayaanahmedstudios@gmail.com"><i class="ph ph-envelope-simple"></i> [Email]</a>
     </div>
 </footer>
 
-<!-- Notice: NO JAVASCRIPT! -->
+<!-- Tiny, instant sorting script. No animations, just raw DOM reordering. -->
+<script>
+document.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Update active button state
+        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const sortBy = btn.dataset.sort;
+        const list = document.getElementById('directory-list');
+        const rows = Array.from(list.querySelectorAll('.project-row'));
+        
+        // Sort instantly
+        rows.sort((a, b) => {
+            let valA = a.querySelector(`.col-${sortBy}`).innerText.toLowerCase();
+            let valB = b.querySelector(`.col-${sortBy}`).innerText.toLowerCase();
+            
+            if (sortBy === 'id') {
+                return parseInt(valA) - parseInt(valB);
+            }
+            return valA.localeCompare(valB);
+        });
+        
+        // Apply to DOM
+        list.innerHTML = '';
+        rows.forEach(row => list.appendChild(row));
+    });
+});
+</script>
+
 </body>
 </html>
