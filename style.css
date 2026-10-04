@@ -5,9 +5,9 @@
     --hover-bg: #111111;
     --hover-text: #f4f4f0;
     
-    /* Using the new Geist Google Fonts */
+    /* Using Geist and Geist Pixel */
     --font-sans: "Geist", system-ui, sans-serif;
-    --font-mono: "Geist Mono", ui-monospace, monospace;
+    --font-mono: "Geist Pixel", ui-monospace, monospace;
 }
 
 *, *::before, *::after {
@@ -86,11 +86,22 @@ body {
     display: flex;
     border-bottom: 2px solid var(--border-color);
     padding: 0.5rem 1rem;
+}
+
+/* Explicitly overriding the .col-title inheritance specifically for the header */
+.directory-header .col-id,
+.directory-header .col-title,
+.directory-header .col-genre {
     font-family: var(--font-mono);
     font-weight: 400;
     font-size: 0.95rem;
     -webkit-font-smoothing: none;
 }
+
+/* Realigning the grid strictly for the header elements */
+.directory-header .col-id { flex: 0 0 60px; }
+.directory-header .col-title { flex: 1; }
+.directory-header .col-genre { flex: 0 0 200px; text-align: right; }
 
 .project-directory {
     list-style: none;
@@ -121,8 +132,9 @@ body {
 
 .col-title {
     flex: 1;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.1rem;
+    font-family: var(--font-sans);
 }
 
 .col-genre {
@@ -188,7 +200,7 @@ body {
     gap: 1rem;
 }
 
-/* Icons configured to match the geometric borders via ph-bold class */
+/* Icons returned to their standard lightweight format */
 .footer-links a,
 .footer-links button {
     color: var(--text-color);
@@ -210,7 +222,6 @@ body {
     color: var(--hover-text);
 }
 
-/* Container for the email button content */
 .btn-content {
     display: flex;
     align-items: center;
