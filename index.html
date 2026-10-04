@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
     
-    <!-- Phosphor Icons -->
+    <!-- Phosphor Icons (Web Script) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <link rel="stylesheet" href="style.css">
@@ -23,25 +23,27 @@
 <header class="site-header">
     <div class="header-content">
         <h1>Ayaan Ahmed</h1>
-        <p class="mono-subtitle">[ Graphic Designer & Content Creator ]</p>
+        <p class="mono-subtitle">Graphic Designer & Photographer</p>
     </div>
     
     <!-- Site Navigation -->
     <nav class="site-nav">
-        <a href="index.html" class="active">[Graphic Design]</a>
-        <a href="photography.html">[Photography]</a>
-        <a href="videography.html">[Videography]</a>
+        <a href="index.html" class="active">Graphic Design</a>
+        <a href="photography.html">Photography</a>
+        <a href="videography.html">Videography</a>
     </nav>
 </header>
 
 <main>
-    <!-- Sorting Toolbar -->
+    <!-- Filtering Toolbar -->
     <div class="directory-toolbar">
-        <span class="mono-text">Sort Directory:</span>
-        <div class="sort-controls">
-            <button class="sort-btn active" data-sort="id">[ID]</button>
-            <button class="sort-btn" data-sort="title">[Title]</button>
-            <button class="sort-btn" data-sort="genre">[Category]</button>
+        <span class="mono-text">Filter:</span>
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="identity">Identity</button>
+            <button class="filter-btn" data-filter="print">Print & Layout</button>
+            <button class="filter-btn" data-filter="digital">Digital & Web</button>
+            <button class="filter-btn" data-filter="motion">Motion</button>
         </div>
     </div>
 
@@ -277,41 +279,72 @@
         <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
         <span class="mono-text">© 2026 Ayaan Ahmed Studios</span>
     </div>
+    
+    <!-- Icons-only footer with ph-bold weight -->
     <div class="footer-links">
-        <a href="https://github.com/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-github-logo"></i> [GitHub]</a>
-        <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i> [LinkedIn]</a>
-        <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i> [Instagram]</a>
-        <a href="mailto:ayaanahmedstudios@gmail.com"><i class="ph ph-envelope-simple"></i> [Email]</a>
+        <a href="https://github.com/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="ph-bold ph-github-logo"></i>
+        </a>
+        <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="ph-bold ph-linkedin-logo"></i>
+        </a>
+        <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="ph-bold ph-instagram-logo"></i>
+        </a>
+        <button id="copy-email-btn" aria-label="Copy Email">
+            <span class="btn-content"><i class="ph-bold ph-envelope-simple"></i></span>
+        </button>
     </div>
 </footer>
 
-<!-- Tiny, instant sorting script. No animations, just raw DOM reordering. -->
+<!-- Filtering & Copy Script -->
 <script>
-document.querySelectorAll('.sort-btn').forEach(btn => {
+// Category Filtering Logic
+document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-        // Update active button state
-        document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         
-        const sortBy = btn.dataset.sort;
-        const list = document.getElementById('directory-list');
-        const rows = Array.from(list.querySelectorAll('.project-row'));
+        const filter = btn.dataset.filter;
+        const rows = document.querySelectorAll('.project-row');
         
-        // Sort instantly
-        rows.sort((a, b) => {
-            let valA = a.querySelector(`.col-${sortBy}`).innerText.toLowerCase();
-            let valB = b.querySelector(`.col-${sortBy}`).innerText.toLowerCase();
+        rows.forEach(row => {
+            const genre = row.querySelector('.col-genre').innerText.toLowerCase();
+            let shouldShow = false;
             
-            if (sortBy === 'id') {
-                return parseInt(valA) - parseInt(valB);
+            if (filter === 'all') {
+                shouldShow = true;
+            } else if (filter === 'identity' && genre.match(/identity|logo|rebrand|bag/)) {
+                shouldShow = true;
+            } else if (filter === 'print' && genre.match(/poster|book|print|magazine|typography/)) {
+                shouldShow = true;
+            } else if (filter === 'digital' && genre.match(/web|data|speculative/)) {
+                shouldShow = true;
+            } else if (filter === 'motion' && genre.match(/video|animation|motion|narrative/)) {
+                shouldShow = true;
             }
-            return valA.localeCompare(valB);
+
+            row.style.display = shouldShow ? 'flex' : 'none';
         });
-        
-        // Apply to DOM
-        list.innerHTML = '';
-        rows.forEach(row => list.appendChild(row));
     });
+});
+
+// Copy Email Logic
+const emailBtn = document.getElementById('copy-email-btn');
+const btnContent = emailBtn.querySelector('.btn-content');
+
+emailBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
+    
+    // Swap icon out for Departure Mono text
+    btnContent.innerHTML = 'Copied';
+    btnContent.classList.add('copied-state');
+    
+    // Revert back to envelope icon after 2 seconds
+    setTimeout(() => {
+        btnContent.innerHTML = '<i class="ph-bold ph-envelope-simple"></i>';
+        btnContent.classList.remove('copied-state');
+    }, 2000);
 });
 </script>
 
