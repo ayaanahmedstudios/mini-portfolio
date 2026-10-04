@@ -8,10 +8,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg">
     
-    <!-- Typography -->
+    <!-- Typography: Geist & Geist Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
     
     <!-- Phosphor Icons (Web Script) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -35,18 +35,6 @@
 </header>
 
 <main>
-    <!-- Filtering Toolbar -->
-    <div class="directory-toolbar">
-        <span class="mono-text">Filter:</span>
-        <div class="filter-controls">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="identity">Identity</button>
-            <button class="filter-btn" data-filter="print">Print & Layout</button>
-            <button class="filter-btn" data-filter="digital">Digital & Web</button>
-            <button class="filter-btn" data-filter="motion">Motion</button>
-        </div>
-    </div>
-
     <div class="directory-header">
         <div class="col-id">ID</div>
         <div class="col-title">Project Title</div>
@@ -297,47 +285,16 @@
     </div>
 </footer>
 
-<!-- Filtering & Copy Script -->
+<!-- Copy Email Script -->
 <script>
-// Category Filtering Logic
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const filter = btn.dataset.filter;
-        const rows = document.querySelectorAll('.project-row');
-        
-        rows.forEach(row => {
-            const genre = row.querySelector('.col-genre').innerText.toLowerCase();
-            let shouldShow = false;
-            
-            if (filter === 'all') {
-                shouldShow = true;
-            } else if (filter === 'identity' && genre.match(/identity|logo|rebrand|bag/)) {
-                shouldShow = true;
-            } else if (filter === 'print' && genre.match(/poster|book|print|magazine|typography/)) {
-                shouldShow = true;
-            } else if (filter === 'digital' && genre.match(/web|data|speculative/)) {
-                shouldShow = true;
-            } else if (filter === 'motion' && genre.match(/video|animation|motion|narrative/)) {
-                shouldShow = true;
-            }
-
-            row.style.display = shouldShow ? 'flex' : 'none';
-        });
-    });
-});
-
-// Copy Email Logic
 const emailBtn = document.getElementById('copy-email-btn');
 const btnContent = emailBtn.querySelector('.btn-content');
 
 emailBtn.addEventListener('click', () => {
     navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
     
-    // Swap icon out for Departure Mono text
-    btnContent.innerHTML = 'Copied';
+    // Swap icon out for Geist Mono text
+    btnContent.innerHTML = 'Email copied';
     btnContent.classList.add('copied-state');
     
     // Revert back to envelope icon after 2 seconds
