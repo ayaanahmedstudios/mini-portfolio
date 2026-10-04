@@ -1,3 +1,11 @@
+/* Load custom pixelated font */
+@font-face {
+    font-family: 'Departure Mono';
+    src: url('fonts/DepartureMono-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --bg-color: #f4f4f0; /* Classic early web paper color */
     --text-color: #111111;
@@ -5,7 +13,7 @@
     --hover-bg: #111111;
     --hover-text: #f4f4f0;
     --font-sans: "Inter", system-ui, sans-serif;
-    --font-mono: "Courier New", Courier, monospace;
+    --font-mono: 'Departure Mono', "Courier New", Courier, monospace;
 }
 
 *, *::before, *::after {
@@ -22,7 +30,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ---------------- HEADER ---------------- */
+/* ---------------- HEADER & NAV ---------------- */
 .site-header {
     display: flex;
     justify-content: space-between;
@@ -30,6 +38,8 @@ body {
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 1rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .site-header h1 {
@@ -38,50 +48,80 @@ body {
     margin: 0;
     letter-spacing: -0.05em;
     line-height: 1;
-    text-transform: uppercase;
 }
 
 .mono-subtitle {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     margin: 0.5rem 0 0 0;
-    font-weight: bold;
+    -webkit-font-smoothing: none; 
 }
 
-.status-indicator {
+/* New site navigation */
+.site-nav {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
-.blinking-dot {
-    width: 10px;
-    height: 10px;
-    background-color: var(--text-color);
-    border-radius: 50%;
-    animation: blink 1s step-end infinite;
+.site-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    -webkit-font-smoothing: none;
 }
 
-@keyframes blink {
-    50% { opacity: 0; }
+.site-nav a:hover,
+.site-nav a.active {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
 }
 
 .mono-text {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 0.95rem;
+    -webkit-font-smoothing: none;
 }
 
-/* ---------------- DIRECTORY LIST (PURE HTML/CSS) ---------------- */
+/* ---------------- SORT TOOLBAR ---------------- */
+.directory-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    background: var(--bg-color);
+}
+
+.sort-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.sort-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    padding: 2px 6px;
+    -webkit-font-smoothing: none;
+}
+
+.sort-btn:hover,
+.sort-btn.active {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+}
+
+/* ---------------- DIRECTORY LIST ---------------- */
 .directory-header {
     display: flex;
     border-bottom: 2px solid var(--border-color);
     padding: 0.5rem 1rem;
     font-family: var(--font-mono);
-    font-size: 0.85rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 0.95rem;
+    -webkit-font-smoothing: none;
 }
 
 .project-directory {
@@ -96,7 +136,7 @@ body {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid var(--border-color);
     cursor: crosshair;
-    transition: background-color 0s, color 0s; /* No smooth transition, harsh retro swap */
+    transition: background-color 0s, color 0s; 
 }
 
 .project-row:hover {
@@ -107,6 +147,7 @@ body {
 .col-id {
     flex: 0 0 60px;
     font-family: var(--font-mono);
+    -webkit-font-smoothing: none;
 }
 
 .col-title {
@@ -118,11 +159,12 @@ body {
 .col-genre {
     flex: 0 0 200px;
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     text-align: right;
+    -webkit-font-smoothing: none;
 }
 
-/* ---------------- THE CSS MAGIC: HOVER PREVIEW ---------------- */
+/* ---------------- HOVER PREVIEW ---------------- */
 .hover-preview {
     position: fixed;
     top: 50%;
@@ -138,15 +180,12 @@ body {
     z-index: 100;
     pointer-events: none;
     
-    /* Hidden by default */
     opacity: 0;
     visibility: hidden;
     
-    /* Snappy retro transition */
     transition: opacity 0.1s ease-out;
 }
 
-/* When hovering a row, reveal its specific image */
 .project-row:hover .hover-preview {
     opacity: 1;
     visibility: visible;
@@ -171,7 +210,7 @@ body {
 .raw-logo {
     height: 32px;
     width: auto;
-    filter: invert(1); /* Since the logo is white, this makes it black to match the theme */
+    filter: invert(1);
 }
 
 .footer-links {
@@ -183,8 +222,16 @@ body {
     color: var(--text-color);
     text-decoration: none;
     font-family: var(--font-mono);
-    font-size: 0.9rem;
-    font-weight: bold;
+    font-size: 0.95rem;
+    -webkit-font-smoothing: none;
+    /* Added to align icons with text */
+    display: flex;
+    align-items: center;
+    gap: 0.35rem; 
+}
+
+.footer-links a i {
+    font-size: 1.1rem; /* Slightly larger icons so they match the text cap height */
 }
 
 .footer-links a:hover {
@@ -192,7 +239,7 @@ body {
     color: var(--hover-text);
 }
 
-/* ---------------- RESPONSIVE / MOBILE FALLBACK ---------------- */
+/* ---------------- RESPONSIVE / MOBILE ---------------- */
 @media (max-width: 900px) {
     body {
         padding: 1rem;
@@ -204,8 +251,21 @@ body {
         gap: 1rem;
     }
 
+    .site-nav {
+        width: 100%;
+        flex-wrap: wrap;
+        border-top: 1px dashed var(--border-color);
+        padding-top: 1rem;
+    }
+
     .directory-header {
-        display: none; /* Hide columns header on mobile */
+        display: none;
+    }
+    
+    .directory-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
 
     .project-row {
@@ -224,7 +284,6 @@ body {
         font-size: 1.5rem;
     }
 
-    /* Disable fixed hover preview on mobile and show images natively inline */
     .hover-preview {
         position: static;
         transform: none;
