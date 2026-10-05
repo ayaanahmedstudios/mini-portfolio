@@ -16,8 +16,9 @@
 
 <header class="site-header">
     <div class="header-content">
-        <h1>Ayaan Ahmed</h1>
-        <p class="mono-subtitle">Graphic Designer, Photographer & Student RGD</p>
+        <!-- H1 is a link on this page -->
+        <h1><a href="index.html">Ayaan Ahmed</a></h1>
+        <p class="mono-subtitle">Graphic Designer & Photographer</p>
     </div>
     
     <nav class="site-nav">
@@ -29,106 +30,67 @@
 </header>
 
 <main>
-    <div class="directory-header">
-        <div class="col-id">ID</div>
-        <div class="col-title">Project Title</div>
-        <div class="col-genre">Category</div>
+    <div class="directory-header" style="margin-bottom: 2rem;">
+        <div class="col-title">Photography Archive</div>
     </div>
 
-    <ul class="project-directory" id="directory-list">
-        <!-- Photography Entries based on provided content -->
-        <li class="project-item">
-            <details>
-                <summary class="project-row">
-                    <span class="col-id">01</span>
-                    <span class="col-title">Tokyo Disneyland (2022)</span>
-                    <span class="col-genre">Selected Highlight</span>
-                    <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-                </summary>
-                <div class="project-expanded-content">
-                    <p class="project-description">Location: Tokyo, Japan.</p>
-                    <div class="project-gallery">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
-                    </div>
-                </div>
-            </details>
-        </li>
-        <li class="project-item">
-            <details>
-                <summary class="project-row">
-                    <span class="col-id">02</span>
-                    <span class="col-title">Tokyo Disneyland (2022)</span>
-                    <span class="col-genre">Landscape</span>
-                    <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-                </summary>
-                <div class="project-expanded-content">
-                    <p class="project-description">Location: Tokyo, Japan.</p>
-                    <div class="project-gallery">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
-                    </div>
-                </div>
-            </details>
-        </li>
-        <li class="project-item">
-            <details>
-                <summary class="project-row">
-                    <span class="col-id">03</span>
-                    <span class="col-title">Tokyo Disneyland (2022)</span>
-                    <span class="col-genre">Cityscape</span>
-                    <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-                </summary>
-                <div class="project-expanded-content">
-                    <p class="project-description">Location: Tokyo, Japan.</p>
-                    <div class="project-gallery">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
-                    </div>
-                </div>
-            </details>
-        </li>
-        <li class="project-item">
-            <details>
-                <summary class="project-row">
-                    <span class="col-id">04</span>
-                    <span class="col-title">Tokyo Disneyland (2022)</span>
-                    <span class="col-genre">Animal</span>
-                    <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-                </summary>
-                <div class="project-expanded-content">
-                    <p class="project-description">Location: Tokyo, Japan.</p>
-                    <div class="project-gallery">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
-                    </div>
-                </div>
-            </details>
-        </li>
-        <li class="project-item">
-            <details>
-                <summary class="project-row">
-                    <span class="col-id">05</span>
-                    <span class="col-title">Tokyo Disneyland (2022)</span>
-                    <span class="col-genre">Misc</span>
-                    <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-                </summary>
-                <div class="project-expanded-content">
-                    <p class="project-description">Location: Tokyo, Japan.</p>
-                    <div class="project-gallery">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
-                    </div>
-                </div>
-            </details>
-        </li>
-    </ul>
+    <!-- Visible Grid Gallery -->
+    <div class="photo-gallery">
+        
+        <figure class="photo-card">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
+            <figcaption class="photo-meta">
+                <span class="photo-title">Tokyo Disneyland</span>
+                <span>2022 / Highlight</span>
+            </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
+            <figcaption class="photo-meta">
+                <span class="photo-title">Tokyo Disneyland</span>
+                <span>2022 / Landscape</span>
+            </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
+            <figcaption class="photo-meta">
+                <span class="photo-title">Tokyo Disneyland</span>
+                <span>2022 / Cityscape</span>
+            </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
+            <figcaption class="photo-meta">
+                <span class="photo-title">Tokyo Disneyland</span>
+                <span>2022 / Animal</span>
+            </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
+            <figcaption class="photo-meta">
+                <span class="photo-title">Tokyo Disneyland</span>
+                <span>2022 / Misc</span>
+            </figcaption>
+        </figure>
+
+    </div>
 </main>
 
 <footer class="site-footer">
     <div class="footer-info">
         <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
-        <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
         <span class="mono-text">© 2026 Ayaan Ahmed Studios</span>
     </div>
     
+    <div class="footer-center">
+        <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
+    </div>
+
     <div class="footer-links">
-        <a href="https://github.com/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
         <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
         <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
         <button id="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
