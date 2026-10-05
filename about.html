@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayaan Ahmed — About</title>
+    <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-content">
+        <h1>Ayaan Ahmed</h1>
+        <p class="mono-subtitle">Graphic Designer, Photographer & Student RGD</p>
+    </div>
+    
+    <!-- Site Navigation -->
+    <nav class="site-nav">
+        <a href="index.html">Graphic Design</a>
+        <a href="photography.html">Photography</a>
+        <a href="videography.html">Videography</a>
+        <a href="about.html" class="active">About</a>
+    </nav>
+</header>
+
+<main style="max-width: 800px; margin-top: 4rem;">
+    <!-- Large Profile Image or Graphic here -->
+    <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403661/Ayaan_Ahmed_Graphic_Design_Portfolio_6_qg5shm.webp" alt="Ayaan Ahmed Portrait" style="width: 100%; border: 2px solid var(--border-color); box-shadow: 10px 10px 0px rgba(0,0,0,1); margin-bottom: 3rem;">
+
+    <h2 style="font-weight: 500; font-size: 2rem; margin-bottom: 1rem;">System Origin</h2>
+    <p style="font-size: 1.1rem; max-width: 65ch; margin-bottom: 2rem;">
+        I am a multidisciplinary graphic designer and content creator operating under the brand Blue Tiger Inc Studios. My work spans brand identity, neo-brutalist typography, photography, and creative direction. 
+    </p>
+
+    <!-- Professional Affiliations Section -->
+    <div style="border-top: 1px solid var(--border-color); padding-top: 2rem; margin-top: 4rem;">
+        <h3 class="mono-text" style="margin-bottom: 1rem;">Professional Affiliations</h3>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <img src="media/Student-RGD-Black.svg" alt="Student RGD" style="height: 48px;">
+            <p style="margin: 0; font-size: 0.95rem; max-width: 50ch;">
+                <strong>Ayaan Ahmed, Student RGD</strong><br>
+                Registered Graphic Designers (RGD) of Canada. 
+            </p>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-info">
+        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
+        <span class="mono-text">© 2026 Ayaan Ahmed Studios</span>
+    </div>
+    
+    <div class="footer-links">
+        <a href="https://github.com/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="ph ph-github-logo"></i>
+        </a>
+        <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="ph ph-linkedin-logo"></i>
+        </a>
+        <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="ph ph-instagram-logo"></i>
+        </a>
+        <button id="copy-email-btn" aria-label="Copy Email">
+            <span class="btn-content"><i class="ph ph-envelope-simple"></i></span>
+        </button>
+    </div>
+</footer>
+
+<script>
+const emailBtn = document.getElementById('copy-email-btn');
+const btnContent = emailBtn.querySelector('.btn-content');
+emailBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
+    btnContent.innerHTML = 'Email copied';
+    btnContent.classList.add('copied-state');
+    setTimeout(() => {
+        btnContent.innerHTML = '<i class="ph ph-envelope-simple"></i>';
+        btnContent.classList.remove('copied-state');
+    }, 2000);
+});
+</script>
+
+</body>
+</html>
