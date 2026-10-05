@@ -5,7 +5,6 @@
     --hover-bg: #111111;
     --hover-text: #f4f4f0;
     
-    /* Using Geist and Geist Pixel */
     --font-sans: "Geist", system-ui, sans-serif;
     --font-mono: "Geist Pixel", ui-monospace, monospace;
 }
@@ -52,7 +51,6 @@ body {
     -webkit-font-smoothing: none; 
 }
 
-/* Site navigation */
 .site-nav {
     display: flex;
     gap: 1.25rem;
@@ -88,7 +86,6 @@ body {
     padding: 0.5rem 1rem;
 }
 
-/* Explicitly overriding the .col-title inheritance specifically for the header */
 .directory-header .col-id,
 .directory-header .col-title,
 .directory-header .col-genre {
@@ -98,7 +95,6 @@ body {
     -webkit-font-smoothing: none;
 }
 
-/* Realigning the grid strictly for the header elements */
 .directory-header .col-id { flex: 0 0 60px; }
 .directory-header .col-title { flex: 1; }
 .directory-header .col-genre { flex: 0 0 200px; text-align: right; }
@@ -109,11 +105,27 @@ body {
     margin: 0 0 4rem 0;
 }
 
+/* ---------------- ACCORDION LOGIC (NATIVE HTML) ---------------- */
+.project-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+details {
+    width: 100%;
+}
+
+/* Hide default browser triangle for summary */
+details > summary {
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none; 
+}
+
 .project-row {
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border-color);
     cursor: crosshair;
     transition: background-color 0s, color 0s; 
 }
@@ -121,6 +133,18 @@ body {
 .project-row:hover {
     background-color: var(--hover-bg);
     color: var(--hover-text);
+}
+
+/* Active State when the dropdown is clicked open */
+details[open] .project-row {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+    border-bottom: 1px dashed var(--border-color);
+}
+
+/* Kill hover thumbnail when the project is actively open so they don't clash */
+details[open] .project-row .hover-preview {
+    display: none !important;
 }
 
 .col-id {
@@ -146,6 +170,32 @@ body {
     -webkit-font-smoothing: none;
 }
 
+/* ---------------- DROPDOWN EXPANDED CONTENT ---------------- */
+.project-expanded-content {
+    padding: 2rem 1rem 3rem 1rem;
+    background-color: #ebebe5; /* Very subtle contrast against main bg */
+}
+
+.project-description {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    max-width: 65ch;
+    margin: 0 0 2rem 0;
+}
+
+.project-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-gallery img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border: 1px solid var(--border-color);
+}
+
 /* ---------------- HOVER PREVIEW ---------------- */
 .hover-preview {
     position: fixed;
@@ -161,10 +211,8 @@ body {
     box-shadow: 10px 10px 0px rgba(0,0,0,1);
     z-index: 100;
     pointer-events: none;
-    
     opacity: 0;
     visibility: hidden;
-    
     transition: opacity 0.1s ease-out;
 }
 
@@ -195,12 +243,17 @@ body {
     filter: invert(1);
 }
 
+.rgd-logo {
+    height: 28px;
+    width: auto;
+    margin-left: 0.5rem;
+}
+
 .footer-links {
     display: flex;
     gap: 1rem;
 }
 
-/* Icons returned to their standard lightweight format */
 .footer-links a,
 .footer-links button {
     color: var(--text-color);
@@ -213,7 +266,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 6px;
-    transition: background-color 0s, color 0s;
 }
 
 .footer-links a:hover,
@@ -229,7 +281,6 @@ body {
     min-width: 24px;
 }
 
-/* Active style when email is clicked */
 .btn-content.copied-state {
     font-family: var(--font-mono);
     font-size: 0.9rem;
@@ -238,64 +289,27 @@ body {
     padding: 0 4px;
 }
 
-/* ---------------- RESPONSIVE / MOBILE ---------------- */
+/* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 900px) {
-    body {
-        padding: 1rem;
-    }
+    body { padding: 1rem; }
+    .site-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .site-nav { width: 100%; flex-wrap: wrap; border-top: 1px dashed var(--border-color); padding-top: 1rem; }
+    .directory-header { display: none; }
+    .project-row { flex-direction: column; align-items: flex-start; padding: 1rem 0; gap: 0.5rem; }
+    .col-id, .col-genre { text-align: left; flex: auto; }
+    .col-title { font-size: 1.5rem; }
     
-    .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-
-    .site-nav {
-        width: 100%;
-        flex-wrap: wrap;
-        border-top: 1px dashed var(--border-color);
-        padding-top: 1rem;
-    }
-
-    .directory-header {
-        display: none;
-    }
-
-    .project-row {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 0;
-        gap: 0.5rem;
-    }
-
-    .col-id, .col-genre {
-        text-align: left;
-        flex: auto;
-    }
-
-    .col-title {
-        font-size: 1.5rem;
-    }
-
     .hover-preview {
         position: static;
         transform: none;
         width: 100%;
-        height: auto;
-        opacity: 1;
-        visibility: visible;
         margin-top: 1rem;
         box-shadow: 4px 4px 0px rgba(0,0,0,1);
     }
-
-    .site-footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
-    }
-
-    .footer-links {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
+    
+    /* Show hover preview natively on mobile inside the row *unless* it is clicked open */
+    details[open] .project-row .hover-preview { display: none; }
+    
+    .site-footer { flex-direction: column; align-items: flex-start; gap: 2rem; }
+    .footer-links { flex-wrap: wrap; gap: 0.5rem; }
 }
