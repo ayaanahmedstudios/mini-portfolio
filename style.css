@@ -190,10 +190,12 @@ details[open] .project-row .hover-preview {
 }
 
 .project-gallery img {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
+    width: auto;          /* Prevents the image from forcing a stretch */
+    max-width: 100%;      /* Keeps it contained inside the box on mobile */
+    max-height: 400px;    /* Caps the height so small thumbnails don't look huge */
+    object-fit: contain;
     border: 1px solid var(--border-color);
+    background-color: var(--bg-color); /* Adds a nice matte background if the image is small */
 }
 
 /* ---------------- HOVER PREVIEW ---------------- */
