@@ -16,74 +16,43 @@
 
 <header class="site-header">
     <div class="header-content">
-        <!-- H1 is a link on this page -->
+        <!-- H1 leads home on inner pages -->
         <h1><a href="index.html">Ayaan Ahmed</a></h1>
         <p class="mono-subtitle">Graphic Designer & Photographer</p>
     </div>
     
     <nav class="site-nav">
         <a href="index.html">Graphic Design</a>
-        <a href="photography.html" class="active">Photography</a>
+        <a href="photography.html" class="active mobile-hide">Photography</a>
         <a href="videography.html">Videography</a>
         <a href="about.html">About</a>
     </nav>
 </header>
 
 <main>
-    <div class="directory-header" style="margin-bottom: 2rem;">
-        <div class="col-title">Photography Archive</div>
+    <div class="search-container">
+        <div class="project-search-input" style="cursor: default;">Photography Archive</div>
     </div>
 
-    <!-- Visible Grid Gallery -->
-    <div class="photo-gallery">
-        
-        <figure class="photo-card">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-            <figcaption class="photo-meta">
-                <span class="photo-title">Tokyo Disneyland</span>
-                <span>2022 / Highlight</span>
-            </figcaption>
-        </figure>
-
-        <figure class="photo-card">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-            <figcaption class="photo-meta">
-                <span class="photo-title">Tokyo Disneyland</span>
-                <span>2022 / Landscape</span>
-            </figcaption>
-        </figure>
-
-        <figure class="photo-card">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-            <figcaption class="photo-meta">
-                <span class="photo-title">Tokyo Disneyland</span>
-                <span>2022 / Cityscape</span>
-            </figcaption>
-        </figure>
-
-        <figure class="photo-card">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-            <figcaption class="photo-meta">
-                <span class="photo-title">Tokyo Disneyland</span>
-                <span>2022 / Animal</span>
-            </figcaption>
-        </figure>
-
-        <figure class="photo-card">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland">
-            <figcaption class="photo-meta">
-                <span class="photo-title">Tokyo Disneyland</span>
-                <span>2022 / Misc</span>
-            </figcaption>
-        </figure>
-
+    <!-- Pure CSS Masonry Gallery - Native Aspect Ratios -->
+    <div class="photo-masonry">
+        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+        <!-- Easily add more raw img tags here, the grid handles the rest automatically -->
     </div>
 </main>
 
 <footer class="site-footer">
-    <div class="footer-info">
-        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
-        <span class="mono-text">© 2026 Ayaan Ahmed Studios</span>
+    <div class="footer-left">
+        <div class="footer-logo-mobile">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
+        </div>
+        <div class="footer-copyright">
+            <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
+        </div>
     </div>
     
     <div class="footer-center">
@@ -91,13 +60,15 @@
     </div>
 
     <div class="footer-links">
-        <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+        <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
         <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
         <button id="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
     </div>
 </footer>
 
 <script>
+document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+
 const emailBtn = document.getElementById('copy-email-btn');
 const btnContent = emailBtn.querySelector('.btn-content');
 emailBtn.addEventListener('click', () => {
