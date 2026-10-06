@@ -16,8 +16,10 @@
 
 <header class="site-header">
     <div class="header-content">
-        <h1><a href="index.html">Ayaan Ahmed</a></h1>
-        <p class="mono-subtitle">Graphic Designer & Photographer</p>
+        <h1 class="desktop-logo"><a href="index.html">Ayaan Ahmed</a></h1>
+        <a href="index.html" class="mobile-logo">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
+        </a>
     </div>
     
     <nav class="site-nav">
@@ -28,11 +30,11 @@
     </nav>
 </header>
 
-<main style="max-width: 800px;">
+<main style="max-width: 800px; margin-top: 4rem;">
     
     <section style="margin-bottom: 5rem; padding-top: 1rem;">
         <p style="font-size: 1.5rem; max-width: 55ch; margin-bottom: 2rem; font-weight: 500; line-height: 1.4;">
-            I'm Ayaan, a Graphic Designer & Photographer, currently studying at OCAD University.
+            I make a lot of things. I am a multidisciplinary Graphic Designer and UI/UX Specialist bridging creative vision and strategic execution.
         </p>
         <p style="font-size: 1.15rem; max-width: 65ch; margin-bottom: 0;">
             Currently pursuing a Design Major at OCAD University, I focus on precise typography, stark structural layouts, and minimal aesthetics. Whether through Blue Tiger Inc Studios or my film analysis work, I believe in creating tactile experiences in a digital space.
@@ -47,7 +49,7 @@
             <div class="resume-date">Apr 2024 - Present</div>
             <div class="resume-content">
                 <div class="resume-role">Brand Development Associate</div>
-                <div class="resume-company">Film By Adnan, Toronto, Canada</div>
+                <div class="resume-company">Film By Adnan</div>
             </div>
         </div>
         
@@ -63,7 +65,7 @@
             <div class="resume-date">Oct 2025 - Nov 2025</div>
             <div class="resume-content">
                 <div class="resume-role">Graphic Design Intern</div>
-                <div class="resume-company">Jrew's Creations, Toronto, Canada</div>
+                <div class="resume-company">Jrew's Creations</div>
             </div>
         </div>
 
@@ -71,19 +73,27 @@
             <div class="resume-date">Jul 2022 - Aug 2022</div>
             <div class="resume-content">
                 <div class="resume-role">Operations Intern</div>
-                <div class="resume-company">Warner Bros. World™ Yas Island, Abu Dhabi, UAE</div>
+                <div class="resume-company">Warner Bros. World™</div>
             </div>
         </div>
     </div>
 
     <div class="resume-section">
-        <h3 class="resume-header">Education</h3>
+        <h3 class="resume-header">Education & Affiliation</h3>
+        
+        <div class="resume-row">
+            <div class="resume-date">2026 - Present</div>
+            <div class="resume-content">
+                <div class="resume-role">Student RGD</div>
+                <div class="resume-company">Association of Registered Graphic Designers</div>
+            </div>
+        </div>
 
         <div class="resume-row">
             <div class="resume-date">2023 - Present</div>
             <div class="resume-content">
                 <div class="resume-role">Honors BDes: Graphic Design</div>
-                <div class="resume-company">OCAD University, Toronto, Canada</div>
+                <div class="resume-company">OCAD University</div>
             </div>
         </div>
 
@@ -91,7 +101,7 @@
             <div class="resume-date">2008 - 2023</div>
             <div class="resume-content">
                 <div class="resume-role">IGCSE & A Levels</div>
-                <div class="resume-company">Dubai Scholars Private School, Dubai, UAE</div>
+                <div class="resume-company">Dubai Scholars Private School</div>
             </div>
         </div>
     </div>
@@ -102,24 +112,16 @@
         <div class="resume-row">
             <div class="resume-date">Jun 2024 - Present</div>
             <div class="resume-content">
-                <div class="resume-role">Seasonal Peer Mentor</div>
-                <div class="resume-company">OCAD University, Toronto, Canada</div>
+                <div class="resume-role">Peer Mentor</div>
+                <div class="resume-company">OCAD University</div>
             </div>
         </div>
 
         <div class="resume-row">
             <div class="resume-date">Aug 2024 & 2025</div>
             <div class="resume-content">
-                <div class="resume-role">Orientation Volunteer</div>
-                <div class="resume-company">OCAD University, Toronto, Canada</div>
-            </div>
-        </div>
-
-        <div class="resume-row">
-            <div class="resume-date">Aug 2024 - Present</div>
-            <div class="resume-content">
-                <div class="resume-role">Seasonal Autograph Volunteer</div>
-                <div class="resume-company">FanExpo Canada, Toronto, Canada</div>
+                <div class="resume-role">Orientation & FanExpo Crew</div>
+                <div class="resume-company">OCAD / FanExpo</div>
             </div>
         </div>
 
@@ -127,7 +129,7 @@
             <div class="resume-date">Sep 2018 - Jun 2023</div>
             <div class="resume-content">
                 <div class="resume-role">Student Council (9 Key Roles)</div>
-                <div class="resume-company">Dubai Scholars Private School, Dubai, UAE</div>
+                <div class="resume-company">Dubai Scholars</div>
             </div>
         </div>
     </div>
@@ -149,7 +151,7 @@
             </div>
         </div>
 
-        <div class="resume-row">
+        <div class="resume-row" style="border-bottom: none;">
             <div class="resume-date">Other</div>
             <div class="resume-content">
                 <div class="resume-role">Affinity 2025, Krita</div>
@@ -159,39 +161,52 @@
 </main>
 
 <footer class="site-footer">
-    <div class="footer-left">
-        <div class="footer-logo-mobile">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
-        </div>
-        <div class="footer-copyright">
+    <div class="footer-desktop">
+        <div class="footer-left">
             <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
         </div>
-    </div>
-    
-    <div class="footer-center">
-        <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
+        <div class="footer-center">
+            <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
+                <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="https://linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
+            <button class="copy-email-btn"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+        </div>
     </div>
 
-    <div class="footer-links">
-        <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-        <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
-        <button id="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+    <div class="footer-mobile">
+        <div class="footer-mobile-left">
+            <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
+                <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
+            </a>
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
+                <button class="copy-email-btn"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+            </div>
+        </div>
+        <div class="footer-mobile-right">
+            <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
+        </div>
     </div>
 </footer>
 
 <script>
 document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
-
-const emailBtn = document.getElementById('copy-email-btn');
-const btnContent = emailBtn.querySelector('.btn-content');
-emailBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
-    btnContent.innerHTML = 'Email copied';
-    btnContent.classList.add('copied-state');
-    setTimeout(() => {
-        btnContent.innerHTML = '<i class="ph ph-envelope-simple"></i>';
-        btnContent.classList.remove('copied-state');
-    }, 2000);
+document.querySelectorAll('.copy-email-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
+        const btnContent = btn.querySelector('.btn-content');
+        btnContent.innerHTML = 'Email copied';
+        btnContent.classList.add('copied-state');
+        setTimeout(() => {
+            btnContent.innerHTML = '<i class="ph ph-envelope-simple"></i>';
+            btnContent.classList.remove('copied-state');
+        }, 2000);
+    });
 });
 </script>
 </body>
