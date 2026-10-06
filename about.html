@@ -24,22 +24,22 @@
         <a href="index.html">Graphic Design</a>
         <a href="photography.html">Photography</a>
         <a href="videography.html">Videography</a>
-        <a href="about.html" class="active">About</a>
+        <a href="about.html" class="active mobile-hide">About</a>
     </nav>
 </header>
 
-<main style="max-width: 800px; margin-top: 4rem;">
+<main style="max-width: 800px;">
     
-    <section style="margin-bottom: 5rem;">
+    <section style="margin-bottom: 5rem; padding-top: 1rem;">
         <p style="font-size: 1.5rem; max-width: 55ch; margin-bottom: 2rem; font-weight: 500; line-height: 1.4;">
-            I am Ayaan Ahmed, a multidisciplinary Graphic Designer and Content Creator.
+            I make a lot of things. I am a multidisciplinary Graphic Designer and UI/UX Specialist bridging creative vision and strategic execution.
         </p>
         <p style="font-size: 1.15rem; max-width: 65ch; margin-bottom: 0;">
-            Currently pursuing a Design Major at OCAD University, I focus on precise typography, stark structural layouts, and minimal aesthetics. Blending analog and digital techniques to solve complex visual problems.
+            Currently pursuing a Design Major at OCAD University, I focus on precise typography, stark structural layouts, and minimal aesthetics. Whether through Blue Tiger Inc Studios or my film analysis work, I believe in creating tactile experiences in a digital space.
         </p>
     </section>
 
-    <!-- Stark Tabular Timelines -->
+    <!-- Data-Grid Timelines -->
     <div class="resume-section">
         <h3 class="resume-header">Experience</h3>
         
@@ -156,13 +156,16 @@
             </div>
         </div>
     </div>
-
 </main>
 
 <footer class="site-footer">
-    <div class="footer-info">
-        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
-        <span class="mono-text">© 2026 Ayaan Ahmed Studios</span>
+    <div class="footer-left">
+        <div class="footer-logo-mobile">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
+        </div>
+        <div class="footer-copyright">
+            <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
+        </div>
     </div>
     
     <div class="footer-center">
@@ -170,13 +173,15 @@
     </div>
 
     <div class="footer-links">
-        <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+        <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
         <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
         <button id="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
     </div>
 </footer>
 
 <script>
+document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+
 const emailBtn = document.getElementById('copy-email-btn');
 const btnContent = emailBtn.querySelector('.btn-content');
 emailBtn.addEventListener('click', () => {
