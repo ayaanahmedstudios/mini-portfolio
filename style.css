@@ -36,11 +36,22 @@ body {
 }
 
 .header-content h1 {
-    font-size: 3rem;
-    font-weight: 500; 
+    font-size: 2.25rem; /* Down from 3rem */
+    font-family: var(--font-mono); /* Force Geist Pixel */
+    font-weight: 400; /* No fake bolding */
     margin: 0;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     line-height: 1;
+    -webkit-font-smoothing: none;
+    display: inline-block;
+    animation: pixelJitter 4s infinite steps(1); /* Infinite animation */
+}
+
+@keyframes pixelJitter {
+    0%, 93%, 97%, 100% { transform: translate(0, 0); opacity: 1; }
+    94% { transform: translate(-2px, 1px); opacity: 0.8; }
+    95% { transform: translate(2px, -1px); opacity: 0.9; }
+    96% { transform: translate(-1px, 2px); opacity: 0.7; }
 }
 
 .header-content a {
