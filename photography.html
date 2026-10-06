@@ -16,7 +16,10 @@
 
 <header class="site-header">
     <div class="header-content">
-        <h1 class="desktop-logo"><a href="index.html">Ayaan Ahmed</a></h1>
+        <!-- Generative Text Logo (Linked to home) -->
+        <h1 class="desktop-logo"><a href="index.html" id="scramble-text">Ayaan Ahmed</a></h1>
+        
+        <!-- Mobile Header Visual Logo -->
         <a href="index.html" class="mobile-logo">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
         </a>
@@ -31,6 +34,7 @@
 </header>
 
 <main>
+    <!-- Pure CSS Masonry Gallery - Native Aspect Ratios -->
     <div class="photo-masonry">
         
         <div class="photo-card">
@@ -77,31 +81,35 @@
 </main>
 
 <footer class="site-footer">
+    <!-- DESKTOP FOOTER -->
     <div class="footer-desktop">
         <div class="footer-left">
             <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
         </div>
+        
         <div class="footer-center">
             <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
                 <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
             </a>
         </div>
+
         <div class="footer-links">
-            <a href="https://linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
-            <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
-            <button class="copy-email-btn"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+            <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+            <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
         </div>
     </div>
 
+    <!-- MOBILE FOOTER SPLIT -->
     <div class="footer-mobile">
         <div class="footer-mobile-left">
             <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
                 <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
             </a>
             <div class="footer-links">
-                <a href="https://linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
-                <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
-                <button class="copy-email-btn"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+                <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
             </div>
         </div>
         <div class="footer-mobile-right">
@@ -124,6 +132,80 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
         }, 2000);
     });
 });
+
+class PixelScramble {
+    constructor(el) {
+        this.el = el;
+        this.chars = '█▓▒░<>/\\|{}[]+*';
+        this.update = this.update.bind(this);
+    }
+    setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => this.resolve = resolve);
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+            const from = oldText[i] || '';
+            const to = newText[i] || '';
+            const start = Math.floor(Math.random() * 40);
+            const end = start + Math.floor(Math.random() * 40);
+            this.queue.push({ from, to, start, end, char: '' });
+        }
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
+    }
+    update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+            let { from, to, start, end, char } = this.queue[i];
+            if (this.frame >= end) {
+                complete++;
+                output += to;
+            } else if (this.frame >= start) {
+                if (!char || Math.random() < 0.28) {
+                    char = this.randomChar();
+                    this.queue[i].char = char;
+                }
+                output += `<span class="pixel-dud">${char}</span>`;
+            } else {
+                output += from;
+            }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+            this.resolve();
+        } else {
+            this.frameRequest = requestAnimationFrame(this.update);
+            this.frame++;
+        }
+    }
+    randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+    }
+}
+
+const titleEl = document.getElementById('scramble-text');
+if (titleEl) {
+    const fx = new PixelScramble(titleEl);
+    let isShowing = true;
+    const loop = () => {
+        if (isShowing) {
+            fx.setText('').then(() => {
+                isShowing = false;
+                setTimeout(loop, 1000); 
+            });
+        } else {
+            fx.setText('Ayaan Ahmed').then(() => {
+                isShowing = true;
+                setTimeout(loop, 6000); 
+            });
+        }
+    };
+    setTimeout(loop, 6000); 
+}
 </script>
 </body>
 </html>
