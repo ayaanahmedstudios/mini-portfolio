@@ -16,13 +16,14 @@
 
 <header class="site-header">
     <div class="header-content">
-        <!-- NOT a link on the home page -->
+        <!-- NO link on home page -->
         <h1>Ayaan Ahmed</h1>
         <p class="mono-subtitle">Graphic Designer & Photographer</p>
     </div>
     
     <nav class="site-nav">
-        <a href="index.html" class="active">Graphic Design</a>
+        <!-- mobile-hide class removes this button only on phones -->
+        <a href="index.html" class="active mobile-hide">Graphic Design</a>
         <a href="photography.html">Photography</a>
         <a href="videography.html">Videography</a>
         <a href="about.html">About</a>
@@ -30,85 +31,94 @@
 </header>
 
 <main>
-    <div class="directory-header">
-        <div class="col-id">ID</div>
-        <div class="col-title">Project Title</div>
-        <div class="col-genre">Category</div>
+    <div class="search-container">
+        <input type="text" id="project-search" placeholder="Search projects or categories..." class="project-search-input">
     </div>
 
     <ul class="project-directory" id="directory-list">
-        <li class="project-item">
-            <details>
-                <summary class="project-row">
-                    <span class="col-id">01</span>
-                    <span class="col-title">Ambassador's Secret Sauce</span>
-                    <span class="col-genre">Series Logo</span>
-                    <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_1_y9hoke.webp" alt="Ambassador's Secret Sauce">
-                </summary>
-                <div class="project-expanded-content">
-                    <p class="project-description">A complete brand identity and series logo design for Ambassador's Secret Sauce. The goal was to create something timeless yet punchy, utilizing high-contrast typography and a stark color palette.</p>
-                    <div class="project-gallery">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_1_y9hoke.webp" alt="Primary Logo">
-                    </div>
-                </div>
-            </details>
-        </li>
-        <li class="project-item">
-            <details>
-                <summary class="project-row">
-                    <span class="col-id">02</span>
-                    <span class="col-title">Art Journal</span>
-                    <span class="col-genre">Poster Design</span>
-                    <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_2_m4vhfp.webp" alt="Art Journal">
-                </summary>
-                <div class="project-expanded-content">
-                    <p class="project-description">An experimental poster design exploring grid systems and neo-brutalist typography layouts.</p>
-                    <div class="project-gallery">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_2_m4vhfp.webp" alt="Poster Detail">
-                    </div>
-                </div>
-            </details>
-        </li>
-        <li class="project-item">
-            <details>
-                <summary class="project-row">
-                    <span class="col-id">03</span>
-                    <span class="col-title">Ayaan Ahmed</span>
-                    <span class="col-genre">Brand Identity</span>
-                    <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_3_ggabfb.webp" alt="Ayaan Ahmed">
-                </summary>
-                <div class="project-expanded-content">
-                    <p class="project-description">Personal branding and stationary systems.</p>
-                    <div class="project-gallery">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_3_ggabfb.webp" alt="Brand Assets">
-                    </div>
-                </div>
-            </details>
-        </li>
-        <!-- Add your other projects following this structure -->
+        <!-- PROJECT 01 -->
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">01</span><span class="col-title">Ambassador's Secret Sauce</span><span class="col-genre">Series Logo</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_1_y9hoke.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_1_y9hoke.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <!-- PROJECT 02 -->
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">02</span><span class="col-title">Art Journal</span><span class="col-genre">Poster Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_2_m4vhfp.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_2_m4vhfp.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <!-- PROJECT 03 -->
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">03</span><span class="col-title">Ayaan Ahmed</span><span class="col-genre">Brand Identity</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_3_ggabfb.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_3_ggabfb.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">04</span><span class="col-title">Ayaan Was Here</span><span class="col-genre">Brand Identity</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_4_ak2i6o.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_4_ak2i6o.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">05</span><span class="col-title">Bhopali Bold</span><span class="col-genre">Typeface Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_5_vyzlsn.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_5_vyzlsn.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">06</span><span class="col-title">Blue Tiger Inc Studios</span><span class="col-genre">Brand Identity</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403661/Ayaan_Ahmed_Graphic_Design_Portfolio_6_qg5shm.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403661/Ayaan_Ahmed_Graphic_Design_Portfolio_6_qg5shm.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">07</span><span class="col-title">Book of Designer Quotes</span><span class="col-genre">Book Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_7_u5hudc.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_7_u5hudc.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">08</span><span class="col-title">Cinema VS Streaming</span><span class="col-genre">Data Visualization</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_8_eat5nd.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_8_eat5nd.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">09</span><span class="col-title">Confounding Tools</span><span class="col-genre">Poster Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_9_dy4f0p.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_9_dy4f0p.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">10</span><span class="col-title">Crafted from Nature's Blueprints</span><span class="col-genre">Speculative Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_10_twbvsk.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_10_twbvsk.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">11</span><span class="col-title">Cycle the City</span><span class="col-genre">Photography</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">12</span><span class="col-title">Design Process Book</span><span class="col-genre">Physical Book Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_12_ezq4jv.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_12_ezq4jv.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">13</span><span class="col-title">Designed for Good</span><span class="col-genre">Print Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_13_mazzyu.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_13_mazzyu.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">14</span><span class="col-title">Film By Adnan</span><span class="col-genre">Rebrand</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_14_phg21l.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_14_phg21l.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">15</span><span class="col-title">Finite Grids</span><span class="col-genre">Web Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_15_zoyikw.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_15_zoyikw.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">16</span><span class="col-title">Flying Colors</span><span class="col-genre">Poster Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_16_ktgxf7.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_16_ktgxf7.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">17</span><span class="col-title">Footnotes for the Toronto Sky</span><span class="col-genre">Video + Animation</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_17_wvn04y.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_17_wvn04y.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">18</span><span class="col-title">High School Work</span><span class="col-genre">Archive</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_18_l9mweq.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_18_l9mweq.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">19</span><span class="col-title">ID of the Future</span><span class="col-genre">Speculative Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_19_jct49w.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_19_jct49w.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">20</span><span class="col-title">Japan by Ayaan</span><span class="col-genre">Web Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_20_jdrtd1.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_20_jdrtd1.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">21</span><span class="col-title">Jerome's Favorite Spots</span><span class="col-genre">Series Logo</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_21_blc3i3.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_21_blc3i3.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">22</span><span class="col-title">Jrew's Creations</span><span class="col-genre">Brand Identity</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_22_igqt4v.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_22_igqt4v.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">23</span><span class="col-title">Kinetic Typography</span><span class="col-genre">Text Animation</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_23_stcjv9.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_23_stcjv9.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">24</span><span class="col-title">Magazines & Posters</span><span class="col-genre">Print Layout Designs</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_24_q6xrjo.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_24_q6xrjo.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">25</span><span class="col-title">Mesh Bag System</span><span class="col-genre">Bag Brand</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_25_m3icfs.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_25_m3icfs.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">26</span><span class="col-title">Motion Studies</span><span class="col-genre">Narrative + Animation</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_26_knvm9l.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_26_knvm9l.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">27</span><span class="col-title">Objects & Patterns</span><span class="col-genre">Design + Narrative</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_27_rwbvpt.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_27_rwbvpt.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">28</span><span class="col-title">Paper Superstructures</span><span class="col-genre">Physical Design</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_28_tejjkh.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_28_tejjkh.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">29</span><span class="col-title">Rhymes with Video</span><span class="col-genre">AR Poster</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_29_qwjtdw.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_29_qwjtdw.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">30</span><span class="col-title">Scholars' Blockbusters</span><span class="col-genre">Event Identity</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_30_p6qbgi.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_30_p6qbgi.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">31</span><span class="col-title">It's a Small World</span><span class="col-genre">Web Design + Data</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_31_mwws3b.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_31_mwws3b.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">32</span><span class="col-title">Streaming Dashboard</span><span class="col-genre">Data Visualization</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_32_c787z5.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_32_c787z5.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">33</span><span class="col-title">The Backyard Boys</span><span class="col-genre">Series Logo</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403670/Ayaan_Ahmed_Graphic_Design_Portfolio_33_ojtibt.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403670/Ayaan_Ahmed_Graphic_Design_Portfolio_33_ojtibt.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">34</span><span class="col-title">The Jeff Gang</span><span class="col-genre">Brand Identity</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_34_rk5ujq.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_34_rk5ujq.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">35</span><span class="col-title">Toxic Fandoms</span><span class="col-genre">Narrative Video</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403672/Ayaan_Ahmed_Graphic_Design_Portfolio_35_sb28hh.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403672/Ayaan_Ahmed_Graphic_Design_Portfolio_35_sb28hh.webp" alt="Full Image" loading="lazy"></div></div></details></li>
+        <li class="project-item"><details><summary class="project-row"><span class="col-id">36</span><span class="col-title">Typography Along Yonge</span><span class="col-genre">Typography + Book</span><img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403670/Ayaan_Ahmed_Graphic_Design_Portfolio_36_ehmntk.webp" alt="Cover"></summary><div class="project-expanded-content"><div class="project-gallery"><img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403670/Ayaan_Ahmed_Graphic_Design_Portfolio_36_ehmntk.webp" alt="Full Image" loading="lazy"></div></div></details></li>
     </ul>
 </main>
 
 <footer class="site-footer">
-    <div class="footer-info">
-        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
-        <span class="mono-text">© 2026 Ayaan Ahmed Studios</span>
+    <div class="footer-left">
+        <div class="footer-logo-mobile">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
+        </div>
+        <div class="footer-copyright">
+            <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
+        </div>
     </div>
     
     <div class="footer-center">
-        <!-- RGD Logo is now cleanly centered in the footer -->
         <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
     </div>
 
     <!-- Reordered Links: LinkedIn -> Insta -> Email (No GitHub) -->
     <div class="footer-links">
-        <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+        <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
         <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
         <button id="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
     </div>
 </footer>
 
 <script>
+// Search Bar Logic
+const searchInput = document.getElementById('project-search');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        document.querySelectorAll('.project-item').forEach(item => {
+            const text = item.innerText.toLowerCase();
+            item.style.display = text.includes(term) ? 'block' : 'none';
+        });
+    });
+}
+
+// Auto-Update Copyright Year
+document.querySelectorAll('.year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+});
+
+// Copy Email Logic
 const emailBtn = document.getElementById('copy-email-btn');
 const btnContent = emailBtn.querySelector('.btn-content');
 emailBtn.addEventListener('click', () => {
