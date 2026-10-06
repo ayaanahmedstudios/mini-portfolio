@@ -16,7 +16,7 @@
 
 <header class="site-header">
     <div class="header-content">
-        <!-- Desktop Header Name (No link on home) -->
+        <!-- Desktop Header Name with the new Pixel Jitter animation -->
         <h1 class="desktop-logo">Ayaan Ahmed</h1>
         
         <!-- Mobile Header Visual Logo -->
@@ -38,12 +38,7 @@
         <input type="text" id="project-search" placeholder="Search projects or categories..." class="project-search-input">
     </div>
 
-    <div class="directory-header">
-        <div class="col-id">ID</div>
-        <div class="col-title">Project Title</div>
-        <div class="col-year">Year</div>
-        <div class="col-genre">Category</div>
-    </div>
+    <!-- The column headers have been completely removed -->
 
     <ul class="project-directory" id="directory-list">
         <!-- PROJECT 01 -->
@@ -60,7 +55,6 @@
                     </div>
                     <div class="project-gallery">
                         <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_1_y9hoke.webp" alt="Image 1" loading="lazy">
-                        <!-- Add additional <img src="..."> or <video> tags here later -->
                     </div>
                 </div>
             </details>
@@ -108,7 +102,6 @@
     <!-- DESKTOP FOOTER -->
     <div class="footer-desktop">
         <div class="footer-left">
-            <!-- Blank container to match symmetry of the flex layout since logo is removed -->
             <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
         </div>
         
@@ -119,7 +112,7 @@
         </div>
 
         <div class="footer-links">
-            <a href="https://linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
             <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
             <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
         </div>
@@ -132,7 +125,7 @@
                 <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
             </a>
             <div class="footer-links">
-                <a href="https://linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
                 <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
                 <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
             </div>
@@ -156,8 +149,12 @@ if (searchInput) {
     });
 }
 
-document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+// Auto-Update Copyright Year
+document.querySelectorAll('.year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+});
 
+// Copy Email Logic
 document.querySelectorAll('.copy-email-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
