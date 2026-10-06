@@ -16,8 +16,8 @@
 
 <header class="site-header">
     <div class="header-content">
-        <!-- Desktop Header Name with the new Pixel Jitter animation -->
-        <h1 class="desktop-logo">Ayaan Ahmed</h1>
+        <!-- Generative Text Logo (No link on home) -->
+        <h1 class="desktop-logo" id="scramble-text">Ayaan Ahmed</h1>
         
         <!-- Mobile Header Visual Logo -->
         <a href="index.html" class="mobile-logo">
@@ -38,7 +38,7 @@
         <input type="text" id="project-search" placeholder="Search projects or categories..." class="project-search-input">
     </div>
 
-    <!-- The column headers have been completely removed -->
+    <!-- Directory Headers Removed -->
 
     <ul class="project-directory" id="directory-list">
         <!-- PROJECT 01 -->
@@ -55,6 +55,7 @@
                     </div>
                     <div class="project-gallery">
                         <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_1_y9hoke.webp" alt="Image 1" loading="lazy">
+                        <!-- Add additional <img src="..."> or <video> tags here later -->
                     </div>
                 </div>
             </details>
@@ -167,6 +168,81 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
         }, 2000);
     });
 });
+
+// Anime.js-style Matrix Pixel Scramble Animation
+class PixelScramble {
+    constructor(el) {
+        this.el = el;
+        this.chars = '█▓▒░<>/\\|{}[]+*';
+        this.update = this.update.bind(this);
+    }
+    setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => this.resolve = resolve);
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+            const from = oldText[i] || '';
+            const to = newText[i] || '';
+            const start = Math.floor(Math.random() * 40);
+            const end = start + Math.floor(Math.random() * 40);
+            this.queue.push({ from, to, start, end, char: '' });
+        }
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
+    }
+    update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+            let { from, to, start, end, char } = this.queue[i];
+            if (this.frame >= end) {
+                complete++;
+                output += to;
+            } else if (this.frame >= start) {
+                if (!char || Math.random() < 0.28) {
+                    char = this.randomChar();
+                    this.queue[i].char = char;
+                }
+                output += `<span class="pixel-dud">${char}</span>`;
+            } else {
+                output += from;
+            }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+            this.resolve();
+        } else {
+            this.frameRequest = requestAnimationFrame(this.update);
+            this.frame++;
+        }
+    }
+    randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+    }
+}
+
+const titleEl = document.getElementById('scramble-text');
+if (titleEl) {
+    const fx = new PixelScramble(titleEl);
+    let isShowing = true;
+    const loop = () => {
+        if (isShowing) {
+            fx.setText('').then(() => {
+                isShowing = false;
+                setTimeout(loop, 1000); // Wait 1 second while empty
+            });
+        } else {
+            fx.setText('Ayaan Ahmed').then(() => {
+                isShowing = true;
+                setTimeout(loop, 6000); // Wait 6 seconds while fully visible
+            });
+        }
+    };
+    setTimeout(loop, 6000); // Initiate infinite loop
+}
 </script>
 </body>
 </html>
