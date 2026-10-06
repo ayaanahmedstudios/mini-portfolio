@@ -23,25 +23,24 @@
     <nav class="site-nav">
         <a href="index.html">Graphic Design</a>
         <a href="photography.html">Photography</a>
-        <a href="videography.html" class="active">Videography</a>
+        <a href="videography.html" class="active mobile-hide">Videography</a>
         <a href="about.html">About</a>
     </nav>
 </header>
 
 <main>
-    <div class="directory-header" style="margin-bottom: 2rem;">
-        <div class="col-title">Video Archive</div>
+    <div class="search-container">
+        <div class="project-search-input" style="cursor: default;">Video Archive</div>
     </div>
 
     <!-- Visible Video Grid -->
     <div class="video-grid">
-        
         <div class="video-card">
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/GFEQ4rHjqhk?rel=0&modestbranding=1" title="Navigating Niagara" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/GFEQ4rHjqhk?rel=0&modestbranding=1" title="Finding Niagara" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-meta">
-                <span class="video-title">Navigating Niagara</span>
+                <span class="video-title">Finding Niagara</span>
                 <span>2024 / Documentary</span>
             </div>
         </div>
@@ -58,51 +57,54 @@
 
         <div class="video-card">
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/XFZkZV91Jm4?rel=0&modestbranding=1" title="Kyoto Nights" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/XFZkZV91Jm4?rel=0&modestbranding=1" title="Videography Demo Reel" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-meta">
-                <span class="video-title">Kyoto Nights</span>
-                <span>2023 / Sequence</span>
+                <span class="video-title">Videography Demo Reel</span>
+                <span>2024 / Reel</span>
             </div>
         </div>
 
         <div class="video-card">
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/fo1hsuhBYHQ?rel=0&modestbranding=1" title="Urban Rhythm" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/fo1hsuhBYHQ?rel=0&modestbranding=1" title="Blue Tiger Inc Studios Channel Trailer" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-meta">
-                <span class="video-title">Urban Rhythm</span>
-                <span>2022 / Sequence</span>
+                <span class="video-title">Blue Tiger Inc Studios Trailer</span>
+                <span>2023 / Promo</span>
             </div>
         </div>
 
         <div class="video-card">
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/epgRE7R4J7s?rel=0&modestbranding=1" title="Nature in Motion" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/epgRE7R4J7s?rel=0&modestbranding=1" title="Footnotes for the Toronto Sky" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-meta">
-                <span class="video-title">Nature in Motion</span>
-                <span>2022 / Sequence</span>
+                <span class="video-title">Footnotes for the Toronto Sky</span>
+                <span>2024 / Video Essay</span>
             </div>
         </div>
 
         <div class="video-card">
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/elfC90POVTs?rel=0&modestbranding=1" title="Abstract Flow" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/elfC90POVTs?rel=0&modestbranding=1" title="Cycle the City" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-meta">
-                <span class="video-title">Abstract Flow</span>
-                <span>2021 / Sequence</span>
+                <span class="video-title">Cycle the City</span>
+                <span>2024 / Street Doc</span>
             </div>
         </div>
-
     </div>
 </main>
 
 <footer class="site-footer">
-    <div class="footer-info">
-        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
-        <span class="mono-text">© 2026 Ayaan Ahmed Studios</span>
+    <div class="footer-left">
+        <div class="footer-logo-mobile">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
+        </div>
+        <div class="footer-copyright">
+            <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
+        </div>
     </div>
     
     <div class="footer-center">
@@ -110,13 +112,15 @@
     </div>
 
     <div class="footer-links">
-        <a href="https://linkedin.com/in/ayaanahmedofficial" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+        <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
         <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
         <button id="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
     </div>
 </footer>
 
 <script>
+document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+
 const emailBtn = document.getElementById('copy-email-btn');
 const btnContent = emailBtn.querySelector('.btn-content');
 emailBtn.addEventListener('click', () => {
