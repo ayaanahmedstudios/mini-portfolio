@@ -16,8 +16,10 @@
 
 <header class="site-header">
     <div class="header-content">
-        <h1><a href="index.html">Ayaan Ahmed</a></h1>
-        <p class="mono-subtitle">Graphic Designer & Photographer</p>
+        <h1 class="desktop-logo"><a href="index.html">Ayaan Ahmed</a></h1>
+        <a href="index.html" class="mobile-logo">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
+        </a>
     </div>
     
     <nav class="site-nav">
@@ -29,12 +31,8 @@
 </header>
 
 <main>
-    <div class="search-container">
-        <div class="project-search-input" style="cursor: default;">Video Archive</div>
-    </div>
-
-    <!-- Visible Video Grid -->
     <div class="video-grid">
+        
         <div class="video-card">
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/GFEQ4rHjqhk?rel=0&modestbranding=1" title="Finding Niagara" frameborder="0" allowfullscreen loading="lazy"></iframe>
@@ -94,43 +92,57 @@
                 <span>2024 / Street Doc</span>
             </div>
         </div>
+
     </div>
 </main>
 
 <footer class="site-footer">
-    <div class="footer-left">
-        <div class="footer-logo-mobile">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo" class="raw-logo">
-        </div>
-        <div class="footer-copyright">
+    <div class="footer-desktop">
+        <div class="footer-left">
             <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
         </div>
-    </div>
-    
-    <div class="footer-center">
-        <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
+        <div class="footer-center">
+            <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
+                <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="https://linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
+            <button class="copy-email-btn"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+        </div>
     </div>
 
-    <div class="footer-links">
-        <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-        <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
-        <button id="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+    <div class="footer-mobile">
+        <div class="footer-mobile-left">
+            <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
+                <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
+            </a>
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
+                <button class="copy-email-btn"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+            </div>
+        </div>
+        <div class="footer-mobile-right">
+            <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
+        </div>
     </div>
 </footer>
 
 <script>
 document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
-
-const emailBtn = document.getElementById('copy-email-btn');
-const btnContent = emailBtn.querySelector('.btn-content');
-emailBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
-    btnContent.innerHTML = 'Email copied';
-    btnContent.classList.add('copied-state');
-    setTimeout(() => {
-        btnContent.innerHTML = '<i class="ph ph-envelope-simple"></i>';
-        btnContent.classList.remove('copied-state');
-    }, 2000);
+document.querySelectorAll('.copy-email-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
+        const btnContent = btn.querySelector('.btn-content');
+        btnContent.innerHTML = 'Email copied';
+        btnContent.classList.add('copied-state');
+        setTimeout(() => {
+            btnContent.innerHTML = '<i class="ph ph-envelope-simple"></i>';
+            btnContent.classList.remove('copied-state');
+        }, 2000);
+    });
 });
 </script>
 </body>
