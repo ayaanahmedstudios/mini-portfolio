@@ -16,14 +16,9 @@
 
 <header class="site-header">
     <div class="header-content">
-        <!-- Canvas linked back home on subpages -->
         <a href="index.html" class="identity desktop-logo" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
             <span class="fallback">Ayaan Ahmed</span>
             <canvas id="cv" aria-hidden="true"></canvas>
-        </a>
-        
-        <a href="index.html" class="mobile-logo">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
         </a>
     </div>
     
@@ -37,10 +32,10 @@
 
 <main>
     <div class="search-container">
-        <input type="text" id="project-search" placeholder="Search videography archive..." class="project-search-input">
+        <input type="text" id="project-search" placeholder="Search" class="project-search-input">
     </div>
 
-    <!-- Visible Video Grid -->
+    <!-- Visible Video Grid without Genres -->
     <div class="video-grid">
         <div class="video-card">
             <div class="video-wrapper">
@@ -48,7 +43,7 @@
             </div>
             <div class="video-meta">
                 <span class="video-title">Finding Niagara</span>
-                <span>2024 / Documentary</span>
+                <span class="col-year">2024</span>
             </div>
         </div>
 
@@ -58,7 +53,7 @@
             </div>
             <div class="video-meta">
                 <span class="video-title">Finding Fuji</span>
-                <span>2023 / Documentary</span>
+                <span class="col-year">2023</span>
             </div>
         </div>
 
@@ -68,7 +63,7 @@
             </div>
             <div class="video-meta">
                 <span class="video-title">Videography Demo Reel</span>
-                <span>2024 / Reel</span>
+                <span class="col-year">2024</span>
             </div>
         </div>
 
@@ -78,7 +73,7 @@
             </div>
             <div class="video-meta">
                 <span class="video-title">Blue Tiger Inc Studios Trailer</span>
-                <span>2023 / Promo</span>
+                <span class="col-year">2023</span>
             </div>
         </div>
 
@@ -88,17 +83,18 @@
             </div>
             <div class="video-meta">
                 <span class="video-title">Footnotes for the Toronto Sky</span>
-                <span>2024 / Video Essay</span>
+                <span class="col-year">2024</span>
             </div>
         </div>
-
+        
+        <!-- Toxic Fandoms added from GD -->
         <div class="video-card">
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/elfC90POVTs?rel=0&modestbranding=1" title="Cycle the City" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403672/Ayaan_Ahmed_Graphic_Design_Portfolio_35_sb28hh.webp" alt="Toxic Fandoms" loading="lazy">
             </div>
             <div class="video-meta">
-                <span class="video-title">Cycle the City</span>
-                <span>2024 / Street Doc</span>
+                <span class="video-title">Toxic Fandoms</span>
+                <span class="col-year">2018</span>
             </div>
         </div>
     </div>
@@ -117,7 +113,7 @@
         <div class="footer-links">
             <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
             <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
-            <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+            <button class="copy-email-btn"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
         </div>
     </div>
 
@@ -129,7 +125,7 @@
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
                 <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
-                <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+                <button class="copy-email-btn"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
             </div>
         </div>
         <div class="footer-mobile-right">
@@ -170,9 +166,9 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
     const W      = 140;    
     const LOGO_W = 70;     
     const CELL   = 2;      
-    const STEP   = 55;     
-    const SPREAD = 480;    
-    const MOVE   = 820;    
+    const STEP   = 35;     
+    const SPREAD = 200;    
+    const MOVE   = 400;    
     const WAIT   = 5500;   
     const HOLD   = 3000;   
 
@@ -426,7 +422,7 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
         fbFrom = fbMoving ? fbProg : (next ? 0 : 1);
         fbTo = next ? 1 : 0;
         fbT0 = now; fbLast = -1; fbMoving = true;
-        fbDur = 1100 * Math.max(0.3, Math.abs(fbTo - fbFrom));
+        fbDur = 400 * Math.max(0.3, Math.abs(fbTo - fbFrom));
         raf = requestAnimationFrame(frameFallback);
         return;
       }
