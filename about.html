@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" style="margin-bottom: 0; padding-bottom: 1.5rem;">
     <div class="header-content">
         <!-- Canvas linked back home on subpages -->
         <a href="index.html" class="identity desktop-logo" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
@@ -35,9 +35,12 @@
     </nav>
 </header>
 
-<main style="max-width: 800px; margin-top: 4rem;">
+<!-- Unique divider strictly for the About Page -->
+<hr style="border: none; border-bottom: 2px solid var(--border-color); margin: 0 0 4rem 0;">
+
+<main style="max-width: 800px;">
     
-    <section style="margin-bottom: 5rem; padding-top: 1rem;">
+    <section style="margin-bottom: 5rem;">
         <p class="pixel-description" style="font-family: var(--font-mono); font-size: 1.15rem; max-width: 55ch; margin-bottom: 2rem; font-weight: 400; line-height: 1.6;">
             I'm Ayaan, a Graphic Designer & Photographer, currently studying at OCAD University.
         </p>
@@ -75,7 +78,7 @@
                 </div>
             </div>
 
-            <div class="resume-row">
+            <div class="resume-row" style="padding-bottom: 0;">
                 <div class="resume-date">Jul 2022 - Aug 2022</div>
                 <div class="resume-content">
                     <div class="resume-role">Operations Intern</div>
@@ -97,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="resume-row">
+            <div class="resume-row" style="padding-bottom: 0;">
                 <div class="resume-date">2008 - 2023</div>
                 <div class="resume-content">
                     <div class="resume-role">IGCSE & A Levels</div>
@@ -135,7 +138,7 @@
                 </div>
             </div>
 
-            <div class="resume-row">
+            <div class="resume-row" style="padding-bottom: 0;">
                 <div class="resume-date">Sep 2018 - Jun 2023</div>
                 <div class="resume-content">
                     <div class="resume-role">Student Council (9 Key Roles)</div>
@@ -163,7 +166,7 @@
                 </div>
             </div>
 
-            <div class="resume-row">
+            <div class="resume-row" style="padding-bottom: 0;">
                 <div class="resume-date">Other</div>
                 <div class="resume-content">
                     <div class="resume-role">Affinity 2025, Krita</div>
@@ -184,8 +187,8 @@
             </a>
         </div>
         <div class="footer-links">
-            <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
-            <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
+            <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
             <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
         </div>
     </div>
@@ -196,8 +199,8 @@
                 <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
             </a>
             <div class="footer-links">
-                <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
-                <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
+                <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
                 <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
             </div>
         </div>
@@ -225,8 +228,8 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
 (async () => {
     const LOGO_SRC = "https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg";
     const NAME   = "Ayaan Ahmed";
-    const W      = 168;    
-    const LOGO_W = 84;     
+    const W      = 140;    
+    const LOGO_W = 70;     
     const CELL   = 2;      
     const STEP   = 55;     
     const SPREAD = 480;    
