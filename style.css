@@ -41,7 +41,6 @@ body {
 /* 
   CANVAS ANIMATION WRAPPERS 
   Strictly locks the container so the DOM NEVER shifts or shakes 
-  Now used globally for both Desktop and Mobile
 */
 .identity {
     position: relative;
@@ -60,20 +59,15 @@ body {
 
 .identity .fallback {
     font-family: var(--font-mono);
-    font-size: 24px; /* Slightly smaller to fit cleanly */
+    font-size: 24px; 
     line-height: 1;
     letter-spacing: .02em;
     font-weight: 400;
 }
 .identity.ready .fallback { display: none; }
 
-.sr {
-    position: absolute;
-    width: 1px; height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-}
+.desktop-logo { display: flex; }
+.mobile-logo { display: none; }
 
 .site-nav {
     display: flex;
@@ -106,8 +100,8 @@ body {
 
 /* ---------------- SEARCH BAR ---------------- */
 .search-container {
-    margin-top: 4rem; /* Pushed away from header */
-    margin-bottom: 1.5rem; /* Pulled closer to content */
+    margin-top: 3rem; /* Pushed away from header */
+    margin-bottom: 1rem; /* Pulled tight to content */
     border-bottom: 1px solid var(--border-color); 
 }
 
@@ -129,41 +123,33 @@ body {
 .project-directory {
     list-style: none;
     padding: 0;
-    margin: 0 0 5rem 0; /* Extends empty space before footer */
+    margin: 0 0 5rem 0; 
 }
 
-.project-item { 
-    border-bottom: 1px solid var(--border-color); 
-}
-
-/* Removes double line right before footer */
-.project-item:last-child {
-    border-bottom: none; 
-}
+.project-item { border-bottom: 1px solid var(--border-color); }
+.project-item:last-child { border-bottom: none; } /* Prevents double line before footer */
 
 details { width: 100%; }
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 
+/* CSS Grid powers the row so elements never wrap or shift awkwardly */
 .project-row {
     position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 60px 250px 24px;
     align-items: center;
-    padding: 0.75rem 3rem 0.75rem 1rem; /* Extra right padding for the + icon */
+    gap: 1rem;
+    padding: 0.75rem 0.5rem;
     cursor: crosshair;
     transition: background-color 0s, color 0s; 
 }
 
-/* Pixelated Accordion Icons (+ and x) */
 .project-row::after {
     content: '+';
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
+    justify-self: end;
     font-family: var(--font-mono);
     font-size: 1.4rem;
-    color: var(--text-color);
     line-height: 1;
     -webkit-font-smoothing: none;
 }
@@ -171,14 +157,12 @@ details > summary::-webkit-details-marker { display: none; }
 details[open] .project-row::after {
     content: 'x';
     font-size: 1.2rem;
-    color: var(--hover-text);
 }
 
 .project-row:hover {
     background-color: var(--hover-bg);
     color: var(--hover-text);
 }
-.project-row:hover::after { color: var(--hover-text); }
 
 details[open] .project-row {
     background-color: var(--hover-bg);
@@ -190,36 +174,24 @@ details[open] .project-row .hover-preview {
     display: none !important;
 }
 
-/* Slightly scaled down columns to prevent wrapping */
-.col-id {
-    flex: 0 0 45px;
-    font-family: var(--font-mono);
-    font-weight: 400;
-    font-size: 0.9rem;
-    -webkit-font-smoothing: none;
-}
-
 .col-title {
-    flex: 1;
     font-weight: 500;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-family: var(--font-sans);
 }
 
 .col-year {
-    flex: 0 0 60px;
     font-family: var(--font-mono);
     font-weight: 400;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: #888;
     -webkit-font-smoothing: none;
 }
 
 .col-genre {
-    flex: 0 0 160px;
     font-family: var(--font-mono);
     font-weight: 400;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     text-align: right;
     -webkit-font-smoothing: none;
 }
@@ -257,6 +229,7 @@ details[open] .project-row .hover-preview {
     display: block;
 }
 
+/* Reduced size Hover Preview */
 .hover-preview {
     position: fixed;
     top: 50%;
@@ -315,7 +288,7 @@ details[open] .project-row .hover-preview {
     transition: opacity 0.2s ease;
     padding: 1rem;
     text-align: center;
-    pointer-events: none; /* Let clicks pass through to trigger Lightbox */
+    pointer-events: none; 
 }
 
 @media (hover: hover) { .photo-card:hover .photo-overlay { opacity: 1; } }
@@ -341,6 +314,7 @@ details[open] .project-row .hover-preview {
     background: rgba(244, 244, 240, 0.97);
     z-index: 1000;
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
@@ -348,10 +322,25 @@ details[open] .project-row .hover-preview {
 }
 .lightbox.active { display: flex; }
 .lightbox img {
-    max-width: 100%; max-height: 100%;
+    max-width: 100%; 
+    max-height: 80vh;
     object-fit: contain;
     border: 1px solid var(--border-color);
     box-shadow: 12px 12px 0px rgba(0,0,0,1);
+}
+.lightbox-meta {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+.lightbox-meta .photo-title {
+    font-size: 1.25rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+.lightbox-meta .photo-meta-text {
+    font-size: 0.95rem;
+    font-family: var(--font-mono);
+    color: #555;
 }
 .lightbox-close {
     position: absolute;
@@ -401,9 +390,7 @@ details[open] .project-row .hover-preview {
 }
 
 /* ---------------- ABOUT RESUME TIMELINE (NEW CLEAN GRID) ---------------- */
-.resume-section {
-    margin-bottom: 4rem;
-}
+.resume-section { margin-bottom: 4rem; }
 
 .resume-header {
     font-family: var(--font-mono);
@@ -483,11 +470,7 @@ details[open] .project-row .hover-preview {
     height: 28px;
     width: auto;
     display: block;
-    transition: filter 0.15s ease;
-}
-/* Converts Black SVG to vivid Red */
-.rgd-logo:hover {
-    filter: invert(27%) sepia(91%) saturate(7460%) hue-rotate(355deg) brightness(94%) contrast(115%);
+    cursor: pointer;
 }
 
 .footer-links {
@@ -534,55 +517,77 @@ details[open] .project-row .hover-preview {
 @media (max-width: 900px) {
     body { padding: 1rem; }
     
+    .desktop-logo { display: none !important; }
+    .mobile-logo { display: block; }
+    .mobile-logo img { height: 32px; filter: invert(1); display: block; }
+    
     .site-header { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     
     .site-nav { 
         width: 100%; 
-        justify-content: space-between; 
+        justify-content: flex-start; 
+        gap: 1.5rem;
         border-top: 1px dashed var(--border-color); 
         padding-top: 1rem; 
     }
     
     .site-nav a.mobile-hide { display: none !important; }
 
-    /* Directory Lists Mobile Fixes */
+    /* Directory Lists Mobile App-Style Fixes */
     .project-row { 
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: auto auto;
-        gap: 0 0.5rem;
-        padding: 1rem 3rem 1rem 0; /* Room for + icon */
+        grid-template-columns: 48px 1fr 24px;
+        grid-template-areas: 
+            "thumb title icon"
+            "thumb sub   icon";
+        gap: 0.2rem 1rem;
+        padding: 1rem 0; 
     }
     
-    .project-row::after { right: 0.5rem; } /* Shift accordion icon */
-    
-    .col-id { display: none; } 
-    
-    .col-title { 
-        grid-column: 1 / 3; 
-        grid-row: 1; 
-        margin: 0; 
-        font-size: 1.1rem; 
-        margin-bottom: 0.1rem; 
+    .project-row::after { 
+        grid-area: icon; 
+        position: static; 
+        transform: none; 
     }
-    .col-year, .col-genre { 
-        display: inline-block; 
-        font-size: 0.8rem; 
-        align-self: start; 
+    
+    /* Native square thumbnail visible on mobile row */
+    .project-row .hover-preview {
+        display: block !important;
+        position: static;
+        grid-area: thumb;
+        width: 48px;
+        height: 48px;
+        transform: none;
+        box-shadow: none;
+        border-radius: 0;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
-    .col-year { grid-column: 1; grid-row: 2; margin-right: 0.25rem;}
-    .col-genre { grid-column: 2; grid-row: 2; text-align: left; }
+
+    .col-title { grid-area: title; margin: 0; font-size: 1.1rem; }
+    .col-year { grid-area: sub; font-size: 0.85rem; justify-self: start; }
+    .col-genre { grid-area: sub; font-size: 0.85rem; text-align: left; margin-left: 3.5rem; }
+    
     .col-year::after { content: " / "; margin-left: 0.25rem; opacity: 0.5; }
     
-    /* Optimize Expanded Views on Mobile */
     .project-expanded-content { padding: 1.5rem 1rem; }
     .project-description { font-size: 0.95rem; }
     .project-gallery img, .project-gallery iframe { max-height: 350px; border-radius: 0; }
     
-    /* Disable floating hover completely on touch */
-    .hover-preview { display: none !important; }
+    /* Photography Mobile Grid (2 Columns + Native Metadata) */
+    .photo-masonry { column-count: 2; }
     
-    .photo-masonry { column-count: 1; }
+    .photo-overlay {
+        position: static;
+        opacity: 1;
+        background: transparent;
+        padding: 0.5rem 0 0 0;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .photo-title { font-size: 1rem; margin-bottom: 0.15rem; }
+    .photo-meta-text { font-size: 0.8rem; }
+    
     .video-grid { grid-template-columns: 1fr; }
     
     /* About Page Mobile Fixes */
@@ -613,4 +618,9 @@ details[open] .project-row .hover-preview {
     
     .footer-mobile-right .mono-text { font-size: 0.85rem; }
     .footer-mobile-left .footer-links { gap: 0.5rem; margin-left: -6px; }
+}
+
+@media (max-width: 400px) {
+    /* Locks to 2 columns even on the smallest phones */
+    .photo-masonry { column-count: 2; }
 }
