@@ -16,14 +16,9 @@
 
 <header class="site-header">
     <div class="header-content">
-        <!-- Canvas linked back home on subpages -->
         <a href="index.html" class="identity desktop-logo" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
             <span class="fallback">Ayaan Ahmed</span>
             <canvas id="cv" aria-hidden="true"></canvas>
-        </a>
-        
-        <a href="index.html" class="mobile-logo">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
         </a>
     </div>
     
@@ -37,54 +32,53 @@
 
 <main>
     <div class="search-container">
-        <input type="text" id="project-search" placeholder="Search photography archive..." class="project-search-input">
+        <input type="text" id="project-search" placeholder="Search" class="project-search-input">
     </div>
 
-    <!-- Responsive CSS Fluid Grid (Native Aspect Ratios) -->
+    <!-- Cycle the City moved to Photography -->
     <div class="photo-masonry">
         
-        <div class="photo-card" onclick="this.classList.toggle('active')">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+        <div class="photo-card">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" alt="Cycle the City" loading="lazy">
             <div class="photo-overlay">
-                <span class="photo-title">Tokyo Disneyland</span>
-                <span class="photo-meta-text">2022 / Highlight</span>
+                <span class="photo-title">Cycle the City</span>
+                <span class="photo-meta-text">2023 / Toronto, Canada</span>
             </div>
         </div>
 
-        <div class="photo-card" onclick="this.classList.toggle('active')">
+        <div class="photo-card">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
-                <span class="photo-meta-text">2022 / Landscape</span>
+                <span class="photo-meta-text">2022 / Tokyo, Japan</span>
             </div>
         </div>
 
-        <div class="photo-card" onclick="this.classList.toggle('active')">
+        <!-- Repeated placeholders just for structural masonry display -->
+        <div class="photo-card">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
-                <span class="photo-meta-text">2022 / Cityscape</span>
+                <span class="photo-meta-text">2022 / Tokyo, Japan</span>
             </div>
         </div>
 
-        <div class="photo-card" onclick="this.classList.toggle('active')">
+        <div class="photo-card">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
-                <span class="photo-meta-text">2022 / Animal</span>
-            </div>
-        </div>
-
-        <div class="photo-card" onclick="this.classList.toggle('active')">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
-            <div class="photo-overlay">
-                <span class="photo-title">Tokyo Disneyland</span>
-                <span class="photo-meta-text">2022 / Misc</span>
+                <span class="photo-meta-text">2022 / Tokyo, Japan</span>
             </div>
         </div>
 
     </div>
 </main>
+
+<!-- Hidden Lightbox Container -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close">x</button>
+    <img id="lightbox-img" src="" alt="Full Screen Photo">
+</div>
 
 <footer class="site-footer">
     <div class="footer-desktop">
@@ -121,6 +115,23 @@
 </footer>
 
 <script>
+// Lightbox Logic
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.photo-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const imgSrc = card.querySelector('img').src;
+        lightboxImg.src = imgSrc;
+        lightbox.classList.add('active');
+    });
+});
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+}
+
+// Search
 const searchInput = document.getElementById('project-search');
 if (searchInput) {
     searchInput.addEventListener('input', (e) => {
@@ -152,9 +163,9 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
     const W      = 140;    
     const LOGO_W = 70;     
     const CELL   = 2;      
-    const STEP   = 55;     
-    const SPREAD = 480;    
-    const MOVE   = 820;    
+    const STEP   = 35;     
+    const SPREAD = 200;    
+    const MOVE   = 400;    
     const WAIT   = 5500;   
     const HOLD   = 3000;   
 
@@ -408,7 +419,7 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
         fbFrom = fbMoving ? fbProg : (next ? 0 : 1);
         fbTo = next ? 1 : 0;
         fbT0 = now; fbLast = -1; fbMoving = true;
-        fbDur = 1100 * Math.max(0.3, Math.abs(fbTo - fbFrom));
+        fbDur = 400 * Math.max(0.3, Math.abs(fbTo - fbFrom));
         raf = requestAnimationFrame(frameFallback);
         return;
       }
