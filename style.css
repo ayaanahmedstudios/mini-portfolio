@@ -41,12 +41,13 @@ body {
 /* 
   CANVAS ANIMATION WRAPPERS 
   Strictly locks the container so the DOM NEVER shifts or shakes 
+  Now used globally for both Desktop and Mobile
 */
 .identity {
     position: relative;
     display: flex;
     align-items: center;
-    width: 140px; /* Slightly smaller as requested */
+    width: 140px; 
     height: 36px;
     cursor: pointer;
     outline: none;
@@ -59,7 +60,7 @@ body {
 
 .identity .fallback {
     font-family: var(--font-mono);
-    font-size: 22px;
+    font-size: 24px; /* Slightly smaller to fit cleanly */
     line-height: 1;
     letter-spacing: .02em;
     font-weight: 400;
@@ -73,10 +74,6 @@ body {
     clip: rect(0 0 0 0);
     white-space: nowrap;
 }
-
-/* Desktop vs Mobile Logo Swap */
-.desktop-logo { display: flex; }
-.mobile-logo { display: none; }
 
 .site-nav {
     display: flex;
@@ -109,7 +106,8 @@ body {
 
 /* ---------------- SEARCH BAR ---------------- */
 .search-container {
-    margin-bottom: 3rem;
+    margin-top: 4rem; /* Pushed away from header */
+    margin-bottom: 1.5rem; /* Pulled closer to content */
     border-bottom: 1px solid var(--border-color); 
 }
 
@@ -120,7 +118,7 @@ body {
     font-family: var(--font-mono);
     font-size: 1rem;
     color: var(--text-color);
-    padding: 0.5rem 0 1rem 0;
+    padding: 0.5rem 0 0.75rem 0;
     outline: none;
     -webkit-font-smoothing: none;
 }
@@ -131,27 +129,56 @@ body {
 .project-directory {
     list-style: none;
     padding: 0;
-    margin: 0 0 4rem 0;
+    margin: 0 0 5rem 0; /* Extends empty space before footer */
 }
 
-.project-item { border-bottom: 1px solid var(--border-color); }
+.project-item { 
+    border-bottom: 1px solid var(--border-color); 
+}
+
+/* Removes double line right before footer */
+.project-item:last-child {
+    border-bottom: none; 
+}
 
 details { width: 100%; }
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 
 .project-row {
+    position: relative;
     display: flex;
     align-items: center;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 3rem 0.75rem 1rem; /* Extra right padding for the + icon */
     cursor: crosshair;
     transition: background-color 0s, color 0s; 
+}
+
+/* Pixelated Accordion Icons (+ and x) */
+.project-row::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-mono);
+    font-size: 1.4rem;
+    color: var(--text-color);
+    line-height: 1;
+    -webkit-font-smoothing: none;
+}
+
+details[open] .project-row::after {
+    content: 'x';
+    font-size: 1.2rem;
+    color: var(--hover-text);
 }
 
 .project-row:hover {
     background-color: var(--hover-bg);
     color: var(--hover-text);
 }
+.project-row:hover::after { color: var(--hover-text); }
 
 details[open] .project-row {
     background-color: var(--hover-bg);
@@ -163,27 +190,36 @@ details[open] .project-row .hover-preview {
     display: none !important;
 }
 
+/* Slightly scaled down columns to prevent wrapping */
+.col-id {
+    flex: 0 0 45px;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.9rem;
+    -webkit-font-smoothing: none;
+}
+
 .col-title {
     flex: 1;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-family: var(--font-sans);
 }
 
 .col-year {
-    flex: 0 0 80px;
+    flex: 0 0 60px;
     font-family: var(--font-mono);
     font-weight: 400;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: #888;
     -webkit-font-smoothing: none;
 }
 
 .col-genre {
-    flex: 0 0 180px;
+    flex: 0 0 160px;
     font-family: var(--font-mono);
     font-weight: 400;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     text-align: right;
     -webkit-font-smoothing: none;
 }
@@ -197,7 +233,7 @@ details[open] .project-row .hover-preview {
 
 .project-description {
     font-family: var(--font-sans);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     max-width: 65ch;
     margin: 0 0 1rem 0;
     line-height: 1.6;
@@ -221,7 +257,6 @@ details[open] .project-row .hover-preview {
     display: block;
 }
 
-/* Reduced size Hover Preview */
 .hover-preview {
     position: fixed;
     top: 50%;
@@ -248,7 +283,7 @@ details[open] .project-row .hover-preview {
 
 /* ---------------- PHOTOGRAPHY (MASONRY METADATA GRID) ---------------- */
 .photo-masonry {
-    column-width: 350px; /* Fluid columns, dynamically sizes photos larger */
+    column-width: 350px; 
     column-gap: 1.5rem;
     margin-bottom: 4rem;
 }
@@ -259,7 +294,7 @@ details[open] .project-row .hover-preview {
     break-inside: avoid;
     border: 1px solid var(--border-color);
     background: var(--bg-color);
-    cursor: crosshair;
+    cursor: zoom-in;
 }
 
 .photo-card img {
@@ -280,10 +315,10 @@ details[open] .project-row .hover-preview {
     transition: opacity 0.2s ease;
     padding: 1rem;
     text-align: center;
+    pointer-events: none; /* Let clicks pass through to trigger Lightbox */
 }
 
 @media (hover: hover) { .photo-card:hover .photo-overlay { opacity: 1; } }
-.photo-card.active .photo-overlay { opacity: 1; }
 
 .photo-title {
     font-family: var(--font-sans);
@@ -296,6 +331,35 @@ details[open] .project-row .hover-preview {
     font-family: var(--font-mono);
     font-size: 0.85rem;
     color: #555;
+    -webkit-font-smoothing: none;
+}
+
+/* Lightbox Styling */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(244, 244, 240, 0.97);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    cursor: zoom-out;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+    max-width: 100%; max-height: 100%;
+    object-fit: contain;
+    border: 1px solid var(--border-color);
+    box-shadow: 12px 12px 0px rgba(0,0,0,1);
+}
+.lightbox-close {
+    position: absolute;
+    top: 2rem; right: 2rem;
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    cursor: pointer;
+    background: none; border: none; color: var(--text-color);
     -webkit-font-smoothing: none;
 }
 
@@ -320,9 +384,10 @@ details[open] .project-row .hover-preview {
     background: #000;
 }
 
-.video-wrapper iframe {
+.video-wrapper iframe, .video-wrapper img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .video-meta {
@@ -330,18 +395,12 @@ details[open] .project-row .hover-preview {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    -webkit-font-smoothing: none;
-}
-
-.video-title {
     font-family: var(--font-sans);
     font-weight: 500;
     font-size: 1.05rem;
 }
 
-/* ---------------- ABOUT RESUME TIMELINE (VERTICAL LINE STYLE) ---------------- */
+/* ---------------- ABOUT RESUME TIMELINE (NEW CLEAN GRID) ---------------- */
 .resume-section {
     margin-bottom: 4rem;
 }
@@ -350,48 +409,33 @@ details[open] .project-row .hover-preview {
     font-family: var(--font-mono);
     font-size: 1.2rem;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
     -webkit-font-smoothing: none;
 }
 
-.timeline-container {
-    border-left: 2px solid var(--border-color);
-    padding-left: 1.5rem;
-    margin-left: 0.5rem;
-}
-
 .resume-row {
-    position: relative;
     display: flex;
-    padding: 0 0 2.5rem 0;
-    border-bottom: none !important; /* Forces no horizontal lines */
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.1);
 }
-
-.resume-row::before {
-    content: '';
-    position: absolute;
-    left: -1.95rem;
-    top: 0.35rem;
-    width: 12px;
-    height: 12px;
-    background: var(--text-color);
-    border-radius: 50%;
-}
+.resume-row:last-child { border-bottom: none; }
 
 .resume-date {
     flex: 0 0 160px;
     font-family: var(--font-mono);
-    font-size: 0.95rem;
-    color: #444;
+    font-size: 0.9rem;
+    color: #666;
     -webkit-font-smoothing: none;
 }
 
 .resume-content {
     flex: 1;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.15rem;
 }
 
 .resume-role {
@@ -401,8 +445,8 @@ details[open] .project-row .hover-preview {
 
 .resume-company {
     font-family: var(--font-mono);
-    font-size: 0.95rem;
-    text-align: right;
+    font-size: 0.85rem;
+    color: #555;
     -webkit-font-smoothing: none;
 }
 
@@ -410,7 +454,7 @@ details[open] .project-row .hover-preview {
 .site-footer {
     border-top: 1px solid var(--border-color);
     padding-top: 1.5rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 
 .footer-desktop {
@@ -429,12 +473,6 @@ details[open] .project-row .hover-preview {
     gap: 1rem;
 }
 
-.raw-logo {
-    height: 32px;
-    width: auto;
-    filter: invert(1);
-}
-
 .footer-center {
     position: absolute;
     left: 50%;
@@ -445,6 +483,11 @@ details[open] .project-row .hover-preview {
     height: 28px;
     width: auto;
     display: block;
+    transition: filter 0.15s ease;
+}
+/* Converts Black SVG to vivid Red */
+.rgd-logo:hover {
+    filter: invert(27%) sepia(91%) saturate(7460%) hue-rotate(355deg) brightness(94%) contrast(115%);
 }
 
 .footer-links {
@@ -491,10 +534,6 @@ details[open] .project-row .hover-preview {
 @media (max-width: 900px) {
     body { padding: 1rem; }
     
-    .desktop-logo { display: none !important; }
-    .mobile-logo { display: block; }
-    .mobile-logo img { height: 32px; filter: invert(1); display: block; }
-    
     .site-header { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     
     .site-nav { 
@@ -506,60 +545,49 @@ details[open] .project-row .hover-preview {
     
     .site-nav a.mobile-hide { display: none !important; }
 
-    /* New Mobile App-Style Project Rows */
+    /* Directory Lists Mobile Fixes */
     .project-row { 
         display: grid;
-        grid-template-columns: 60px 1fr;
+        grid-template-columns: auto 1fr;
         grid-template-rows: auto auto;
-        gap: 0.25rem 1rem;
-        align-items: center;
-        padding: 1rem 0; 
-        position: relative;
+        gap: 0 0.5rem;
+        padding: 1rem 3rem 1rem 0; /* Room for + icon */
     }
     
-    /* Adds a sleek expanding '+' sign on mobile instead of relying on hovering */
-    .project-row::after {
-        content: '+';
-        position: absolute;
-        right: 0.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.5rem;
-        font-family: var(--font-sans);
-        color: #555;
+    .project-row::after { right: 0.5rem; } /* Shift accordion icon */
+    
+    .col-id { display: none; } 
+    
+    .col-title { 
+        grid-column: 1 / 3; 
+        grid-row: 1; 
+        margin: 0; 
+        font-size: 1.1rem; 
+        margin-bottom: 0.1rem; 
     }
-    details[open] .project-row::after { content: '−'; }
-
-    /* Show thumbnail natively inside the row on mobile */
-    .project-row .hover-preview {
-        display: block !important;
-        position: static;
-        transform: none;
-        width: 60px;
-        height: 60px;
-        grid-row: 1 / 3;
-        grid-column: 1;
-        box-shadow: none;
-        border-radius: 4px;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
+    .col-year, .col-genre { 
+        display: inline-block; 
+        font-size: 0.8rem; 
+        align-self: start; 
     }
-
-    .col-title { grid-column: 2; grid-row: 1; margin: 0; font-size: 1.1rem; padding-right: 2rem; }
-    .col-year, .col-genre { display: inline-block; font-size: 0.85rem; }
+    .col-year { grid-column: 1; grid-row: 2; margin-right: 0.25rem;}
     .col-genre { grid-column: 2; grid-row: 2; text-align: left; }
-    .col-year { display: none; } /* Kept clean, genre tells the story on mobile */
+    .col-year::after { content: " / "; margin-left: 0.25rem; opacity: 0.5; }
     
+    /* Optimize Expanded Views on Mobile */
+    .project-expanded-content { padding: 1.5rem 1rem; }
+    .project-description { font-size: 0.95rem; }
+    .project-gallery img, .project-gallery iframe { max-height: 350px; border-radius: 0; }
+    
+    /* Disable floating hover completely on touch */
+    .hover-preview { display: none !important; }
+    
+    .photo-masonry { column-count: 1; }
     .video-grid { grid-template-columns: 1fr; }
     
-    /* Timeline Mobile Fixes */
-    .timeline-container { padding-left: 1.5rem; }
-    .resume-row::before { left: -1.9rem; }
-    .resume-row { flex-direction: column; gap: 0.25rem; padding-bottom: 2.5rem; }
-    .resume-date { flex: none; font-size: 0.85rem; color: #666; margin-bottom: 0.25rem; }
-    .resume-content { flex-direction: column; gap: 0.25rem; }
-    .resume-company { text-align: left; color: #555; }
+    /* About Page Mobile Fixes */
+    .resume-row { flex-direction: column; gap: 0.25rem; padding: 1.25rem 0; }
+    .resume-date { flex: none; margin-bottom: 0; }
     
     /* Mobile Footer Split */
     .footer-desktop { display: none; }
@@ -583,12 +611,6 @@ details[open] .project-row .hover-preview {
         text-align: right;
     }
     
-    .footer-mobile-right .mono-text {
-        font-size: 0.85rem;
-    }
-    
-    .footer-mobile-left .footer-links {
-        gap: 0.5rem;
-        margin-left: -6px; 
-    }
+    .footer-mobile-right .mono-text { font-size: 0.85rem; }
+    .footer-mobile-left .footer-links { gap: 0.5rem; margin-left: -6px; }
 }
