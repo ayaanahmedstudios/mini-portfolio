@@ -27,29 +27,11 @@ body {
 .site-header {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Vertically perfectly centers */
-    border-bottom: 2px solid var(--border-color);
+    align-items: center; 
+    /* Removed the bottom border here to prevent stacking lines */
     padding-bottom: 1rem;
-    margin-bottom: 2rem;
     flex-wrap: wrap;
     gap: 1.5rem;
-}
-
-.header-content h1 {
-    font-size: 2.75rem; /* Increased size */
-    font-family: var(--font-mono); /* Force Geist Pixel */
-    font-weight: 400; /* No fake bolding */
-    margin: 0;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    -webkit-font-smoothing: none;
-    display: inline-block;
-    min-height: 2.75rem; /* Prevents layout shifting when text disappears */
-}
-
-/* Color state for the scramble generation effect */
-.pixel-dud {
-    color: #888;
 }
 
 .header-content a {
@@ -57,9 +39,44 @@ body {
     text-decoration: none;
 }
 
-/* Desktop text name */
-.desktop-logo { display: block; }
-/* Mobile visual logo */
+/* 
+  CANVAS ANIMATION WRAPPERS 
+  These dimensions strictly lock the container so the DOM NEVER shifts or shakes 
+*/
+.identity {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 168px;
+    height: 44px;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.identity canvas { 
+    display: block; 
+}
+
+.identity .fallback {
+    font-family: var(--font-mono);
+    font-size: 26px;
+    line-height: 1;
+    letter-spacing: .02em;
+    font-weight: 400;
+}
+.identity.ready .fallback { display: none; }
+
+.sr {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Desktop vs Mobile Logo Swap */
+.desktop-logo { display: flex; }
 .mobile-logo { display: none; }
 
 .site-nav {
@@ -93,8 +110,8 @@ body {
 
 /* ---------------- SEARCH BAR ---------------- */
 .search-container {
-    margin-bottom: 2rem;
-    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color); /* Single, unifying 1px line */
 }
 
 .project-search-input {
@@ -112,8 +129,6 @@ body {
 .project-search-input::placeholder { color: #888; }
 
 /* ---------------- GRAPHIC DESIGN DIRECTORY ---------------- */
-/* Note: Directory Column Headers Removed Completely */
-
 .project-directory {
     list-style: none;
     padding: 0;
@@ -145,7 +160,6 @@ details[open] .project-row {
     border-bottom: 1px dashed var(--border-color);
 }
 
-/* Kills hover preview when expanded */
 details[open] .project-row .hover-preview {
     display: none !important;
 }
@@ -182,15 +196,12 @@ details[open] .project-row .hover-preview {
     -webkit-font-smoothing: none;
 }
 
-/* EXPANDED CONTENT */
 .project-expanded-content {
     padding: 3rem 1rem;
     background-color: #ebebe5; 
 }
 
-.project-text {
-    margin-bottom: 3rem;
-}
+.project-text { margin-bottom: 3rem; }
 
 .project-description {
     font-family: var(--font-sans);
@@ -218,7 +229,6 @@ details[open] .project-row .hover-preview {
     display: block;
 }
 
-/* Reduced size Hover Preview */
 .hover-preview {
     position: fixed;
     top: 50%;
@@ -228,9 +238,9 @@ details[open] .project-row .hover-preview {
     height: auto;
     aspect-ratio: 1/1;
     object-fit: cover;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     background: var(--bg-color);
-    box-shadow: 10px 10px 0px rgba(0,0,0,1);
+    box-shadow: 8px 8px 0px rgba(0,0,0,1);
     z-index: 100;
     pointer-events: none;
     opacity: 0;
@@ -245,14 +255,14 @@ details[open] .project-row .hover-preview {
 
 /* ---------------- PHOTOGRAPHY (MASONRY METADATA GRID) ---------------- */
 .photo-masonry {
-    column-count: 3;
+    column-count: 2; /* Dropped to 2 columns to enlarge photos as requested */
     column-gap: 1.5rem;
     margin-bottom: 4rem;
 }
 
 .photo-card {
     position: relative;
-    margin-bottom: 1.5rem; /* acts as row-gap */
+    margin-bottom: 1.5rem; 
     break-inside: avoid;
     border: 1px solid var(--border-color);
     background: var(--bg-color);
@@ -265,7 +275,6 @@ details[open] .project-row .hover-preview {
     display: block;
 }
 
-/* Hidden by default, appears on desktop hover or mobile tap */
 .photo-overlay {
     position: absolute;
     inset: 0;
@@ -280,13 +289,8 @@ details[open] .project-row .hover-preview {
     text-align: center;
 }
 
-@media (hover: hover) {
-    .photo-card:hover .photo-overlay { opacity: 1; }
-}
-@media (hover: none) {
-    .photo-card:active .photo-overlay,
-    .photo-card:focus .photo-overlay { opacity: 1; }
-}
+@media (hover: hover) { .photo-card:hover .photo-overlay { opacity: 1; } }
+@media (hover: none) { .photo-card:active .photo-overlay, .photo-card:focus .photo-overlay { opacity: 1; } }
 
 .photo-title {
     font-family: var(--font-sans);
@@ -344,30 +348,44 @@ details[open] .project-row .hover-preview {
     font-size: 1.05rem;
 }
 
-/* ---------------- ABOUT RESUME TIMELINE ---------------- */
+/* ---------------- ABOUT RESUME TIMELINE (VERTICAL LINE STYLE) ---------------- */
 .resume-section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .resume-header {
     font-family: var(--font-mono);
     font-size: 1.2rem;
     text-transform: uppercase;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
     -webkit-font-smoothing: none;
 }
 
-.resume-row {
-    display: flex;
-    border-bottom: 1px solid var(--border-color);
-    padding: 1rem 0;
+.timeline-container {
+    border-left: 2px solid var(--border-color);
+    padding-left: 2rem;
+    margin-left: 0.5rem;
 }
 
-/* Prevents double-lines at the bottom of the page before the footer */
-.resume-row:last-child {
-    border-bottom: none;
+.resume-row {
+    position: relative;
+    display: flex;
+    padding: 0 0 2.5rem 0;
+}
+
+/* Timeline nodes */
+.resume-row::before {
+    content: '';
+    position: absolute;
+    left: -2.4rem;
+    top: 0.25rem;
+    width: 12px;
+    height: 12px;
+    background: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
 }
 
 .resume-date {
@@ -400,12 +418,11 @@ details[open] .project-row .hover-preview {
 
 /* ---------------- FOOTER SYSTEM ---------------- */
 .site-footer {
-    border-top: 2px solid var(--border-color);
-    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
     margin-top: 4rem;
 }
 
-/* Desktop Footer Layout */
 .footer-desktop {
     display: flex;
     justify-content: space-between;
@@ -484,7 +501,6 @@ details[open] .project-row .hover-preview {
 @media (max-width: 900px) {
     body { padding: 1rem; }
     
-    /* Swap Name for Logo */
     .desktop-logo { display: none !important; }
     .mobile-logo { display: block; }
     .mobile-logo img { height: 32px; filter: invert(1); display: block; }
@@ -500,54 +516,26 @@ details[open] .project-row .hover-preview {
     
     .site-nav a.mobile-hide { display: none !important; }
 
-    /* Directory Lists Mobile Space Fixes */
-    .directory-header { display: none; }
-    
-    .project-row { 
-        flex-wrap: wrap; 
-        padding: 1rem 0; 
-    }
+    .project-row { flex-wrap: wrap; padding: 1rem 0; }
     .col-id { display: none; } 
+    .col-title { flex: 1 1 100%; font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .col-year, .col-genre { flex: auto; text-align: left; font-size: 0.85rem; }
+    .col-year::after { content: " / "; margin: 0 6px; opacity: 0.5; }
     
-    .col-title { 
-        flex: 1 1 100%; 
-        font-size: 1.25rem; 
-        margin-bottom: 0.25rem; 
-    }
-    .col-year, .col-genre { 
-        flex: auto; 
-        text-align: left; 
-        font-size: 0.85rem; 
-    }
-    .col-year::after { 
-        content: " / "; 
-        margin: 0 6px; 
-        opacity: 0.5;
-    }
-    
-    /* Nuke hover previews on mobile entirely. Users tap to see inside accordion. */
     .hover-preview { display: none !important; }
     
-    /* Masonry & Grids */
-    .photo-masonry { column-count: 2; }
+    .photo-masonry { column-count: 1; }
     .video-grid { grid-template-columns: 1fr; }
     
-    /* About Page Mobile Fixes */
-    .resume-row { 
-        flex-direction: column; 
-        padding: 1.25rem 0; 
-        gap: 0.25rem; 
-    }
-    .resume-date { 
-        flex: none; 
-        font-size: 0.85rem; 
-        color: #666; 
-        margin-bottom: 0.25rem; 
-    }
+    /* Timeline Mobile Fixes */
+    .timeline-container { padding-left: 1.5rem; }
+    .resume-row::before { left: -1.9rem; }
+    .resume-row { flex-direction: column; gap: 0.25rem; padding-bottom: 2rem; }
+    .resume-date { flex: none; font-size: 0.85rem; color: #666; margin-bottom: 0.25rem; }
     .resume-content { flex-direction: column; gap: 0.25rem; }
     .resume-company { text-align: left; color: #555; }
     
-    /* Complex Mobile Footer Layout Split */
+    /* Mobile Footer Split */
     .footer-desktop { display: none; }
     
     .footer-mobile {
@@ -569,17 +557,8 @@ details[open] .project-row .hover-preview {
         text-align: right;
     }
     
-    .footer-mobile-right .mono-text {
-        font-size: 0.85rem;
-    }
-    
-    /* Align mobile icons cleanly to the left edge */
     .footer-mobile-left .footer-links {
         gap: 0.5rem;
         margin-left: -6px; 
     }
-}
-
-@media (max-width: 600px) {
-    .photo-masonry { column-count: 1; }
 }
