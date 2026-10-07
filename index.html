@@ -11,16 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
+    <!-- Links to shared logic -->
+    <script src="script.js" defer></script>
 </head>
 <body>
 
 <header class="site-header">
     <div class="header-content">
-        <!-- Generative Text Logo works flawlessly on desktop & mobile -->
-        <div class="identity" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
+        <div class="identity desktop-logo" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
             <span class="fallback">Ayaan Ahmed</span>
             <canvas id="cv" aria-hidden="true"></canvas>
         </div>
+        
+        <a href="index.html" class="mobile-logo">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
+        </a>
     </div>
     
     <nav class="site-nav">
@@ -36,13 +41,12 @@
         <input type="text" id="project-search" placeholder="Search" class="project-search-input">
     </div>
 
-    <!-- Sorted & Indexed List -->
     <ul class="project-directory" id="directory-list">
         
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">01</span><span class="col-title">Ayaan Ahmed</span><span class="col-year">2024</span><span class="col-genre">Brand Identity</span>
+                    <span class="col-title">Ayaan Ahmed</span><span class="col-year">2024</span><span class="col-genre">Brand Identity</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_3_ggabfb.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -60,7 +64,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">02</span><span class="col-title">Blue Tiger Inc Studios</span><span class="col-year">2024</span><span class="col-genre">Brand Identity</span>
+                    <span class="col-title">Blue Tiger Inc Studios</span><span class="col-year">2024</span><span class="col-genre">Brand Identity</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403661/Ayaan_Ahmed_Graphic_Design_Portfolio_6_qg5shm.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -78,7 +82,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">03</span><span class="col-title">Ayaan Was Here</span><span class="col-year">2024</span><span class="col-genre">Brand Identity</span>
+                    <span class="col-title">Ayaan Was Here</span><span class="col-year">2024</span><span class="col-genre">Brand Identity</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_4_ak2i6o.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -96,7 +100,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">04</span><span class="col-title">Finite Grids</span><span class="col-year">2023</span><span class="col-genre">Web Design</span>
+                    <span class="col-title">Finite Grids</span><span class="col-year">2023</span><span class="col-genre">Web Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_15_zoyikw.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -109,7 +113,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">05</span><span class="col-title">It's a Small World</span><span class="col-year">2023</span><span class="col-genre">Web Design + Data</span>
+                    <span class="col-title">It's a Small World</span><span class="col-year">2023</span><span class="col-genre">Web Design + Data Visualization</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_31_mwws3b.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -122,7 +126,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">06</span><span class="col-title">Film By Adnan</span><span class="col-year">2023</span><span class="col-genre">Rebrand</span>
+                    <span class="col-title">Film By Adnan</span><span class="col-year">2023</span><span class="col-genre">Rebrand</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_14_phg21l.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -137,11 +141,10 @@
             </details>
         </li>
 
-        <!-- MERGED CLIENT PROJECTS -->
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">07</span><span class="col-title">Film By Adnan Clients</span><span class="col-year">2023</span><span class="col-genre">Brand Identity</span>
+                    <span class="col-title">Film By Adnan Clients</span><span class="col-year">2023</span><span class="col-genre">Brand Identity</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403670/Ayaan_Ahmed_Graphic_Design_Portfolio_33_ojtibt.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -163,7 +166,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">08</span><span class="col-title">Bhopali Bold</span><span class="col-year">2023</span><span class="col-genre">Typeface Design</span>
+                    <span class="col-title">Bhopali Bold</span><span class="col-year">2023</span><span class="col-genre">Typeface Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403660/Ayaan_Ahmed_Graphic_Design_Portfolio_5_vyzlsn.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -176,7 +179,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">09</span><span class="col-title">Typography Along Yonge</span><span class="col-year">2023</span><span class="col-genre">Typography + Book</span>
+                    <span class="col-title">Typography Along Yonge</span><span class="col-year">2023</span><span class="col-genre">Typography + Book</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403670/Ayaan_Ahmed_Graphic_Design_Portfolio_36_ehmntk.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -189,7 +192,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">10</span><span class="col-title">Japan by Ayaan</span><span class="col-year">2023</span><span class="col-genre">Web Design</span>
+                    <span class="col-title">Japan by Ayaan</span><span class="col-year">2023</span><span class="col-genre">Web Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_20_jdrtd1.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -202,7 +205,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">11</span><span class="col-title">Rhymes with Video</span><span class="col-year">2023</span><span class="col-genre">AR Poster</span>
+                    <span class="col-title">Rhymes with Video</span><span class="col-year">2023</span><span class="col-genre">AR Poster</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_29_qwjtdw.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -215,7 +218,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">12</span><span class="col-title">Confounding Tools</span><span class="col-year">2022</span><span class="col-genre">Poster Design</span>
+                    <span class="col-title">Confounding Tools</span><span class="col-year">2022</span><span class="col-genre">Poster Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_9_dy4f0p.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -233,7 +236,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">13</span><span class="col-title">Flying Colors</span><span class="col-year">2022</span><span class="col-genre">Poster Design</span>
+                    <span class="col-title">Flying Colors</span><span class="col-year">2022</span><span class="col-genre">Poster Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_16_ktgxf7.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -251,7 +254,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">14</span><span class="col-title">ID of the Future</span><span class="col-year">2022</span><span class="col-genre">Speculative Design</span>
+                    <span class="col-title">ID of the Future</span><span class="col-year">2022</span><span class="col-genre">Speculative Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_19_jct49w.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -264,7 +267,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">15</span><span class="col-title">Designed for Good</span><span class="col-year">2022</span><span class="col-genre">Print Design</span>
+                    <span class="col-title">Designed for Good</span><span class="col-year">2022</span><span class="col-genre">Print Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_13_mazzyu.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -282,7 +285,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">16</span><span class="col-title">Cinema VS Streaming</span><span class="col-year">2022</span><span class="col-genre">Data Visualization</span>
+                    <span class="col-title">Cinema VS Streaming</span><span class="col-year">2022</span><span class="col-genre">Data Visualization</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_8_eat5nd.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -300,7 +303,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">17</span><span class="col-title">Book of Designer Quotes</span><span class="col-year">2022</span><span class="col-genre">Book Design</span>
+                    <span class="col-title">Book of Designer Quotes</span><span class="col-year">2022</span><span class="col-genre">Book Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_7_u5hudc.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -318,7 +321,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">18</span><span class="col-title">Design Process Book</span><span class="col-year">2021</span><span class="col-genre">Physical Book Design</span>
+                    <span class="col-title">Design Process Book</span><span class="col-year">2021</span><span class="col-genre">Physical Book Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_12_ezq4jv.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -336,7 +339,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">19</span><span class="col-title">Jrew's Creations</span><span class="col-year">2021</span><span class="col-genre">Brand Identity</span>
+                    <span class="col-title">Jrew's Creations</span><span class="col-year">2021</span><span class="col-genre">Brand Identity</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403665/Ayaan_Ahmed_Graphic_Design_Portfolio_22_igqt4v.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -349,7 +352,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">20</span><span class="col-title">Kinetic Typography</span><span class="col-year">2021</span><span class="col-genre">Text Animation</span>
+                    <span class="col-title">Kinetic Typography</span><span class="col-year">2021</span><span class="col-genre">Text Animation</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_23_stcjv9.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -362,7 +365,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">21</span><span class="col-title">Magazines & Posters</span><span class="col-year">2021</span><span class="col-genre">Print Layout Designs</span>
+                    <span class="col-title">Magazines & Posters</span><span class="col-year">2021</span><span class="col-genre">Print Layout Designs</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_24_q6xrjo.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -375,7 +378,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">22</span><span class="col-title">Mesh Bag System</span><span class="col-year">2020</span><span class="col-genre">Bag Brand</span>
+                    <span class="col-title">Mesh Bag System</span><span class="col-year">2020</span><span class="col-genre">Bag Brand</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403666/Ayaan_Ahmed_Graphic_Design_Portfolio_25_m3icfs.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -388,7 +391,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">23</span><span class="col-title">Motion Studies</span><span class="col-year">2020</span><span class="col-genre">Animation</span>
+                    <span class="col-title">Motion Studies</span><span class="col-year">2020</span><span class="col-genre">Animation</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_26_knvm9l.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -401,7 +404,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">24</span><span class="col-title">Objects & Patterns</span><span class="col-year">2019</span><span class="col-genre">Design + Narrative</span>
+                    <span class="col-title">Objects & Patterns</span><span class="col-year">2019</span><span class="col-genre">Design + Narrative</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_27_rwbvpt.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -414,7 +417,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">25</span><span class="col-title">Paper Superstructures</span><span class="col-year">2019</span><span class="col-genre">Physical Design</span>
+                    <span class="col-title">Paper Superstructures</span><span class="col-year">2019</span><span class="col-genre">Physical Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_28_tejjkh.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -427,7 +430,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">26</span><span class="col-title">Crafted from Nature's Blueprints</span><span class="col-year">2019</span><span class="col-genre">Speculative Design</span>
+                    <span class="col-title">Crafted from Nature's Blueprints</span><span class="col-year">2019</span><span class="col-genre">Speculative Design</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403662/Ayaan_Ahmed_Graphic_Design_Portfolio_10_twbvsk.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -445,7 +448,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">27</span><span class="col-title">Streaming Dashboard</span><span class="col-year">2018</span><span class="col-genre">Data Visualization</span>
+                    <span class="col-title">Streaming Dashboard</span><span class="col-year">2018</span><span class="col-genre">Data Visualization</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_32_c787z5.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -458,7 +461,7 @@
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">28</span><span class="col-title">The Jeff Gang</span><span class="col-year">2017</span><span class="col-genre">Brand Identity</span>
+                    <span class="col-title">The Jeff Gang</span><span class="col-year">2017</span><span class="col-genre">Brand Identity</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403668/Ayaan_Ahmed_Graphic_Design_Portfolio_34_rk5ujq.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
@@ -468,26 +471,24 @@
             </details>
         </li>
 
-        <!-- MERGED HIGH SCHOOL PROJECTS -->
         <li class="project-item">
             <details>
                 <summary class="project-row">
-                    <span class="col-id">29</span><span class="col-title">High School Work</span><span class="col-year">2017</span><span class="col-genre">Archive</span>
+                    <span class="col-title">High School Work</span><span class="col-year">2017</span><span class="col-genre">Archive</span>
                     <img class="hover-preview" src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_18_l9mweq.webp" alt="Cover" loading="lazy">
                 </summary>
                 <div class="project-expanded-content">
                     <div class="project-text">
-                        <p class="project-description">A collection of early foundational design work completed during high school, showcasing early explorations in layout and identity.</p>
+                        <p class="project-description">A collection of early foundational design work completed during high school, showcasing explorations in layout and identity.</p>
                         <p class="project-description"><strong>Scholars' Blockbusters:</strong> An event identity designed for a school-wide film festival, focusing on bold typographic arrangements.</p>
                     </div>
                     <div class="project-gallery">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_18_l9mweq.webp" alt="High School Archive" loading="lazy">
-                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_30_p6qbgi.webp" alt="Scholars Blockbusters" loading="lazy">
+                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403664/Ayaan_Ahmed_Graphic_Design_Portfolio_18_l9mweq.webp" alt="Image" loading="lazy">
+                        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403667/Ayaan_Ahmed_Graphic_Design_Portfolio_30_p6qbgi.webp" alt="Image" loading="lazy">
                     </div>
                 </div>
             </details>
         </li>
-
     </ul>
 </main>
 
@@ -499,7 +500,7 @@
         
         <div class="footer-center">
             <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
-                <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
+                <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo" onmouseover="this.src='media/Student-RGD-Red.svg'" onmouseout="this.src='media/Student-RGD-Black.svg'">
             </a>
         </div>
 
@@ -514,7 +515,7 @@
     <div class="footer-mobile">
         <div class="footer-mobile-left">
             <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
-                <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo">
+                <img src="media/Student-RGD-Red.svg" alt="Student RGD Logo" class="rgd-logo">
             </a>
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
@@ -528,338 +529,5 @@
     </div>
 </footer>
 
-<script>
-// Search Bar Logic
-const searchInput = document.getElementById('project-search');
-if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-        const term = e.target.value.toLowerCase();
-        document.querySelectorAll('.project-item').forEach(item => {
-            const text = item.innerText.toLowerCase();
-            item.style.display = text.includes(term) ? 'block' : 'none';
-        });
-    });
-}
-
-// Auto-Update Copyright Year
-document.querySelectorAll('.year').forEach(el => {
-    el.textContent = new Date().getFullYear();
-});
-
-// Copy Email Logic
-document.querySelectorAll('.copy-email-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
-        const btnContent = btn.querySelector('.btn-content');
-        btnContent.innerHTML = 'Email copied';
-        btnContent.classList.add('copied-state');
-        setTimeout(() => {
-            btnContent.innerHTML = '<i class="ph ph-envelope-simple"></i>';
-            btnContent.classList.remove('copied-state');
-        }, 2000);
-    });
-});
-
-// Canvas Morph Animation
-(async () => {
-    const LOGO_SRC = "https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg";
-    const NAME   = "Ayaan Ahmed";
-    const W      = 140;    
-    const LOGO_W = 70;     
-    const CELL   = 2;      
-    const STEP   = 35; /* Sped up */    
-    const SPREAD = 200; /* Sped up */   
-    const MOVE   = 400; /* Sped up */   
-    const WAIT   = 5500;   
-    const HOLD   = 3000;   
-
-    const identity = document.getElementById("identity");
-    if (!identity) return;
-    const cv  = document.getElementById("cv");
-    const ctx = cv.getContext("2d");
-    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const dpr = Math.min(window.devicePixelRatio || 1, 3);
-    const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-    const ease  = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
-
-    const loadImg = cors => new Promise((res, rej) => {
-      const i = new Image();
-      if (cors) i.crossOrigin = "anonymous";
-      i.onload = () => res(i);
-      i.onerror = rej;
-      i.src = LOGO_SRC;
-    });
-
-    const fontReady = Promise.race([
-      (document.fonts ? document.fonts.load('100px "Geist Pixel"', NAME) : Promise.resolve()).catch(() => {}),
-      new Promise(r => setTimeout(r, 1500))
-    ]);
-
-    let img = null;
-    try { img = await loadImg(true); } catch { try { img = await loadImg(false); } catch { img = null; } }
-    await fontReady;
-
-    const FONT = px => `400 ${px}px "Geist Pixel", ui-monospace, "SF Mono", Menlo, monospace`;
-    const measure = document.createElement("canvas").getContext("2d");
-    measure.font = FONT(100);
-    const fs = Math.min(44, 100 * W / measure.measureText(NAME).width);
-
-    const ratio = img && img.naturalWidth && img.naturalHeight ? img.naturalHeight / img.naturalWidth : 0.2;
-    const LH = LOGO_W * ratio;
-    const H  = Math.ceil(Math.max(LH, fs * 1.3));
-
-    const cd   = Math.max(1, Math.round(CELL * dpr));          
-    const cols = Math.ceil(Math.round(W * dpr) / cd);
-    const rows = Math.ceil(Math.round(H * dpr) / cd);
-    const Wd = cols * cd, Hd = rows * cd;
-    cv.width = Wd; cv.height = Hd;
-    cv.style.width = (Wd / dpr) + "px"; cv.style.height = (Hd / dpr) + "px";
-
-    const logoWd = LOGO_W * Wd / W, logoHd = logoWd * ratio, logoY = (Hd - logoHd) / 2;
-
-    function drawText(c) {
-      c.save();
-      c.fillStyle = "#111111"; 
-      c.font = FONT(fs * Wd / W);
-      c.textBaseline = "middle";
-      c.textAlign = "left";
-      c.fillText(NAME, 0, Hd / 2 + fs * Wd / W * 0.03);
-      c.restore();
-    }
-    
-    function drawLogo(c) { 
-        if (img) {
-            c.save();
-            c.filter = "invert(1)"; 
-            c.drawImage(img, 0, logoY, logoWd, logoHd); 
-            c.restore();
-        }
-    }
-
-    function drawCrisp(mode) { ctx.clearRect(0, 0, Wd, Hd); ctx.imageSmoothingEnabled = true; mode ? drawLogo(ctx) : drawText(ctx); }
-
-    drawCrisp(false);
-    identity.classList.add("ready");
-    const sr = document.createElement("span");
-    sr.className = "sr"; sr.textContent = NAME; identity.appendChild(sr);
-
-    if (!img) return;
-
-    const sizes = [...new Set([Math.max(1, Math.round(cd / 3)), Math.max(1, Math.round(cd * 2 / 3)), cd])];
-    const S = sizes.length;
-
-    const off = document.createElement("canvas");
-    off.width = Wd; off.height = Hd;
-    const octx = off.getContext("2d", { willReadFrequently: true });
-
-    function sampleCells(drawFn, s) {
-      octx.clearRect(0, 0, Wd, Hd);
-      drawFn(octx);
-      const d = octx.getImageData(0, 0, Wd, Hd).data;          
-      const gc = Math.ceil(Wd / s), gr = Math.ceil(Hd / s);
-      const out = [];
-      for (let gy = 0; gy < gr; gy++) {
-        for (let gx = 0; gx < gc; gx++) {
-          let sa = 0, sr_ = 0, sg = 0, sb = 0, n = 0;
-          for (let y = gy * s; y < Math.min(Hd, gy * s + s); y++) {
-            for (let x = gx * s; x < Math.min(Wd, gx * s + s); x++) {
-              const k = (y * Wd + x) * 4;
-              const a = d[k + 3];
-              sa += a; n++;
-              if (a > 0) { sr_ += d[k] * a; sg += d[k+1] * a; sb += d[k+2] * a; }
-            }
-          }
-          if (n && sa / (255 * n) >= 0.4) {
-            const r = Math.round(sr_ / sa), g = Math.round(sg / sa), b = Math.round(sb / sa);
-            out.push({ x: gx, y: gy, color: `rgb(${r},${g},${b})` });
-          }
-        }
-      }
-      out.sort((p, q) => (Math.floor(p.x / 2) - Math.floor(q.x / 2)) || (p.y - q.y));
-      return out;
-    }
-
-    let stages = null, pixelMode = true;
-    try {
-      stages = {
-        text: sizes.map(s => sampleCells(drawText, s)),
-        logo: sizes.map(s => sampleCells(drawLogo, s))
-      };
-      if (stages.text.some(l => !l.length) || stages.logo.some(l => !l.length)) pixelMode = false;
-    } catch (e) { pixelMode = false; }
-
-    const stageList = (mode, i) => (mode ? stages.logo : stages.text)[i];
-    function paintList(list, s) {
-      ctx.clearRect(0, 0, Wd, Hd);
-      let last = "";
-      for (const c of list) {
-        if (c.color !== last) { ctx.fillStyle = c.color; last = c.color; }
-        ctx.fillRect(c.x * s, c.y * s, s, s);
-      }
-    }
-
-    let target = false;                       
-    let phase = "rest", raf = 0;
-    let pt = 0, stageK = 0, srcMode = false, exitMode = false, exitFrom = 0;
-    let t0 = 0, totalMs = 0;
-
-    let N, ax, ay, bx, by, cx, cy, fx, fy, tx, ty, delay;
-    let acol, bcol, ccol, fcol, tcol;
-
-    if (pixelMode) {
-      const A = stageList(false, S - 1), B = stageList(true, S - 1);   
-      N = Math.max(A.length, B.length);
-      const F = () => new Float32Array(N);
-      ax = F(); ay = F(); bx = F(); by = F(); cx = F(); cy = F();
-      fx = F(); fy = F(); tx = F(); ty = F(); delay = F();
-      acol = new Array(N); bcol = new Array(N); ccol = new Array(N); fcol = new Array(N); tcol = new Array(N);
-      for (let i = 0; i < N; i++) {
-        const a = A[Math.floor(i * A.length / N)];
-        const b = B[Math.floor(i * B.length / N)];
-        ax[i] = a.x; ay[i] = a.y; bx[i] = b.x; by[i] = b.y;
-        acol[i] = a.color; bcol[i] = b.color;
-      }
-    }
-
-    function setCells(mode) {
-      for (let i = 0; i < N; i++) {
-        cx[i] = mode ? bx[i] : ax[i];
-        cy[i] = mode ? by[i] : ay[i];
-        ccol[i] = mode ? bcol[i] : acol[i];
-      }
-    }
-
-    function paintCells() {
-      ctx.clearRect(0, 0, Wd, Hd);
-      let last = "";
-      for (let i = 0; i < N; i++) {
-        if (ccol[i] !== last) { ctx.fillStyle = ccol[i]; last = ccol[i]; }
-        ctx.fillRect(cx[i] * cd, cy[i] * cd, cd, cd);
-      }
-    }
-
-    function startCells(toLogo, short) {
-      fx.set(cx); fy.set(cy);
-      for (let i = 0; i < N; i++) fcol[i] = ccol[i];
-      tx.set(toLogo ? bx : ax); ty.set(toLogo ? by : ay);
-      for (let i = 0; i < N; i++) tcol[i] = toLogo ? bcol[i] : acol[i];
-
-      const amount = short ? 0.55 : 1;
-      for (let i = 0; i < N; i++) {
-        const xn = ax[i] / cols;
-        const wave = toLogo ? xn : 1 - xn;     
-        delay[i] = (wave * 0.82 + Math.random() * 0.18) * SPREAD * amount;
-      }
-      totalMs = SPREAD * amount + MOVE;
-      phase = "move";
-    }
-
-    function frame(now) {
-      if (phase === "enter") {
-        const k = Math.max(0, Math.floor((now - pt) / STEP));
-        if (k < S) { stageK = k; paintList(stageList(srcMode, k), sizes[k]); }
-        else { setCells(srcMode); startCells(target, false); t0 = now; }
-      }
-
-      if (phase === "move") {
-        const el = Math.max(0, now - t0);
-        for (let i = 0; i < N; i++) {
-          const p = clamp((el - delay[i]) / MOVE);
-          const e = ease(p);
-          cx[i] = Math.round(fx[i] + (tx[i] - fx[i]) * e);     
-          cy[i] = Math.round(fy[i] + (ty[i] - fy[i]) * e);
-          ccol[i] = p < 0.5 ? fcol[i] : tcol[i];
-        }
-        paintCells();
-        if (el >= totalMs) { phase = "exit"; exitMode = target; exitFrom = S - 1; pt = now; }
-      } else if (phase === "exit") {
-        const k = Math.max(0, Math.floor((now - pt) / STEP));
-        const idx = exitFrom - k;
-        if (idx >= 0) paintList(stageList(exitMode, idx), sizes[idx]);
-        else { phase = "rest"; drawCrisp(exitMode); return; }
-      }
-      raf = requestAnimationFrame(frame);
-    }
-
-    const LEVELS = [1, 2, 3, 4, 6, 8, 12];
-    const small = document.createElement("canvas");
-    const sctx = small.getContext("2d");
-    let fbProg = 0, fbFrom = 0, fbTo = 0, fbT0 = 0, fbDur = 0, fbLast = -1, fbMoving = false;
-
-    function pixelate(drawFn, b) {
-      if (b <= 1) { drawFn(ctx); return; }
-      small.width = Math.ceil(Wd / b); small.height = Math.ceil(Hd / b);
-      sctx.clearRect(0, 0, small.width, small.height);
-      sctx.save(); sctx.scale(1 / b, 1 / b); drawFn(sctx); sctx.restore();
-      ctx.imageSmoothingEnabled = false;
-      ctx.drawImage(small, 0, 0, small.width * b, small.height * b);
-    }
-    
-    function frameFallback(now) {
-      const t = clamp((now - fbT0) / fbDur);
-      fbProg = fbFrom + (fbTo - fbFrom) * t;
-      const L = LEVELS.length - 1;
-      const step = Math.round(fbProg * 2 * L);
-      if (step !== fbLast) {
-        fbLast = step;
-        ctx.clearRect(0, 0, Wd, Hd);
-        if (step <= L) pixelate(drawText, LEVELS[step] * cd / 3);
-        else           pixelate(drawLogo, LEVELS[2 * L - step] * cd / 3);
-      }
-      if (t < 1) raf = requestAnimationFrame(frameFallback);
-      else { fbMoving = false; drawCrisp(target); }
-    }
-
-    function setLogo(next) {
-      if (next === target) return;
-      const prev = target;
-      target = next;
-      cancelAnimationFrame(raf);
-
-      if (reduce) { phase = "rest"; drawCrisp(target); return; }
-      const now = performance.now();
-
-      if (!pixelMode) {
-        fbFrom = fbMoving ? fbProg : (next ? 0 : 1);
-        fbTo = next ? 1 : 0;
-        fbT0 = now; fbLast = -1; fbMoving = true;
-        fbDur = 400 * Math.max(0.3, Math.abs(fbTo - fbFrom)); /* Sped up */
-        raf = requestAnimationFrame(frameFallback);
-        return;
-      }
-
-      if (phase === "rest") {
-        srcMode = prev; phase = "enter"; pt = now; stageK = 0;
-      } else if (phase === "enter") {
-        phase = "exit"; exitMode = srcMode; exitFrom = Math.min(stageK, S - 1); pt = now;
-      } else if (phase === "move") {
-        startCells(next, true); t0 = now;       
-      } else if (phase === "exit") {
-        setCells(prev); startCells(next, false); t0 = now;
-      }
-      raf = requestAnimationFrame(frame);
-    }
-
-    let engaged = false, timer;
-    function cycle() {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        if (!engaged) setLogo(true);
-        timer = setTimeout(() => {
-          if (!engaged) setLogo(false);
-          cycle();
-        }, HOLD);
-      }, WAIT);
-    }
-    cycle();
-
-    const engage    = () => { engaged = true;  clearTimeout(timer); setLogo(true);  };
-    const disengage = () => { engaged = false; setLogo(false); cycle(); };
-    identity.addEventListener("pointerenter", engage);
-    identity.addEventListener("pointerleave", disengage);
-    identity.addEventListener("focus", engage);
-    identity.addEventListener("blur", disengage);
-})();
-</script>
 </body>
 </html>
