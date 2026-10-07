@@ -40,10 +40,10 @@
         <input type="text" id="project-search" placeholder="Search photography archive..." class="project-search-input">
     </div>
 
-    <!-- Pure CSS Masonry Gallery - Native Aspect Ratios -->
+    <!-- Responsive CSS Fluid Grid (Native Aspect Ratios) -->
     <div class="photo-masonry">
         
-        <div class="photo-card">
+        <div class="photo-card" onclick="this.classList.toggle('active')">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card" onclick="this.classList.toggle('active')">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card" onclick="this.classList.toggle('active')">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
@@ -67,7 +67,7 @@
             </div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card" onclick="this.classList.toggle('active')">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
@@ -75,7 +75,7 @@
             </div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card" onclick="this.classList.toggle('active')">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
@@ -149,8 +149,8 @@ document.querySelectorAll('.copy-email-btn').forEach(btn => {
 (async () => {
     const LOGO_SRC = "https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg";
     const NAME   = "Ayaan Ahmed";
-    const W      = 168;    
-    const LOGO_W = 84;     
+    const W      = 140;    
+    const LOGO_W = 70;     
     const CELL   = 2;      
     const STEP   = 55;     
     const SPREAD = 480;    
