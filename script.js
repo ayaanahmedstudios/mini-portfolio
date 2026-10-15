@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Canvas Morph Animation (Optimized & Faster) ---
+    // --- Canvas Morph Animation (Optimized & Mobile Supported) ---
     (async () => {
         const LOGO_SRC = "https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg";
         const NAME   = "Ayaan Ahmed";
