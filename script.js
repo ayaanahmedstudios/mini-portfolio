@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
             const btnContent = btn.querySelector('.btn-content');
-            btnContent.innerHTML = 'Email copied';
+            btnContent.innerHTML = 'Email Copied';
             btnContent.classList.add('copied-state');
             setTimeout(() => {
                 btnContent.innerHTML = '<i class="ph ph-envelope-simple"></i>';
@@ -24,11 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
-            // Works globally for Graphic Design (.project-item), Photo (.photo-card), and Video (.video-card)
             document.querySelectorAll('.project-item, .photo-card, .video-card').forEach(item => {
                 const text = item.innerText.toLowerCase();
                 item.style.display = text.includes(term) ? '' : 'none';
             });
+        });
+    }
+
+    // --- Scroll To Top Logic ---
+    const scrollTopBtn = document.getElementById('scroll-top');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
@@ -53,21 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Canvas Morph Animation ---
+    // --- Canvas Morph Animation (Optimized & Faster) ---
     (async () => {
         const LOGO_SRC = "https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg";
         const NAME   = "Ayaan Ahmed";
         const W      = 140;    
         const LOGO_W = 70;     
         const CELL   = 2;      
-        const STEP   = 35;     
+        const STEP   = 25;     
         const SPREAD = 180;    
         const MOVE   = 350;    
         const WAIT   = 5500;   
         const HOLD   = 3000;   
 
         const identity = document.getElementById("identity");
-        if (!identity) return; // Failsafe for pages without the canvas
+        if (!identity) return; 
         
         const cv  = document.getElementById("cv");
         const ctx = cv.getContext("2d");
