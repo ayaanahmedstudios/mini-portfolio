@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography / Ayaan Ahmed</title>
+    <title>Ayaan Ahmed — Photography</title>
     <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,12 +21,10 @@
             <span class="fallback">Ayaan Ahmed</span>
             <canvas id="cv" aria-hidden="true"></canvas>
         </a>
-        
         <a href="index.html" class="mobile-logo">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
         </a>
     </div>
-    
     <nav class="site-nav">
         <a href="index.html">Graphic Design</a>
         <a href="photography.html" class="active mobile-hide">Photography</a>
@@ -40,7 +38,6 @@
         <input type="text" id="project-search" placeholder="Search" class="project-search-input">
     </div>
 
-    <!-- Responsive CSS Fluid Grid -->
     <div class="photo-masonry">
         
         <div class="photo-card">
@@ -59,7 +56,6 @@
             </div>
         </div>
 
-        <!-- Repeated placeholders just for structural masonry display -->
         <div class="photo-card">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
             <div class="photo-overlay">
@@ -79,7 +75,6 @@
     </div>
 </main>
 
-<!-- Hidden Lightbox Container -->
 <div class="lightbox" id="lightbox">
     <button class="lightbox-close">x</button>
     <img id="lightbox-img" src="" alt="Full Screen Photo">
@@ -106,7 +101,11 @@
     <div class="footer-mobile">
         <div class="footer-mobile-left">
             <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
-                <img src="media/Student-RGD-Red.svg" alt="Student RGD Logo" class="rgd-logo">
+                <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo" 
+                     onmousedown="this.src='media/Student-RGD-Red.svg'" 
+                     onmouseup="this.src='media/Student-RGD-Black.svg'" 
+                     ontouchstart="this.src='media/Student-RGD-Red.svg'" 
+                     ontouchend="this.src='media/Student-RGD-Black.svg'">
             </a>
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
@@ -119,6 +118,8 @@
         </div>
     </div>
 </footer>
+
+<button class="scroll-top-btn" id="scroll-top" aria-label="Scroll to top"><i class="ph ph-arrow-up"></i></button>
 
 </body>
 </html>
