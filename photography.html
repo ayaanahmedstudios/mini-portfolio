@@ -15,6 +15,14 @@
 </head>
 <body>
 
+<!-- MOBILE FULL SCREEN MENU -->
+<div class="mobile-menu-overlay" id="mobile-menu">
+    <a href="index.html">Graphic Design</a>
+    <a href="photography.html" class="active">Photography</a>
+    <a href="videography.html">Videography</a>
+    <a href="about.html">About</a>
+</div>
+
 <header class="site-header">
     <div class="header-content">
         <a href="index.html" class="identity" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
@@ -25,10 +33,16 @@
     
     <nav class="site-nav">
         <a href="index.html">Graphic Design</a>
-        <a href="photography.html" class="active mobile-hide">Photography</a>
+        <a href="photography.html" class="active">Photography</a>
         <a href="videography.html">Videography</a>
         <a href="about.html">About</a>
     </nav>
+
+    <!-- Apple-style Burger -->
+    <div class="burger" id="burger">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+    </div>
 </header>
 
 <main>
@@ -36,7 +50,6 @@
         <input type="text" id="project-search" placeholder="Search" class="project-search-input">
     </div>
 
-    <!-- Locked down images to prevent saving/copying -->
     <div class="photo-masonry">
         
         <div class="photo-card">
@@ -44,6 +57,14 @@
             <div class="photo-overlay">
                 <span class="photo-title">Cycle the City</span>
                 <span class="photo-meta-text">2023 / Toronto, Canada</span>
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy" oncontextmenu="return false;" draggable="false">
+            <div class="photo-overlay">
+                <span class="photo-title">Tokyo Disneyland</span>
+                <span class="photo-meta-text">2022 / Tokyo, Japan</span>
             </div>
         </div>
 
@@ -80,20 +101,22 @@
 <footer class="site-footer">
     <div class="footer-desktop">
         <div class="footer-left">
-            <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
-        </div>
-        <div class="footer-center">
             <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
                 <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo" onmouseover="this.src='media/Student-RGD-Red.svg'" onmouseout="this.src='media/Student-RGD-Black.svg'">
             </a>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                <button class="copy-email-btn desktop-email" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+            </div>
         </div>
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
-            <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
-            <button class="copy-email-btn desktop-email" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+        
+        <div class="footer-right">
+            <span class="mono-text">© <span class="year"></span> Ayaan Ahmed Studios</span>
         </div>
     </div>
 
+    <!-- MOBILE FOOTER SPLIT (RGD + Socials left, Copyright right) -->
     <div class="footer-mobile">
         <div class="footer-mobile-left">
             <a href="https://rgd.ca/members/profile/ayaanahmed" target="_blank" rel="noopener noreferrer">
@@ -104,8 +127,8 @@
                      ontouchend="this.src='media/Student-RGD-Black.svg'">
             </a>
             <div class="footer-links">
-                <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
-                <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
+                <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
                 <a href="mailto:ayaanahmedstudios@gmail.com" class="mobile-email" aria-label="Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></a>
             </div>
         </div>
