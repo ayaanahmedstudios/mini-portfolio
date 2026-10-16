@@ -72,10 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function updateLightbox(index) {
             const card = photos[index];
-            const imgSrc = card.querySelector('img').src;
-            const metaContent = card.querySelector('.photo-overlay').innerHTML;
+            const imgSrc = card.querySelector('img').dataset.src || card.querySelector('img').src;
+            const title = card.dataset.title;
+            const meta = card.dataset.meta;
+            
             lightboxImg.src = imgSrc;
-            lightboxMeta.innerHTML = metaContent;
+            lightboxMeta.innerHTML = `<span class="photo-title">${title}</span><span class="photo-meta-text">${meta}</span>`;
         }
 
         photos.forEach((card, index) => {
@@ -86,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Next / Prev functions
         const nextBtn = document.getElementById('lb-next');
         const prevBtn = document.getElementById('lb-prev');
         
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Close logic (only close on background or X, safely ignore text/image clicks)
+        // Close logic 
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox || e.target.classList.contains('lightbox-close') || e.target.classList.contains('lightbox-image-container')) {
                 lightbox.classList.remove('active');
@@ -342,6 +343,35 @@ document.addEventListener('DOMContentLoaded', () => {
           raf = requestAnimationFrame(frame);
         }
 
+        const LEVELS = [1, 2, 3, 4, 6, 8, 12];
+        const small = document.createElement("canvas");
+        const sctx = small.getContext("2d");
+        let fbProg = 0, fbFrom = 0, fbTo = 0, fbT0 = 0, fbDur = 0, fbLast = -1, fbMoving = false;
+
+        function pixelate(drawFn, b) {
+          if (b <= 1) { drawFn(ctx); return; }
+          small.width = Math.ceil(Wd / b); small.height = Math.ceil(Hd / b);
+          sctx.clearRect(0, 0, small.width, small.height);
+          sctx.save(); sctx.scale(1 / b, 1 / b); drawFn(sctx); sctx.restore();
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(small, 0, 0, small.width * b, small.height * b);
+        }
+        
+        function frameFallback(now) {
+          const t = clamp((now - fbT0) / fbDur);
+          fbProg = fbFrom + (fbTo - fbFrom) * t;
+          const L = LEVELS.length - 1;
+          const step = Math.round(fbProg * 2 * L);
+          if (step !== fbLast) {
+            fbLast = step;
+            ctx.clearRect(0, 0, Wd, Hd);
+            if (step <= L) pixelate(drawText, LEVELS[step] * cd / 3);
+            else           pixelate(drawLogo, LEVELS[2 * L - step] * cd / 3);
+          }
+          if (t < 1) raf = requestAnimationFrame(frameFallback);
+          else { fbMoving = false; drawCrisp(target); }
+        }
+
         function setLogo(next) {
           if (next === target) return;
           const prev = target;
@@ -352,8 +382,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const now = performance.now();
 
           if (!pixelMode) {
-             drawCrisp(target);
-             return;
+            fbFrom = fbMoving ? fbProg : (next ? 0 : 1);
+            fbTo = next ? 1 : 0;
+            fbT0 = now; fbLast = -1; fbMoving = true;
+            fbDur = 400 * Math.max(0.3, Math.abs(fbTo - fbFrom));
+            raf = requestAnimationFrame(frameFallback);
+            return;
           }
 
           if (phase === "rest") {
