@@ -15,7 +15,6 @@
 </head>
 <body>
 
-<!-- MOBILE FULL SCREEN MENU -->
 <div class="mobile-menu-overlay" id="mobile-menu">
     <a href="index.html">Graphic Design</a>
     <a href="photography.html" class="active">Photography</a>
@@ -49,11 +48,10 @@
         <input type="text" id="project-search" placeholder="Search" class="project-search-input">
     </div>
 
-    <!-- Cycle the City moved to Photography -->
+    <!-- Blocked saving/copying entirely. Layout is strictly 2 columns on mobile. -->
     <div class="photo-masonry">
-        
         <div class="photo-card" data-title="Cycle the City" data-meta="2023 / Toronto, Canada">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" alt="Cycle the City" loading="lazy">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" alt="Cycle the City" loading="lazy" oncontextmenu="return false;" draggable="false">
             <div class="photo-overlay">
                 <span class="photo-title">Cycle the City</span>
                 <span class="photo-meta-text">2023 / Toronto, Canada</span>
@@ -61,7 +59,7 @@
         </div>
 
         <div class="photo-card" data-title="Tokyo Disneyland" data-meta="2022 / Tokyo, Japan">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy" oncontextmenu="return false;" draggable="false">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
                 <span class="photo-meta-text">2022 / Tokyo, Japan</span>
@@ -69,7 +67,7 @@
         </div>
 
         <div class="photo-card" data-title="Tokyo Disneyland" data-meta="2022 / Tokyo, Japan">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy" oncontextmenu="return false;" draggable="false">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
                 <span class="photo-meta-text">2022 / Tokyo, Japan</span>
@@ -77,28 +75,25 @@
         </div>
 
         <div class="photo-card" data-title="Tokyo Disneyland" data-meta="2022 / Tokyo, Japan">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy" oncontextmenu="return false;" draggable="false">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
                 <span class="photo-meta-text">2022 / Tokyo, Japan</span>
             </div>
         </div>
-
     </div>
 </main>
 
-<!-- Lightbox with Navigation Arrows -->
+<!-- Lightbox with safely mapped Navigation Arrows -->
 <div class="lightbox" id="lightbox">
     <button class="lightbox-close">✕</button>
-    
     <button class="lightbox-nav lightbox-prev" id="lb-prev">&larr;</button>
     
     <div class="lightbox-image-container">
-        <img id="lightbox-img" src="" alt="Full Screen Photo">
+        <img id="lightbox-img" src="" alt="Full Screen Photo" oncontextmenu="return false;" draggable="false">
     </div>
     
     <button class="lightbox-nav lightbox-next" id="lb-next">&rarr;</button>
-    
     <div id="lightbox-meta" class="lightbox-meta"></div>
 </div>
 
