@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayaan Ahmed — Videography</title>
+    <title>Videography / Ayaan Ahmed</title>
     <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +24,12 @@
 
 <header class="site-header">
     <div class="header-content">
-        <a href="index.html" class="identity" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
+        <a href="index.html" class="identity desktop-logo" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
             <span class="fallback">Ayaan Ahmed</span>
             <canvas id="cv" aria-hidden="true"></canvas>
+        </a>
+        <a href="index.html" class="mobile-logo">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
         </a>
     </div>
     
@@ -48,6 +51,7 @@
         <input type="text" id="project-search" placeholder="Search" class="project-search-input">
     </div>
 
+    <!-- Visible Video Grid with robust Aspect-Ratio Wrapper -->
     <div class="video-grid">
         <div class="video-card">
             <div class="video-wrapper">
@@ -121,7 +125,7 @@
                 <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo" onmouseover="this.src='media/Student-RGD-Red.svg'" onmouseout="this.src='media/Student-RGD-Black.svg'">
             </a>
         </div>
-        <div class="footer-links">
+        <div class="footer-right">
             <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
             <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
             <button class="copy-email-btn desktop-email" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
