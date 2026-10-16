@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- Mobile Burger Menu Logic ---
+    const burger = document.getElementById('burger');
+    if (burger) {
+        burger.addEventListener('click', () => {
+            document.body.classList.toggle('nav-open');
+        });
+    }
+
     // --- Auto-Update Copyright Year ---
     document.querySelectorAll('.year').forEach(el => {
         el.textContent = new Date().getFullYear();
@@ -10,13 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
             const btnContent = btn.querySelector('.btn-content');
-            btnContent.innerHTML = 'Email Copied';
+            btnContent.innerHTML = 'Copied';
             btnContent.classList.add('copied-state');
             setTimeout(() => {
                 btnContent.innerHTML = '<i class="ph ph-envelope-simple"></i>';
                 btnContent.classList.remove('copied-state');
             }, 2000);
         });
+    });
+
+    // --- Security: Prevent Image Saving ---
+    document.addEventListener('contextmenu', event => {
+        if (event.target.tagName === 'IMG') {
+            event.preventDefault();
+        }
     });
 
     // --- Search Bar Logic ---
@@ -95,11 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
+        // Prevent clicking the image from closing
+        lightboxImg.addEventListener('click', (e) => e.stopPropagation());
+        
         // Prevent text selection from closing lightbox
         lightboxMeta.addEventListener('click', (e) => e.stopPropagation());
     }
 
-    // --- Canvas Morph Animation (Optimized & Mobile Supported) ---
+    // --- Canvas Morph Animation (Optimized, Mobile-Safe, Force Black) ---
     (async () => {
         const LOGO_SRC = "https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg";
         const NAME   = "Ayaan Ahmed";
@@ -169,10 +187,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         function drawLogo(c) { 
             if (img) {
-                c.save();
-                c.filter = "invert(1)"; 
-                c.drawImage(img, 0, logoY, logoWd, logoHd); 
-                c.restore();
+                // Tint to absolute #111111 to guarantee visibility on mobile
+                const tCtx = document.createElement('canvas').getContext('2d');
+                tCtx.canvas.width = logoWd; tCtx.canvas.height = logoHd;
+                tCtx.drawImage(img, 0, 0, logoWd, logoHd);
+                tCtx.globalCompositeOperation = 'source-in';
+                tCtx.fillStyle = '#111111';
+                tCtx.fillRect(0, 0, logoWd, logoHd);
+                c.drawImage(tCtx.canvas, 0, logoY, logoWd, logoHd);
             }
         }
 
@@ -210,8 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
               }
               if (n && sa / (255 * n) >= 0.4) {
-                const r = Math.round(sr_ / sa), g = Math.round(sg / sa), b = Math.round(sb / sa);
-                out.push({ x: gx, y: gy, color: `rgb(${r},${g},${b})` });
+                out.push({ x: gx, y: gy, color: `#111111` }); // Override color completely to solid black for safety
               }
             }
           }
@@ -321,35 +342,6 @@ document.addEventListener('DOMContentLoaded', () => {
           raf = requestAnimationFrame(frame);
         }
 
-        const LEVELS = [1, 2, 3, 4, 6, 8, 12];
-        const small = document.createElement("canvas");
-        const sctx = small.getContext("2d");
-        let fbProg = 0, fbFrom = 0, fbTo = 0, fbT0 = 0, fbDur = 0, fbLast = -1, fbMoving = false;
-
-        function pixelate(drawFn, b) {
-          if (b <= 1) { drawFn(ctx); return; }
-          small.width = Math.ceil(Wd / b); small.height = Math.ceil(Hd / b);
-          sctx.clearRect(0, 0, small.width, small.height);
-          sctx.save(); sctx.scale(1 / b, 1 / b); drawFn(sctx); sctx.restore();
-          ctx.imageSmoothingEnabled = false;
-          ctx.drawImage(small, 0, 0, small.width * b, small.height * b);
-        }
-        
-        function frameFallback(now) {
-          const t = clamp((now - fbT0) / fbDur);
-          fbProg = fbFrom + (fbTo - fbFrom) * t;
-          const L = LEVELS.length - 1;
-          const step = Math.round(fbProg * 2 * L);
-          if (step !== fbLast) {
-            fbLast = step;
-            ctx.clearRect(0, 0, Wd, Hd);
-            if (step <= L) pixelate(drawText, LEVELS[step] * cd / 3);
-            else           pixelate(drawLogo, LEVELS[2 * L - step] * cd / 3);
-          }
-          if (t < 1) raf = requestAnimationFrame(frameFallback);
-          else { fbMoving = false; drawCrisp(target); }
-        }
-
         function setLogo(next) {
           if (next === target) return;
           const prev = target;
@@ -360,12 +352,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const now = performance.now();
 
           if (!pixelMode) {
-            fbFrom = fbMoving ? fbProg : (next ? 0 : 1);
-            fbTo = next ? 1 : 0;
-            fbT0 = now; fbLast = -1; fbMoving = true;
-            fbDur = 400 * Math.max(0.3, Math.abs(fbTo - fbFrom));
-            raf = requestAnimationFrame(frameFallback);
-            return;
+             drawCrisp(target);
+             return;
           }
 
           if (phase === "rest") {
@@ -398,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         identity.addEventListener("pointerenter", engage);
         identity.addEventListener("pointerleave", disengage);
-        identity.addEventListener("touchstart", engage);
+        identity.addEventListener("touchstart", engage, {passive: true});
         identity.addEventListener("touchend", () => setTimeout(disengage, 1000));
     })();
 });
