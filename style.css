@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,700;1,700&display=swap');
+
 :root {
     --bg-color: #f4f4f0; 
     --text-color: #111111;
@@ -13,7 +15,6 @@
     box-sizing: border-box;
 }
 
-/* Custom Selection Highlight */
 ::selection {
     background: var(--text-color);
     color: var(--bg-color);
@@ -44,7 +45,6 @@ body {
     text-decoration: none;
 }
 
-/* Canvas Animation Wrapper (Global for Desktop & Mobile) */
 .identity {
     position: relative;
     display: flex;
@@ -143,20 +143,10 @@ details > summary::-webkit-details-marker { display: none; }
 .row-info {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
     flex: 1;
 }
 
 .mobile-thumb { display: none; }
-
-.accordion-icon {
-    font-family: var(--font-mono);
-    font-size: 1.2rem;
-    line-height: 1;
-    color: var(--hover-text);
-    -webkit-font-smoothing: none;
-    padding-left: 1.5rem; /* Ensures the X never touches the edge */
-}
 
 .project-row:hover {
     background-color: var(--hover-bg);
@@ -169,14 +159,7 @@ details[open] .project-row {
     border-bottom: 1px dashed var(--border-color);
 }
 
-/* Only display the X when opened */
-details[open] .project-row .accordion-icon::after {
-    content: '✕';
-}
-
-details[open] .project-row .hover-preview {
-    display: none !important;
-}
+details[open] .project-row .hover-preview { display: none !important; }
 
 .col-title {
     font-weight: 500;
@@ -184,28 +167,38 @@ details[open] .project-row .hover-preview {
     font-family: var(--font-sans);
 }
 
-.col-meta {
+.col-genre {
     font-family: var(--font-mono);
     font-weight: 400;
     font-size: 0.95rem;
-    color: #666;
+    text-align: right;
+    margin-left: auto; /* Pushes genre to the right */
+    padding-right: 1.5rem;
     -webkit-font-smoothing: none;
-    margin-left: auto;
 }
-.meta-year { color: #888; }
-.project-row:hover .col-meta, 
-.project-row:hover .meta-year { color: var(--hover-text); }
+
+.col-year {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.95rem;
+    text-align: right;
+    width: 60px; /* Locks year perfectly to right edge */
+    -webkit-font-smoothing: none;
+}
+
+.project-row:hover .col-year,
+.project-row:hover .col-genre { color: var(--hover-text); }
 
 .project-expanded-content {
     padding: 2.5rem 1rem 3rem 1rem;
     background-color: #ebebe5; 
 }
 
-.project-text { margin-bottom: 2rem; } /* Tightened margin */
+.project-text { margin-bottom: 2rem; }
 
 .project-description {
     font-family: var(--font-sans);
-    font-size: 1rem; /* Smaller description text */
+    font-size: 1rem; 
     max-width: 65ch;
     margin: 0 0 1rem 0;
     line-height: 1.6;
@@ -253,7 +246,7 @@ details[open] .project-row .hover-preview {
     visibility: visible;
 }
 
-/* ---------------- PHOTOGRAPHY (MASONRY METADATA GRID) ---------------- */
+/* ---------------- PHOTOGRAPHY GALLERY ---------------- */
 .photo-masonry {
     column-width: 350px; 
     column-gap: 1.5rem;
@@ -269,10 +262,14 @@ details[open] .project-row .hover-preview {
     cursor: zoom-in;
 }
 
-.photo-card img {
+/* SECURITY: Prevent saving */
+.photo-card img, .lightbox-image-container img {
     width: 100%;
     height: auto;
     display: block;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .photo-overlay {
@@ -306,40 +303,62 @@ details[open] .project-row .hover-preview {
     -webkit-font-smoothing: none;
 }
 
-/* Lightbox Styling */
+/* LIGHTBOX UI */
 .lightbox {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(244, 244, 240, 0.97);
+    background: rgba(244, 244, 240, 0.98);
     z-index: 1000;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
     cursor: zoom-out;
 }
 .lightbox.active { display: flex; }
-.lightbox img {
-    max-width: 100%; 
-    max-height: 80vh;
+
+.lightbox-image-container {
+    position: relative;
+    max-width: 90vw;
+    max-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-image-container img {
+    max-width: 100%;
+    max-height: 75vh;
     object-fit: contain;
     border: 1px solid var(--border-color);
+    box-shadow: 12px 12px 0px rgba(0,0,0,1);
 }
-.lightbox-meta {
-    margin-top: 1.5rem;
-    text-align: center;
-}
-.lightbox-meta .photo-title {
-    font-size: 1.25rem;
-    display: block;
-    margin-bottom: 0.25rem;
-}
-.lightbox-meta .photo-meta-text {
-    font-size: 0.95rem;
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
     font-family: var(--font-mono);
-    color: #555;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    z-index: 1001;
+    transition: all 0.1s;
 }
+.lightbox-nav:hover { background: var(--hover-bg); color: var(--hover-text); }
+.lightbox-prev { left: -4rem; }
+.lightbox-next { right: -4rem; }
+
+.lightbox-meta {
+    margin-top: 2.5rem;
+    text-align: center;
+    cursor: text; /* Allows text selection safely */
+}
+.lightbox-meta .photo-title { font-size: 1.25rem; display: block; margin-bottom: 0.25rem; }
+.lightbox-meta .photo-meta-text { font-size: 0.95rem; font-family: var(--font-mono); color: #555; }
+
 .lightbox-close {
     position: absolute;
     top: 2rem; right: 2rem;
@@ -347,7 +366,6 @@ details[open] .project-row .hover-preview {
     font-size: 2rem;
     cursor: pointer;
     background: none; border: none; color: var(--text-color);
-    -webkit-font-smoothing: none;
 }
 
 /* ---------------- VIDEOGRAPHY GRID ---------------- */
@@ -365,24 +383,29 @@ details[open] .project-row .hover-preview {
     flex-direction: column;
 }
 
+/* Bulletproof Responsive iFrame Wrapper (Prevents iOS Zoom Bug) */
 .video-wrapper {
-    aspect-ratio: 16/9;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
     border-bottom: 1px solid var(--border-color);
     background: #000;
 }
 
 .video-wrapper iframe, .video-wrapper img {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
     object-fit: cover;
 }
 
 .video-meta {
     padding: 0.75rem 1rem;
     display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .video-title {
@@ -392,50 +415,70 @@ details[open] .project-row .hover-preview {
 }
 
 .video-year {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: #555;
-    -webkit-font-smoothing: none;
+    font-family: var(--font-sans); /* Same font size as title, right aligned */
+    font-weight: 400;
+    font-size: 1.05rem;
+    color: var(--text-color);
 }
 
-/* ---------------- ABOUT RESUME LIST (NEW PURE TYPOGRAPHIC FLOW) ---------------- */
-.resume-section { margin-bottom: 4rem; }
+/* ---------------- ABOUT RESUME TIMELINE (2-COLUMN GRID) ---------------- */
+.font-glitch {
+    animation: fontGlitch 4s infinite;
+    display: inline-block;
+}
 
-.resume-header {
+@keyframes fontGlitch {
+    0%, 100% { font-family: var(--font-mono); font-weight: normal; font-style: normal; }
+    25% { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-style: normal; }
+    50% { font-family: 'Space Mono', monospace; font-weight: 700; font-style: normal; }
+    75% { font-family: 'Instrument Serif', serif; font-weight: normal; font-style: italic; }
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.about-category {
     font-family: var(--font-mono);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
-    -webkit-font-smoothing: none;
+    color: #555;
+    margin: 0;
 }
 
-.resume-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.about-items {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
-.resume-role {
+.about-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.about-role {
+    font-family: var(--font-sans);
     font-weight: 500;
     font-size: 1.15rem;
-    margin-bottom: 0.15rem;
 }
 
-.resume-meta {
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
+.about-company {
+    font-family: var(--font-sans);
+    font-size: 1rem;
     color: #444;
-    -webkit-font-smoothing: none;
 }
 
-.resume-date {
+.about-date {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
     color: #888;
-    margin-left: 0.25rem;
 }
 
 /* ---------------- FOOTER SYSTEM ---------------- */
@@ -472,7 +515,6 @@ details[open] .project-row .hover-preview {
     width: auto;
     display: block;
     cursor: pointer;
-    transition: filter 0.15s ease;
 }
 
 .footer-links {
@@ -515,10 +557,13 @@ details[open] .project-row .hover-preview {
     padding: 0 4px;
 }
 
-/* SCROLL TO TOP BUTTON */
+/* Hide desktop copy email button on mobile */
+.desktop-email { display: flex; }
+.mobile-email { display: none; }
+
 .scroll-top-btn {
     position: fixed;
-    bottom: 2rem;
+    bottom: 6rem; /* Shifted up so it doesn't cover footer */
     right: 2rem;
     width: 44px;
     height: 44px;
@@ -537,81 +582,74 @@ details[open] .project-row .hover-preview {
     z-index: 999;
 }
 
-.scroll-top-btn:hover {
-    transform: translateY(-2px);
-}
-
-.scroll-top-btn.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
+.scroll-top-btn:hover { transform: translateY(-2px); }
+.scroll-top-btn.visible { opacity: 1; pointer-events: auto; }
 
 /* ---------------- MOBILE RESPONSIVE ENGINE ---------------- */
 @media (max-width: 900px) {
     body { padding: 1rem; }
     
-    .site-header { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .site-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
     
     .site-nav { 
         width: 100%; 
-        justify-content: space-between; 
+        justify-content: flex-start; /* Tightly packed to left */
+        gap: 1rem;
         border-top: 1px dashed var(--border-color); 
         padding-top: 1rem; 
     }
     
-    .site-nav a {
-        font-size: 0.9rem; /* Slightly reduced so they fill line perfectly without wrapping */
-        padding: 4px;
-    }
-    
     .site-nav a.mobile-hide { display: none !important; }
 
-    /* Directory Lists Mobile App-Style Fixes */
+    /* Single-Line App-Style Rows */
     .project-row { 
-        padding: 1rem 0; 
-        align-items: flex-start;
+        padding: 0.75rem 0; 
+        gap: 1rem; /* Space between thumb and text */
+        align-items: center;
     }
     
     .row-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.15rem;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.5rem;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
-    .col-title { margin: 0; font-size: 1.15rem; }
-    .col-meta { font-size: 0.85rem; margin-left: 0; }
+    .col-title { margin: 0; font-size: 1.05rem; }
     
-    /* Native larger square thumbnail visible on mobile */
+    .col-year, .col-genre { 
+        font-size: 0.85rem; 
+        text-align: left;
+        width: auto;
+    }
+    .col-genre { margin-left: 0; padding-right: 0; color: #555; }
+    
+    /* Native square thumbnail visible on mobile row */
     .mobile-thumb {
         display: block;
-        width: 64px;
-        height: 64px;
+        width: 56px;
+        height: 56px;
         object-fit: cover;
         border: 1px solid var(--border-color);
         background: var(--bg-color);
+        flex-shrink: 0;
     }
     
     .project-expanded-content { padding: 1.5rem 1rem; }
     .project-description { font-size: 0.95rem; }
     .project-gallery img, .project-gallery iframe { max-height: 350px; border-radius: 0; }
     
-    /* Disable floating hover completely on touch */
     .hover-preview { display: none !important; }
     
-    /* Photography Mobile Layout */
     .photo-masonry { column-count: 2; }
     
-    .photo-card {
-        display: flex;
-        flex-direction: column;
-        border: none;
-        background: transparent;
-    }
+    .photo-card { display: flex; flex-direction: column; border: none; background: transparent; }
+    .photo-card img { border: 1px solid var(--border-color); }
     
-    .photo-card img {
-        border: 1px solid var(--border-color);
-    }
-    
+    /* Meta text naturally drops BELOW the image on mobile */
     .photo-overlay {
         position: static;
         opacity: 1;
@@ -622,20 +660,20 @@ details[open] .project-row .hover-preview {
         align-items: baseline;
         pointer-events: auto;
     }
-    
     .photo-title { font-size: 0.9rem; margin-bottom: 0; }
     .photo-meta-text { font-size: 0.75rem; text-align: right; }
     
     .video-grid { grid-template-columns: 1fr; }
     
-    /* About Page Mobile Fixes */
-    .resume-list { gap: 1.25rem; }
-    .resume-role { font-size: 1.05rem; }
-    .resume-meta { font-size: 0.85rem; }
-    .resume-date { display: block; margin-left: 0; margin-top: 0.15rem; }
+    /* About Mobile Grid */
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-category { margin-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem; }
     
-    /* Mobile Footer Split */
+    /* Mobile Footer Setup */
     .footer-desktop { display: none; }
+    
+    .desktop-email { display: none; }
+    .mobile-email { display: flex; } /* Native mailto on mobile */
     
     .footer-mobile {
         display: flex;
@@ -651,19 +689,11 @@ details[open] .project-row .hover-preview {
         gap: 1.5rem;
     }
     
-    .footer-mobile-right {
-        white-space: nowrap;
-        text-align: right;
-    }
-    
+    .footer-mobile-right { white-space: nowrap; text-align: right; }
     .footer-mobile-right .mono-text { font-size: 0.85rem; }
     .footer-mobile-left .footer-links { gap: 0.5rem; margin-left: -6px; }
     
-    .scroll-top-btn {
-        bottom: 1.5rem;
-        right: 1.5rem;
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
+    .scroll-top-btn { bottom: 1.5rem; right: 1.5rem; width: 40px; height: 40px; font-size: 1.2rem; }
+    
+    .lightbox-nav { display: none; } /* Disable UI arrows on mobile, let them click edges */
 }
