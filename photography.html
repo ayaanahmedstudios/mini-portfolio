@@ -17,14 +17,12 @@
 
 <header class="site-header">
     <div class="header-content">
-        <a href="index.html" class="identity desktop-logo" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
+        <a href="index.html" class="identity" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
             <span class="fallback">Ayaan Ahmed</span>
             <canvas id="cv" aria-hidden="true"></canvas>
         </a>
-        <a href="index.html" class="mobile-logo">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
-        </a>
     </div>
+    
     <nav class="site-nav">
         <a href="index.html">Graphic Design</a>
         <a href="photography.html" class="active mobile-hide">Photography</a>
@@ -38,10 +36,11 @@
         <input type="text" id="project-search" placeholder="Search" class="project-search-input">
     </div>
 
+    <!-- Locked down images to prevent saving/copying -->
     <div class="photo-masonry">
         
         <div class="photo-card">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" alt="Cycle the City" loading="lazy">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" alt="Cycle the City" loading="lazy" oncontextmenu="return false;" draggable="false">
             <div class="photo-overlay">
                 <span class="photo-title">Cycle the City</span>
                 <span class="photo-meta-text">2023 / Toronto, Canada</span>
@@ -49,7 +48,7 @@
         </div>
 
         <div class="photo-card">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy" oncontextmenu="return false;" draggable="false">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
                 <span class="photo-meta-text">2022 / Tokyo, Japan</span>
@@ -57,15 +56,7 @@
         </div>
 
         <div class="photo-card">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
-            <div class="photo-overlay">
-                <span class="photo-title">Tokyo Disneyland</span>
-                <span class="photo-meta-text">2022 / Tokyo, Japan</span>
-            </div>
-        </div>
-
-        <div class="photo-card">
-            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/f_auto,q_auto/v1767392034/AyaanAhmed_Tokyo_Disneyland_001_qs4vhp.webp" alt="Tokyo Disneyland" loading="lazy" oncontextmenu="return false;" draggable="false">
             <div class="photo-overlay">
                 <span class="photo-title">Tokyo Disneyland</span>
                 <span class="photo-meta-text">2022 / Tokyo, Japan</span>
@@ -75,9 +66,14 @@
     </div>
 </main>
 
+<!-- Lightbox with Navigation Arrows -->
 <div class="lightbox" id="lightbox">
-    <button class="lightbox-close">x</button>
-    <img id="lightbox-img" src="" alt="Full Screen Photo">
+    <button class="lightbox-close">✕</button>
+    <div class="lightbox-image-container">
+        <button class="lightbox-nav lightbox-prev" id="lb-prev">&larr;</button>
+        <img id="lightbox-img" src="" alt="Full Screen Photo" oncontextmenu="return false;" draggable="false">
+        <button class="lightbox-nav lightbox-next" id="lb-next">&rarr;</button>
+    </div>
     <div id="lightbox-meta" class="lightbox-meta"></div>
 </div>
 
@@ -94,7 +90,7 @@
         <div class="footer-links">
             <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
             <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
-            <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+            <button class="copy-email-btn desktop-email" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
         </div>
     </div>
 
@@ -110,7 +106,7 @@
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
                 <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
-                <button class="copy-email-btn" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
+                <a href="mailto:ayaanahmedstudios@gmail.com" class="mobile-email" aria-label="Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></a>
             </div>
         </div>
         <div class="footer-mobile-right">
