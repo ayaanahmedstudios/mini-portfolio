@@ -104,21 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Close logic 
+        // Close logic
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox || e.target.classList.contains('lightbox-close') || e.target.classList.contains('lightbox-image-container')) {
                 lightbox.classList.remove('active');
             }
         });
         
-        // Prevent clicking the image from closing
         lightboxImg.addEventListener('click', (e) => e.stopPropagation());
-        
-        // Prevent text selection from closing lightbox
         lightboxMeta.addEventListener('click', (e) => e.stopPropagation());
     }
 
-    // --- Canvas Morph Animation (Optimized, Mobile-Safe, Force Black) ---
+    // --- Canvas Morph Animation ---
     (async () => {
         const LOGO_SRC = "https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg";
         const NAME   = "Ayaan Ahmed";
@@ -188,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         function drawLogo(c) { 
             if (img) {
-                // Tint to absolute #111111 to guarantee visibility on mobile
+                // Tints logo to solid black to ensure visibility everywhere
                 const tCtx = document.createElement('canvas').getContext('2d');
                 tCtx.canvas.width = logoWd; tCtx.canvas.height = logoHd;
                 tCtx.drawImage(img, 0, 0, logoWd, logoHd);
@@ -233,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
               }
               if (n && sa / (255 * n) >= 0.4) {
-                out.push({ x: gx, y: gy, color: `#111111` }); // Override color completely to solid black for safety
+                out.push({ x: gx, y: gy, color: `#111111` }); 
               }
             }
           }
