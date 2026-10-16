@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.textContent = new Date().getFullYear();
     });
 
-    // --- Copy Email Logic ---
+    // --- Desktop Click-to-Copy Email Logic ---
     document.querySelectorAll('.copy-email-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             navigator.clipboard.writeText('ayaanahmedstudios@gmail.com');
@@ -46,25 +46,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Photography Lightbox Logic ---
+    // --- Photography Lightbox Logic with Arrows ---
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxMeta = document.getElementById('lightbox-meta');
-
+    
     if (lightbox && lightboxImg && lightboxMeta) {
-        document.querySelectorAll('.photo-card').forEach(card => {
+        const photos = Array.from(document.querySelectorAll('.photo-card'));
+        let currentIndex = 0;
+
+        function updateLightbox(index) {
+            const card = photos[index];
+            const imgSrc = card.querySelector('img').src;
+            const metaContent = card.querySelector('.photo-overlay').innerHTML;
+            lightboxImg.src = imgSrc;
+            lightboxMeta.innerHTML = metaContent;
+        }
+
+        photos.forEach((card, index) => {
             card.addEventListener('click', () => {
-                const imgSrc = card.querySelector('img').src;
-                const metaContent = card.querySelector('.photo-overlay').innerHTML;
-                lightboxImg.src = imgSrc;
-                lightboxMeta.innerHTML = metaContent;
+                currentIndex = index;
+                updateLightbox(currentIndex);
                 lightbox.classList.add('active');
             });
         });
 
-        lightbox.addEventListener('click', () => {
-            lightbox.classList.remove('active');
+        // Next / Prev functions
+        const nextBtn = document.getElementById('lb-next');
+        const prevBtn = document.getElementById('lb-prev');
+        
+        if (nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex + 1) % photos.length;
+                updateLightbox(currentIndex);
+            });
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+                updateLightbox(currentIndex);
+            });
+        }
+
+        // Close logic (only close on background or X, safely ignore text/image clicks)
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-close') || e.target.classList.contains('lightbox-image-container')) {
+                lightbox.classList.remove('active');
+            }
         });
+        
+        // Prevent text selection from closing lightbox
+        lightboxMeta.addEventListener('click', (e) => e.stopPropagation());
     }
 
     // --- Canvas Morph Animation (Optimized & Mobile Supported) ---
