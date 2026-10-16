@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayaan Ahmed — Photography</title>
+    <title>Photography / Ayaan Ahmed</title>
     <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +24,12 @@
 
 <header class="site-header">
     <div class="header-content">
-        <a href="index.html" class="identity" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
+        <a href="index.html" class="identity desktop-logo" id="identity" tabindex="0" role="img" aria-label="Ayaan Ahmed">
             <span class="fallback">Ayaan Ahmed</span>
             <canvas id="cv" aria-hidden="true"></canvas>
+        </a>
+        <a href="index.html" class="mobile-logo">
+            <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed Logo">
         </a>
     </div>
     
@@ -48,7 +51,7 @@
         <input type="text" id="project-search" placeholder="Search" class="project-search-input">
     </div>
 
-    <!-- Blocked saving/copying entirely. Layout is strictly 2 columns on mobile. -->
+    <!-- Strictly 2 Columns on Mobile, 3 on Desktop -->
     <div class="photo-masonry">
         <div class="photo-card" data-title="Cycle the City" data-meta="2023 / Toronto, Canada">
             <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1782403663/Ayaan_Ahmed_Graphic_Design_Portfolio_11_n6s4ax.webp" alt="Cycle the City" loading="lazy" oncontextmenu="return false;" draggable="false">
@@ -87,13 +90,13 @@
 <!-- Lightbox with safely mapped Navigation Arrows -->
 <div class="lightbox" id="lightbox">
     <button class="lightbox-close">✕</button>
-    <button class="lightbox-nav lightbox-prev" id="lb-prev">&larr;</button>
     
+    <button class="lightbox-nav lightbox-prev" id="lb-prev">&larr;</button>
     <div class="lightbox-image-container">
         <img id="lightbox-img" src="" alt="Full Screen Photo" oncontextmenu="return false;" draggable="false">
     </div>
-    
     <button class="lightbox-nav lightbox-next" id="lb-next">&rarr;</button>
+    
     <div id="lightbox-meta" class="lightbox-meta"></div>
 </div>
 
@@ -107,7 +110,7 @@
                 <img src="media/Student-RGD-Black.svg" alt="Student RGD Logo" class="rgd-logo" onmouseover="this.src='media/Student-RGD-Red.svg'" onmouseout="this.src='media/Student-RGD-Black.svg'">
             </a>
         </div>
-        <div class="footer-links">
+        <div class="footer-right">
             <a href="https://www.linkedin.com/in/ayaanahmedstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-linkedin-logo"></i></a>
             <a href="https://instagram.com/bluetigerincstudios" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i></a>
             <button class="copy-email-btn desktop-email" aria-label="Copy Email"><span class="btn-content"><i class="ph ph-envelope-simple"></i></span></button>
